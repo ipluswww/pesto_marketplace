@@ -40,7 +40,7 @@
 
     = render :partial => "layouts/header_menu", locals: { return_after_locale_change: return_after_locale_change, available_locales: available_locales, icons: icons}
 
-    - if @show_categories
+    - if @show_categories && search_params && search_path
       .header-main
         .wrapper
           .header-table

@@ -28,8 +28,9 @@
       - props = topbar_props
       - cache props do
         = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
-    - else
-      = render partial: 'layouts/global_header', locals: header_props().merge({search_params: search_params, selected_category: selected_category})
+    - else 
+      -if @show_categories && search_params && search_path
+        = render partial: 'layouts/global_header', locals: header_props().merge({search_params: search_params, selected_category: selected_category})
 
     - if display_expiration_notice?
       = render partial: "layouts/expiration_notice",
