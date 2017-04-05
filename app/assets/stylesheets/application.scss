@@ -12,3 +12,173 @@
 
 //= require_tree ./partials
 //= require_tree ./views
+
+//= require ./vendor/bootstrap/css/bootstrap.min
+//= require ./css/theme-font/css/pesto.css
+
+//= require ./css/theme-elements
+//= require ./css/theme-shop
+//= require ./css/theme
+
+@media (min-width: 48em) {
+
+
+  .collapse {
+  	display: block;
+  }
+
+  .header-right {
+  	position: relative;
+  }
+
+  .header-toggle-menu-user {
+  	left: 0 !important;
+  }
+
+  .header-menu-container {
+    display: none;
+    padding: 0.625em 0.75em;
+    height: 3.75em;
+  }
+
+  .header-toggle-menu-menu.toggle-menu a {
+    display: block;
+    float: left;
+    color: #333;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 25px;
+  }
+
+  .header-toggle-menu-menu.toggle-menu a:hover {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+  }
+
+  .header-toggle-menu-menu.toggle-menu {
+    position: static;
+    height: 45px;
+    background-color: #fff;
+    padding-top: 6px;
+  }
+
+  .header-toggle-menu-menu.toggle-menu.hidden {
+    display: block !important;
+  }
+
+  a.header-text-link {
+    display: block;
+    float: left;
+    color: #333;
+    padding-bottom: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 25px;
+    height: auto;
+    line-height: initial;
+    margin-top: 21px;
+  }
+
+  a.header-text-link:hover {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #333;
+  }
+
+  #inbox-link {
+    display: none
+  }
+
+  .wrapper {
+  	max-width: none;
+  }
+
+  .header-wrapper {
+  	max-width: none;  	
+  }
+}
+
+#footer {
+	.wrapper {
+	    background-color: transparent;
+	}
+
+	a {
+	  color: #ccc;
+	}
+
+	a:focus, a:hover {
+	  color: #ccc;
+	}
+}
+
+#header {
+	height: auto;	
+}
+  
+.marketplace-lander {
+	position: relative;
+	height: 200px;
+
+	.browse-view-search-form button.action-button {
+	    background: #fff;
+	    border-radius: 0;
+	    color: #666;
+	    height: 48px;
+	    margin-left: 0;
+	    line-height: 46px;
+	    width: 48px;
+	}
+
+	.browse-view-search-form input[type=text] {
+	    font-size: 18px;
+	    line-height: 1.5em;
+	    width: 100%;
+	    height: 50px;
+	    border-bottom: 1px solid #666;
+	    line-height: 48px;
+	    border-radius: 0;
+	    padding: 0;
+	}
+
+	.browse-view-search-form .search-form-input.search-form-text-field {
+		width: calc(100% - 48px);
+	}
+
+	.search-form-input {
+	    vertical-align: top;
+	    display: block;
+	    float: left;
+	}
+
+	.search-form-input #search-button:hover {
+		color: #fff;
+	}
+
+	.browse-view-search-form {
+	    display: block;
+	    height: 48px;
+	    padding-top: 0;
+	    padding-bottom: 0;
+	    width: auto;
+	}
+
+	.title-container {
+	    padding: 50px 0;
+	}
+}
+
+.coverimage figure {
+	display: none;
+}
+
+.coverimage {
+	height: 100px;
+}
+
+.home-toolbar-button-group-button:hover {
+	text-decoration: none;
+}

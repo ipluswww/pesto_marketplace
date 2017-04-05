@@ -29,7 +29,7 @@
       - cache props do
         = react_component("TopbarApp", props: props, prerender: true, id: 'topbar-container')
     - else
-      = render partial: 'layouts/global_header', locals: header_props()
+      = render partial: 'layouts/global_header', locals: header_props().merge({search_params: search_params, selected_category: selected_category})
 
     - if display_expiration_notice?
       = render partial: "layouts/expiration_notice",
@@ -80,6 +80,7 @@
 
     -# load Facebook SDK for the whole page
     = render :partial => "layouts/facebook_sdk"
+    = render :partial => "layouts/global_footer"
 
     -# Initialize global I18n variable and load translations there
     :javascript

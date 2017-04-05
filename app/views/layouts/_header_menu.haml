@@ -1,9 +1,5 @@
 #header-menu-toggle-menu.toggle-menu.header-toggle-menu-menu.hidden
 
-  = link_to "/" do
-    = icon_map_tag(icons, "home", ["icon-with-text"])
-    = t("header.home")
-
   = link_to new_listing_path, :class => "hidden-tablet" do
     = icon_map_tag(icons, "new_listing", ["icon-with-text"])
     = t("homepage.index.post_new_listing")
@@ -15,11 +11,6 @@
   = link_to new_user_feedback_path do
     = icon_map_tag(icons, "feedback", ["icon-with-text"])
     = t("header.contact_us")
-
-  - with_invite_link do
-    = link_to new_invitation_path do
-      = icon_map_tag(icons, "invite", ["icon-with-text"])
-      = t("header.invite")
 
   - Maybe(@current_community).menu_links.each do |menu_links|
     - menu_links.each do |menu_link|

@@ -15,6 +15,9 @@
   = render :partial => "layouts/google_analytics_script", locals: {feature_flags: FeatureFlagHelper.feature_flags, community_id: Maybe(@current_community).id.or_else, google_analytics_key: Maybe(@current_community).google_analytics_key.or_else}
   :css
     @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext);
+    @import url(//fonts.googleapis.com/css?family=Istok+Web);
+    @import url(//fonts.googleapis.com/css?family=Roboto+Condensed);
+    @import url(//fonts.googleapis.com/css?family=PT+Sans);
 
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)

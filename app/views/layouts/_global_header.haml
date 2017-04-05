@@ -1,6 +1,6 @@
 -# Hide header in map view if mobile
-%header.header
-  .header-wrapper
+%header.header.header-normal.responsive-type1#header
+  .header-wrapper.wrapper.header-body
     .header-right.header-padding.visible-tablet
       = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"
 
@@ -40,20 +40,30 @@
 
     = render :partial => "layouts/header_menu", locals: { return_after_locale_change: return_after_locale_change, available_locales: available_locales, icons: icons}
 
-    -#
-      If necessary, the buttons will overlap with the logo. Buttons should be on top, that's
-      keep the logo here after buttons
-    .header-left.header-logo-container
-      = link_to landing_page_path, :class => "header-logo", :id => "header-logo" do
-        - if @current_community.logo.present?
-          %i.header-square-logo.hidden-tablet
-            -# Logo is here, it's a CSS background
-        - else
-          %span.header-square-logo-text.hidden-tablet
-            = @current_community.name(I18n.locale)[0]
-        - if @current_community.wide_logo.present?
-          %i.header-wide-logo.visible-tablet
-            -# Logo is here, it's a CSS background
-        - else
-          %span.header-wide-logo-text.visible-tablet
-            = @current_community.name(I18n.locale)
+    - if @show_categories
+      .header-main
+        .wrapper
+          .header-table
+            .header-row
+              .header-column.logo
+                .header-logo
+                  %a{:href => '/'}
+                    %img{:src => 'assets/theme/logo.png', :alt => 'HAZRATI'}
+              .header-column.menu
+                .collapse.header-main-nav#main-nav
+                  %nav.navbar.navbar-default.navbar-right
+                    %ul.nav.navbar-nav
+                      - @main_categories.each do |category|
+                        - show_subcategories = show_subcategory_list(category, Maybe(selected_category).id.to_i.or_else(nil))
+                        - if category.children
+                          %li.dropdown.classic
+                            = link_to category.display_name(I18n.locale), search_path(search_params.merge({category: category})), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+                          - if show_subcategories
+                            - category.children.each do |child|
+
+                              %li
+                                - is_selected = selected_category == child
+                                = link_to child.display_name(I18n.locale), search_path(search_params.merge({category: child})), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
+                        - else
+                          %li
+                            = link_to category.display_name(I18n.locale), search_path(search_params.merge({category: category})), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
