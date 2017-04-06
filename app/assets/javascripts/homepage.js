@@ -93,8 +93,8 @@ $(document).ready(function() {
                     }
                 },
                 responsiveLevels:[1920,992,768],
-                gridwidth: [1840,754,280],
-                gridheight: [850,348,280],
+                gridwidth: [1600,992,768],
+                gridheight: [587,348,280],
                 parallax: {
                     type:"mouse+scroll",
                     origo:"slidercenter",

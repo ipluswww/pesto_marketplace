@@ -23,10 +23,14 @@
   .header-left {
     float: none;
   }
+  
   .page-content > .wrapper-fulid {
     padding: 0 !important;
   }  
 
+  .home1 > .content-header .rev-slider-wrapper {
+    height: 150px;
+  }
 }
 
 @media (max-width: 48em) {
@@ -60,6 +64,10 @@
     i {
       font-size: 30px;
     }
+  }
+
+  .home1 > .content-header .rev-slider-wrapper {
+    height: 200px;
   }
 }
 
