@@ -42,6 +42,17 @@
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
 
+//= require vendor/revolution/js/jquery.themepunch.tools.min
+//= require vendor/revolution/js/jquery.themepunch.revolution.min
+//= require vendor/revolution/js/extensions/revolution.extension.actions.min
+//= require vendor/revolution/js/extensions/revolution.extension.carousel.min
+//= require vendor/revolution/js/extensions/revolution.extension.kenburn.min
+//= require vendor/revolution/js/extensions/revolution.extension.layeranimation.min
+//= require vendor/revolution/js/extensions/revolution.extension.migration.min
+//= require vendor/revolution/js/extensions/revolution.extension.navigation.min
+//= require vendor/revolution/js/extensions/revolution.extension.parallax.min
+//= require vendor/revolution/js/extensions/revolution.extension.slideanims.min
+//= require vendor/revolution/js/extensions/revolution.extension.video.min
 //= require fastclick
 
 // Responsive helpers

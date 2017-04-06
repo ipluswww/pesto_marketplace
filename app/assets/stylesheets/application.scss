@@ -13,28 +13,64 @@
 //= require_tree ./partials
 //= require_tree ./views
 
-//= require ./vendor/bootstrap/css/bootstrap.min
-//= require ./css/theme-font/css/pesto.css
+//= require ./css/theme-font/css/pesto
 
 //= require ./css/theme-elements
 //= require ./css/theme-shop
 //= require ./css/theme
 
-@media (max-width: 767px) {
+@media (max-width: 480px) {
+  .header-left {
+    float: none;
+  }
+  .page-content > .wrapper-fulid {
+    padding: 0 !important;
+  }  
+
+}
+
+@media (max-width: 48em) {
+  .page-content > .wrapper-fulid {
+    padding: 0 15px;
+  }  
+
   .header-normal .header-body {
-      height: 85px;
+    height: 167px;
+  }
+
+  .header-toggle-menu-user {
+    right: 0 !important;
+  }
+
+  .header-menu-container {
+    display: block !important;
+  }
+
+  .header-menu-toggle-container {
+    &:hover,
+    &:active {
+      color: #08c;
+    }
+  }
+
+  #header-menu-mobile-anchor {
+    background-color: transparent;
+    padding: 0;
+
+    i {
+      font-size: 30px;
+    }
   }
 }
 
 @media (min-width: 48em) {
-
+  .header-wrapper {
+    padding-left: 40px;
+    padding-right: 40px
+  }
 
   .collapse {
   	display: block;
-  }
-
-  .header-right {
-  	position: relative;
   }
 
   .header-toggle-menu-user {
@@ -107,6 +143,12 @@
   }
 }
 
+
+
+.header-right {
+  position: relative;
+}
+
 #footer {
 	.wrapper {
 	    background-color: transparent;
@@ -123,6 +165,11 @@
 
 #header {
 	height: auto;	
+}
+
+.marketplace-lander .title-header-wrapper {
+  padding-left: 40px;
+  padding-right: 40px;
 }
   
 .marketplace-lander {
@@ -185,6 +232,99 @@
 	height: 100px;
 }
 
-.home-toolbar-button-group-button:hover {
+a.home-toolbar-button-group-button:hover,
+a.home-toolbar-button-group-button.selected,
+a.home-toolbar-button-group-button {
 	text-decoration: none;
+
+  i {
+    text-decoration: none;
+  }
+}
+
+content-header .wrapper-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.header-normal .fixed-top {
+  height: 140px !important;
+  top: -70px;
+}
+
+.logo.header-column {
+  text-align: center;
+}
+
+.menu.header-column {
+  text-align: center;
+}
+
+.header-main .header-column {
+  display: block;
+  vertical-align: middle;
+}
+
+.header-main .header-main-nav {
+  overflow: hidden;
+}
+
+.header-row {
+  overflow: hidden;
+  text-align: center
+}
+
+.navbar-nav>li {
+  display: inline-block;
+  float: none;
+}
+
+.header-normal .header-main .header-main-nav .nav>li>a {
+  font-size: 19px;
+}
+
+.header-normal > .fixed-top {
+  height: 185px !important;
+  top: -110px;
+}
+
+.header-main {
+  padding: 5px;
+}
+
+.marketplace-lander {
+  height: 100px;
+}
+
+.marketplace-lander .title-container {
+  padding: 15px 0;
+}
+
+.page-content > .wrapper-fulid {
+  padding: 40px;
+}
+
+.home1 {
+  margin-bottom: 90px;
+}
+
+.home-products {
+  overflow: hidden;
+}
+
+.product-list-title h2 {
+  color: #666;
+  text-align: center;
+  font-size: 35px;
+}
+
+.new-listing-link {
+  background-color: transparent !important;
+  color: #08c;
+
+  &:active,
+  &:hover {
+    color: #08c;
+    text-decoration: underline;
+  }
 }

@@ -54,7 +54,7 @@
                 = yield :title_header
 
       %article.page-content{class: is_homepage && !@big_cover_photo ? 'no-cover-photo' : ''}
-        .wrapper
+        .wrapper-fulid
           = render :partial => "layouts/notifications"
           = yield
           - if display_branding_info?
@@ -125,3 +125,4 @@
       $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
     = render :partial => "layouts/noscript"
+    = render :partial => "layouts/online_script"
