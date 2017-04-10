@@ -745,7 +745,7 @@ $(document).ready(function() {
 			
 			'use strict';
 			
-            $('.header-top-links .dropdown-search .dropdown-menu').not('.droped').slideDown().addClass('droped');
+            $('.browse-view-search-form').toggleClass('droped');
         });
     }
 

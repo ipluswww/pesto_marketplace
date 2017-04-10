@@ -53,6 +53,7 @@
 //= require vendor/revolution/js/extensions/revolution.extension.parallax.min
 //= require vendor/revolution/js/extensions/revolution.extension.slideanims.min
 //= require vendor/revolution/js/extensions/revolution.extension.video.min
+//= require homepage
 //= require fastclick
 
 // Responsive helpers
@@ -69,7 +70,6 @@
 //= require kassi
 //= require googlemaps
 //= require map_label
-//= require homepage
 //= require order_manager
 //= require ajax_status
 //= require admin/expiration_notice

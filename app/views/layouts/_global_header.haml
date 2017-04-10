@@ -1,18 +1,19 @@
 -# Hide header in map view if mobile
 %header.header.header-normal.responsive-type1#header
   .header-wrapper.wrapper-fulid.header-body
-    .header-right.header-padding.visible-tablet
-      = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"
-
-    .header-right.visible-tablet
-      #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
-
     - if logged_in
       .header-right
         = render :partial => "layouts/header_anchors", locals: {avatar_url: avatar_url, current_user_name: current_user_name, icons: icons}
         = render :partial => "layouts/header_user_menu", locals: {unread_count: unread_count, inbox_path: inbox_path, profile_path: profile_path, manage_listings_path: manage_listings_path, settings_path: settings_path, logout_path: logout_path, icons: icons}
 
       = render :partial => "layouts/header_right_visible_tablet", locals: {unread_count: unread_count, inbox_path: inbox_path, icons: icons}
+    .header-right.header-padding.visible-tablet
+      %button.header-btn-search.action-button{type: 'button'}
+        = icon_tag("search", ["icon-part"])
+      = link_to t("homepage.index.post_new_listing"), new_listing_path, :class => "new-listing-link", :id => "new-listing-link"
+
+    .header-right.visible-tablet
+      #header-menu-desktop-anchor.header-menu-container.toggle.hidden{data: {toggle: '#header-menu-toggle-menu', 'toggle-position' => 'absolute'}}
 
     - if available_locales.size > 1
       .header-right.visible-desktop
@@ -49,6 +50,8 @@
     - if @show_categories && search_params && search_path
       .header-main
         .header-column.menu
+          %button.header-btn-collapse-nav{'data-toggle'=>"collapse", :type=>"button", 'data-target'=>"#main-nav", 'data-object'=>"main-nav"}
+            %i.pesto-icon-menu
           .collapse.header-main-nav#main-nav
             %nav.navbar.navbar-default
               %ul.nav.navbar-nav

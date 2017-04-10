@@ -98,7 +98,7 @@ $(document).ready(function() {
                 parallax: {
                     type:"mouse+scroll",
                     origo:"slidercenter",
-                    speed:2000,
+                    speed:20000,
                     levels:[1,2,3,20,25,30,35,40,45,50],
                     disable_onmobile:"on"
                 },
@@ -108,7 +108,7 @@ $(document).ready(function() {
                 stopAtSlide:1,
                 shuffle:"off",
                 autoHeight:"on",
-                minHeight:"280",
+                minHeight:"10",
                 disableProgressBar:"on",
                 hideThumbsOnMobile:"on",
                 hideSliderAtLimit:0,
