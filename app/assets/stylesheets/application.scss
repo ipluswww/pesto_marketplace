@@ -118,6 +118,10 @@ content-header .wrapper-fluid {
   position: relative;
   height: 15px;
 
+  &.infos {
+    height: 15px;
+  }
+
   .browse-view-search-form {
     display: block;
     padding-top: 0;
