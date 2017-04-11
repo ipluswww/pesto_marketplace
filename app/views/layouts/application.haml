@@ -127,4 +127,5 @@
       $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
     = render :partial => "layouts/noscript"
+    = yield :page_script
     = render :partial => "layouts/online_script"

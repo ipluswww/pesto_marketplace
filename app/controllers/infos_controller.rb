@@ -6,13 +6,13 @@ class InfosController < ApplicationController
   def about
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "about"
-    @body_class_name         = "about"
+    @body_class_name         = "info about"
   end
 
   def how_to_use
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "how_to_use"
-    @body_class_name         = "how_to_use"
+    @body_class_name         = "info how_to_use"
     content = if @community_customization && !@community_customization.how_to_use_page_content.nil?
       @community_customization.how_to_use_page_content.html_safe
     else
@@ -24,13 +24,13 @@ class InfosController < ApplicationController
   def terms
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "terms"
-    @body_class_name         = "terms"
+    @body_class_name         = "info terms"
   end
 
   def privacy
     @selected_tribe_navi_tab = "about"
     @selected_left_navi_link = "privacy"
-    @body_class_name         = "privacy"
+    @body_class_name         = "info privacy"
   end
 
   private

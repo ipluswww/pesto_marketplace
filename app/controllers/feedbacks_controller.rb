@@ -9,12 +9,15 @@ class FeedbacksController < ApplicationController
                                        :content,
                                        :title,
                                        :url, # referrer
-                                       :email
+                                       :email,
+                                       :name,
+                                       :subject,
   ).with_validations {
     validates_presence_of :content
   }
 
   def new
+    @body_class_name  = "contactus"
     render_form
   end
 

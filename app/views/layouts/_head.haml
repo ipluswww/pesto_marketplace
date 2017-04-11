@@ -23,6 +23,8 @@
     @import url(/assets/vendor/revolution/css/layers.css);
     @import url(/assets/vendor/revolution/css/navigation.css);
 
+  = yield :page_css
+
   - font_path = APP_CONFIG[:font_proximanovasoft_url]
   - if font_path.present? && FeatureFlagHelper.feature_enabled?(:topbar_v1)
     = render partial: "layouts/fonts", locals: { font_path: font_path }

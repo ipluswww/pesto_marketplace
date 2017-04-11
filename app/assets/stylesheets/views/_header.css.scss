@@ -68,7 +68,7 @@ $elementSpacing: lines(0.5);
   padding-right: $elementSpacing;
   padding-left: $elementSpacing;
   display: block;
-  color: $body;
+  color: #66;
 
   &:hover {
     color: $body;
@@ -79,12 +79,22 @@ $elementSpacing: lines(0.5);
   }
 }
 
+.header-normal .header-body {
+    height: 140px;
+}
 
 .header-normal > .fixed-top {
   height: 155px !important;
   top: -71px;
+
+  @media (max-width: 48em) {
+    top: -111px;
+  }  
 }
 
+.header-main .header-btn-collapse-nav {
+    z-index: 9999;
+}
 
 @mixin header-menu-button($bgcolor) {
   @include button($bgcolor);
@@ -281,16 +291,6 @@ $elementSpacing: lines(0.5);
   } 
 }
 
-.header-main .header-main-nav .navbar-default {
-    background-color: #f7f5f7;
-    border-color: white;
-    width: 100vw;
-    left: 0;
-    margin-bottom: 0;
-    min-height: 0;
-    position: absolute;
-}
-
 .header-right {
   position: relative;
 }
@@ -302,8 +302,17 @@ $elementSpacing: lines(0.5);
 }
 
 .header-main {
-  padding: 5px;
-  padding-top: 10px;
+  border-top: 1px solid #f2f2f2;
+  
+  .header-main-nav .navbar-default {
+    background-color: #fff;
+    border-color: white;
+    width: 100vw;
+    left: 0;
+    margin-bottom: 0;
+    min-height: 0;
+    position: absolute;
+  }
 }
 
 .logo.header-column {
@@ -378,30 +387,74 @@ $elementSpacing: lines(0.5);
     left: calc(50% - 130px);
   }
 
+  .header-normal > .fixed-top {  
+    height: 143px !important;
+    top: -60px;
+  }
 }
 
-@media (min-width: 48em) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1200px) {
   .header-normal .header-body {
-    height: 187px;
+    height: 193px;
   }
 
   .header-normal > .fixed-top {
-    height: 205px !important;
-    top: -121px;
+    height: 193px !important;
+    top: -112px;
   }
 
+}
+
+@media (max-width: 992x) {
+  .responsive-type1 .header-main #main-nav {
+    top: 150px;
+
+    .navbar-default {
+      width: auto;
+      top: 50px;
+    }
+  }
+}
+
+
+@media (min-width: 48em) and (max-width: 992px) {
+  .header-normal > .fixed-top {
+    top: -162px;
+  }
   .responsive-type1 .header-main .header-btn-collapse-nav {
     top: 155px;
     position: absolute;
     left: 15px;
   }
 }
-
-@media (min-width: 48em) and (max-width: 992px) {
-  .header-normal > .fixed-top {
-    top: -162px;
+  a.header-text-link:hover {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #333;
   }
-}
+
+  #inbox-link {
+    display: none
+  }
+  .header-toggle-menu-menu.toggle-menu a {
+    color: #555;
+    
+    &:hover {
+      background-color: #fff;
+      color: #333;
+      border-bottom: 1px solid #333;
+      text-decoration: none;
+    }
+  }
+  .header-toggle-menu-menu.toggle-menu {
+    background-color: #fff;
+  }
+  .header-menu-toggle-container {
+    &:hover,
+    &:active {
+      color: #08c;
+    }
+  }
 
 @media (min-width: 48em) {
 
@@ -415,19 +468,10 @@ $elementSpacing: lines(0.5);
     margin-right: 25px;
     height: auto;
     line-height: initial;
-    margin-top: 21px;
+    margin-top: 17px;
     text-decoration: none;
   }
 
-  a.header-text-link:hover {
-    background-color: #fff;
-    color: #333;
-    border-bottom: 1px solid #333;
-  }
-
-  #inbox-link {
-    display: none
-  }
 
   .header-wrapper {
     max-width: none;    
@@ -451,24 +495,15 @@ $elementSpacing: lines(0.5);
   .header-toggle-menu-menu.toggle-menu a {
     display: block;
     float: left;
-    color: #333;
     padding-bottom: 1px;
     padding-left: 2px;
     padding-right: 2px;
     margin-right: 25px;
-    
-    &:hover {
-      background-color: #fff;
-      color: #333;
-      border-bottom: 1px solid #333;
-      text-decoration: none;
-    }
   }
 
   .header-toggle-menu-menu.toggle-menu {
     position: static;
     height: 45px;
-    background-color: #fff;
     padding-top: 6px;
   }
 
@@ -497,12 +532,6 @@ $elementSpacing: lines(0.5);
     display: block !important;
   }
 
-  .header-menu-toggle-container {
-    &:hover,
-    &:active {
-      color: #08c;
-    }
-  }
 
   #header-menu-mobile-anchor {
     background-color: transparent;

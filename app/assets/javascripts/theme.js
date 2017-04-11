@@ -164,7 +164,7 @@ function initializeMap() {
     if ($('#google_map.type1').length){
         // Create the Google Map using our element and options defined above
         var map = new google.maps.Map(mapElement, mapOptions1);   
-        markerImage='img/marker1.png';
+        markerImage='/assets/img/marker1.png';
     }
     else if ($('#google_map.type2').length){
         // Create the Google Map using our element and options defined above

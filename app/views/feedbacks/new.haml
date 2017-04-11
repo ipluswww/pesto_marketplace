@@ -2,19 +2,93 @@
   initialize_user_feedback_form("#{I18n.locale}");
 
 - content_for :title_header do
-  %h1= t("layouts.no_tribe.feedback")
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+
+- content_for :page_css do
+  :css
+    @import url(/assets/css/theme-contactus.css);
+- content_for :page_script do
+  <script src="/assets/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 - if has_admin_rights
   %p= render :partial => "layouts/info_text", :locals => { :text => t("layouts.application.dont_use_to_contact_support") }
 
 .new-feedback-form.centered-section
-  = form_for feedback_form, :url => user_feedbacks_path do |form|
-    - unless email_present
-      = form.label :email, t("layouts.application.your_email_address")
-      = form.text_field :email
-    = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field"
-    = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
-    = form.label :content, t("layouts.application.feedback")
-    = form.text_area :content
-    = form.hidden_field :url, :value => request.headers["HTTP_REFERER"] || request.original_url
-    = form.button t("layouts.application.send_feedback_to_admin")
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 CONTACT US
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li  Contact Us
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .row.pb-sm
+        .col-md-7.col-sm-12
+          .map-container
+            #google_map.left-map.type1
+        / Start form
+        .col-md-5.col-sm-12.review-customer#contactForm
+          %h3.mt-md.mb-md WRITE YOUR REVIEW
+          #contactSuccess.alert.alert-success.hidden
+            %strong
+              Success!
+            Your message has been sent to us.
+          #contactDanger.alert.alert-danger.hidden
+            %strong
+              Danger!
+            Your message has been sent to us.
+          = form_for feedback_form, :url => user_feedbacks_path do |form|
+            .row.pt-sm.pb-sm
+              .col-md-12
+                = form.text_field :name, :id => "name", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your name*", :type => "text"
+            .row.pt-sm.pb-sm
+              .col-md-12
+                = form.text_field :email, :id => "email", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your e-mail*", :type => "text"
+            .row.pt-sm.pb-sm
+              .col-md-12
+                = form.text_field :subject, :id => "subject", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your subject*", :type => "text"
+            .row.pt-sm.pb-sm
+              .col-md-12
+                = form.text_area :content, :id => "review", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "5000", :placeholder => "Write your review*", :rows => "10"
+            .row.pt-sm.pb-sm
+              .col-md-12.mt-sm
+                = form.button t("layouts.application.send_feedback_to_admin"), :class => "btn btn-default", "data-loading-text" => "Loading...", :name => "review", :type => "submit", :value => "POST COMMENT"
+        / End form
+      / End .row
+    / End .wrapper
+  / End .content-main
+  / Start Content-Footer
+  .content-footer
+    .wrapper
+      .row
+        .col-md-4.text-center.location.fadeInUp.wow{"data-wow-duration" => "500ms"}
+          %a.fs-xxl.pt-sm.pb-sm{:href => "#"}
+            %i.demo-icon.pesto-icon-gps
+          %h4 OUR LOCATION
+          %div 62W 47th Street #904A
+          %div NewYork NY 10036 USA
+        .col-md-4.text-center.details.fadeInUp.wow{"data-wow-duration" => "700ms"}
+          %a{:href => "#"}
+            %i.demo-icon.pesto-icon-email
+          %h4 CONTACT DETAILS
+          %div Email: Hazrati.com
+        .col-md-4.text-center.phone.fadeInUp.wow{"data-wow-duration" => "900ms"}
+          %a.fs-xxl.pt-sm.pb-sm{:href => "#"}
+            %i.demo-icon.pesto-icon-telephone
+          %h4 CONTACT US
+          %div Phone: 1 888 339 0277
+      / End .row
+    / End .wrapper
+  / End .content-Footer
+/ End .content
