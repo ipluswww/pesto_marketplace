@@ -2,41 +2,55 @@
   initialize_login_form(#{params[:password_forgotten]});
 
 - content_for :title_header do
-  %h1= @facebook_merge ? t('.connect_your_facebook_to_kassi') : t('.login_to_kassi')
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
 
-.login-form.centered-section-narrow
-  - if @facebook_merge
-    .facebook-account-info
-      = icon_tag("facebook", ["fb-icon"])
-      .link-text
-        = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
-        = "#{@facebook_name} (#{@facebook_email})"
-    %p
-      = t('.log_in_to_link_account')
-    %p
-      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
-    %p
-      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
-    %p
-      = t(".we_will_not_post_without_asking_you")
-    %br/
-  - if facebook_connect_in_use?
-    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".log_in_with_your_facebook_account") }
-    %p= t(".or_sign_up_with_your_username")
-
-  = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
-    %label{:for => "login"}
-      = username_or_email_label + ":"
-    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login, :autofocus => true
-    %label{:for => "password"}
-      = t('common.password') + ":"
-    = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password
-    = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
-    .links
-      - unless @facebook_merge
-        = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
-        %br/
-      = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
-
-#password_forgotten
-  = render :partial => "sessions/password_forgotten"
+/ Start Content
+%section.content.checkout
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h1 LOGIN
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li  Login
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}", :id => "form_personal_details", :action => "create") do
+          .row
+            .col-md-6.col-sm-6
+              %div
+                %h1 NEW CUSTOMERS
+                .pt-xlg.mt-sm
+                  .guide-text
+                    By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.
+            .col-md-6.col-sm-6
+              .right-field
+                %h1 REGISTERED CUSTOMERS
+                .row.pt-xlg.mt-sm
+                  .col-md-12.mb-one-20
+                    %p.m-none If you have an account with us, please log in.
+                  .col-md-12.input-field
+                    %label ENTER YOUR E-MAIL*
+                    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => "form-control", :id => "password", :autofocus => true
+                  .col-md-12.input-field
+                    %label ENTER YOUR PASSWORD*
+                    = password_field_tag "person[password]", nil, :class => "form-control", :id => "confirm_password"
+          .row
+            .col-md-6.col-sm-6
+              .row.mt-one-7
+                .col-md-12.action-field
+                  = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "btn btn-default btn-create-an-accoun"
+            .col-md-6.col-sm-6
+              .right-field
+                .row.mt-xs
+                  .col-md-12.action-field
+                    = button_tag(t('.login'), :class => "btn-default btn-login")
+                    = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "pull-right"

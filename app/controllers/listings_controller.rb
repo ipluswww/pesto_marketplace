@@ -168,7 +168,7 @@ class ListingsController < ApplicationController
 
   def show
     @selected_tribe_navi_tab = "home"
-
+    @body_class_name         = "product"
     @current_image = if params[:image]
       @listing.image_by_id(params[:image])
     else

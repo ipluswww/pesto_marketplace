@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
       session[:return_to] = params[:return_to]
     end
 
+    @body_class_name         = "login body-login"
     @selected_tribe_navi_tab = "members"
     @facebook_merge = session["devise.facebook_data"].present?
     if @facebook_merge

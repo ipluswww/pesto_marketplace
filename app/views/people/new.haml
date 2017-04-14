@@ -2,73 +2,80 @@
   initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 - content_for :title_header do
-  %h1= t('.sign_up')
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
 
-.signup-form.centered-section
+%section.content.checkout
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h1 REGISTER ACCOUNT
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li  Register Account
+  / End .content-header
+  .content-main
+    .wrapper
+      .pt-one-3
+        = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
+          .register_account_row.row
+            .col-md-6
+              .personal-details
+                %h2 YOUR PERSONAL DETAILS
+                .row.pt-xlg.mt-sm
+                  .col-md-12.input-field
+                    %label ENTER YOUR FIRST NAME*
+                    = form.text_field :given_name, :class => "form-control", :id => "first_name", :maxlength => "30"
+                  .col-md-12.input-field
+                    %label ENTER YOUR LAST NAME*
+                    = form.text_field :family_name, :class => "form-control", :id => "last_name", :maxlength => "30"
+                  .col-md-12.input-field
+                    %label ENTER YOUR E-MAIL*
+                    = form.text_field :email, :class => "form-control", :id => "detail_email", :maxlenght => "255"
 
-  - if @community_customization && @community_customization.signup_info_content
-    %p
-      = @community_customization.signup_info_content.html_safe
-  - elsif @current_community.allowed_emails
-    %p
-      = t('.email_restriction_instructions',
-            :community_name => @current_community.name(I18n.locale),
-            :allowed_emails => @current_community.allowed_emails,
-            :count => (@current_community.allowed_emails.split(",").count))
+            .col-md-6
+              .your-password
+                %h2 YOUR PASSWORD
+                .row.pt-one-40
+                  .col-md-12.input-field
+                    %label ENTER YOUR UER NAME*
+                    = form.text_field :username, :maxlength => "20", :class => "form-control", :id => "person_username1"
+                  .col-md-12.input-field
+                    %label ENTER YOUR PASSWORD*
+                    = form.password_field :password, :class => "form-control", :maxlength => "255", :id => "person_password1"
+                  .col-md-12.input-field
+                    %label ENTER YOUR PASSWORD*
+                    = form.password_field :password2, :class => "form-control", :maxlength => "255"
 
-  - unless !facebook_connect_in_use? || params[:no_fb]
-    = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".create_account_with_facebook") }
-
-    .signup-horizontal-line
-      .signup-horizontal-line-text=t(".OR")
-
-    %h3=t(".signup_with_email")
-
-  = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
-
-    -# Invite code
-    - if @current_community.join_with_invite_only?
-      .inline-label-container
-        = label_tag :invitation_code, t('.invitation_code'), :class => "inline"
-        = link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info")
-      = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
-    - elsif params[:code]
-      = hidden_field_tag "invitation_code", params[:code]
-
-    -# Honey pot: hidden field to detect spammers
-    = form.label :input_again, "You should not see this field, if CSS is working. If you see this, please send feedback!", :class => "unwanted_text_field"
-    = form.text_field :input_again, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"
-
-    -# Email
-    = form.label :email, t('.email')
-    = form.text_field :email, :class => :text_field, :maxlenght => "255"
-
-    -# Name
-    = form.label :given_name, t('.given_name')
-    = form.text_field :given_name, :class => :text_field, :maxlength => "30"
-    = form.label :family_name, t('.family_name')
-    = form.text_field :family_name, :class => :text_field, :maxlength => "30"
-
-    -# Username
-    = form.label :username, username_label
-    = form.text_field :username, :class => :text_field, :maxlength => "20", :id => "person_username1"
-
-    -# Password
-    = form.label :password, t('common.password')
-    = form.password_field :password, :class => :text_field, :maxlength => "255", :id => "person_password1"
-    = form.label :password2, t('.password_again')
-    = form.password_field :password2, :class => :text_field, :maxlength => "255"
-
-    -# Terms
-    .outer-checkbox-container
-      .checkbox-container
-        - unless @skip_terms_checkbox
-          %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
-          = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-          = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
-
-    = form.hidden_field :consent, :value => @current_community.consent
-
-    = button_tag t('.create_new_account')
-
-= render :partial => "help_texts", :collection => ["terms", "help_invitation_code"], :as => :field
+          .register_account_row.row
+            .col-md-6
+            .col-md-6
+              .your-newsletter.ml-one-10
+                %h2 NEWSLETTER
+                .row.pt-xlg
+                  .col-md-12.checkbox-field.pt-one-14
+                    .inputbox-type1
+                      %input.smart_input{:type => "checkbox"}/
+                      .input-skin
+                        %i.visible-checked.theme-icon.pesto-icon-ok
+                    %label I wish to subscribe to the Hazrati Shop newsletter.
+                  .col-md-12.checkbox-field.mt-one-29
+                    .inputbox-type1
+                      %input.smart_input{:type => "checkbox"}/
+                      .input-skin
+                        %i.visible-checked.theme-icon.pesto-icon-ok
+                    %label
+                      I have reed and agree to the
+                      %a.action-privacy{:href => "#"} Privacy Policy.
+                  .col-md-12.action-field
+                    %button.btn-default.btn-continue{:type => "submit"} CONTINUE
+              / End .your-newsletter
+            / End .col-md-6
+          / End .row
+        / End Form
+    / End .wrapper
+  / End .content-main
+/ End .content

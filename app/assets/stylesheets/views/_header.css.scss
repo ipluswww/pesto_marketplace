@@ -323,6 +323,11 @@ $elementSpacing: lines(0.5);
   text-align: center;
 }
 
+.responsive-type1 .header-main #main-nav {
+
+    top: 155px;
+}
+
 .new-listing-link {
   background-color: transparent !important;
   color: #08c;
@@ -376,6 +381,38 @@ $elementSpacing: lines(0.5);
     top: 82px;
 }
 
+a.header-text-link:hover {
+  background-color: #fff;
+  color: #333;
+  border-bottom: 1px solid #333;
+}
+
+#inbox-link {
+  display: none
+}
+
+.header-toggle-menu-menu.toggle-menu a {
+  color: #555;
+  
+  &:hover {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #333;
+    text-decoration: none;
+  }
+}
+
+.header-toggle-menu-menu.toggle-menu {
+  background-color: #fff;
+}
+
+.header-menu-toggle-container {
+  &:hover,
+  &:active {
+    color: #08c;
+  }
+}
+
 @media (min-width: 1200px) {
   .logo.header-column {
     z-index: 999;
@@ -405,56 +442,33 @@ $elementSpacing: lines(0.5);
 
 }
 
-@media (max-width: 992x) {
+@media (min-width: 48em) and (max-width: 992px) {
   .responsive-type1 .header-main #main-nav {
     top: 150px;
+
 
     .navbar-default {
       width: auto;
       top: 50px;
     }
   }
-}
 
-
-@media (min-width: 48em) and (max-width: 992px) {
   .header-normal > .fixed-top {
-    top: -162px;
+    height: 200px !important;
+    top: -161px;    
   }
+
+  .header-main .header-main-nav .navbar-default {
+    width: auto;
+  }
+
   .responsive-type1 .header-main .header-btn-collapse-nav {
     top: 155px;
     position: absolute;
     left: 15px;
   }
 }
-  a.header-text-link:hover {
-    background-color: #fff;
-    color: #333;
-    border-bottom: 1px solid #333;
-  }
 
-  #inbox-link {
-    display: none
-  }
-  .header-toggle-menu-menu.toggle-menu a {
-    color: #555;
-    
-    &:hover {
-      background-color: #fff;
-      color: #333;
-      border-bottom: 1px solid #333;
-      text-decoration: none;
-    }
-  }
-  .header-toggle-menu-menu.toggle-menu {
-    background-color: #fff;
-  }
-  .header-menu-toggle-container {
-    &:hover,
-    &:active {
-      color: #08c;
-    }
-  }
 
 @media (min-width: 48em) {
 

@@ -19,6 +19,10 @@
 //= require_tree ./partials
 //= require_tree ./views
 
+.btn,
+.btn-default {
+	border-radius: 0;
+}
 
 body.info {
   .marketplace-lander {
@@ -49,5 +53,78 @@ body.contactus {
 
 	.row {
 		margin-bottom: 0;
+	}
+}
+
+body.login {
+	.marketplace-lander {
+		height: 1px;
+	}
+
+	.page-content {
+		padding-top: 0;
+	}
+
+	.row {
+		margin-bottom: 0;
+	}
+}
+
+body.register-account {
+	.marketplace-lander {
+		height: 1px;
+	}
+
+	.page-content {
+		padding-top: 0;
+	}
+
+	.row {
+		margin-bottom: 0;
+	}
+
+	h1,
+	h2 {
+		font-weight: normal;
+	}
+}
+
+body.product {
+	.marketplace-lander {
+		height: 1px;
+	}
+
+	.page-content {
+		padding-top: 0;
+	}
+
+	.row {
+		margin-bottom: 0;
+	}
+
+	h1,
+	h2 {
+		font-weight: normal;
+	}
+
+	button {
+		background-color: #fff;
+	}
+
+	.shop.type1 {
+		.product-summary .cart .list-float-left input {
+		    min-height: 0;
+		}
+	}
+
+	.share {
+		.listing-social {
+			padding-top: 10px;
+		}
+	}
+
+	.select .size li a {
+	    line-height: 30px;
+	    display: block;
 	}
 }

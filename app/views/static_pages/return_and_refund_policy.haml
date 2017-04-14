@@ -1,0 +1,35 @@
+- content_for :javascript do
+
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+
+/ Start Content
+%section.content.checkout
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h1 Return & Refund Policy
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li  Return & Refund Policy
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        %p All orders placed at Hazrati.com are returnable for a full refund. Customers should ship the item/s back in original condition postage paid with insurance for the price paid within 30 days from the receipt of item/s. Products are non returnable after 30 days return period is over. The orders placed are cancelable within 3 hours of placing the order online. To cancel an order after it has shipped it can be either returned or refused by customer. The shipping is free for delivery anywhere with in US. International shipping costs are shown at the time of checkout. Please contact us with any questions.
+        %p
+          Hazrati.com
+          %br>/
+          62W 47th Street #904A
+          %br>/
+          New York NY 10036
+          %br>/
+          USA
+          %br>/
+          Telephone: 1 888 339 0277
