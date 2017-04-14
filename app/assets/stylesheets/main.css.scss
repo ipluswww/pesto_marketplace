@@ -2131,9 +2131,7 @@ figure.fluidratio {
     }
 
     input[type=text] {
-      @include big-type;
-      padding: em(11) em(14) em(11) em(14);
-      width: lines(15);
+      font-weight: normal;
     }
 
     button.action-button {
