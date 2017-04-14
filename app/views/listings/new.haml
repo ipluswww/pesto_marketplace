@@ -11,49 +11,70 @@
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
 - content_for :title_header do
-  %h1= t("homepage.index.post_new_listing")
-#new_listing_form.new-listing-form.centered-section
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
 
-  #selected-groups
+/ Start Content
+%section.content
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Add A New Product
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li  Post a new listing
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
 
-    - if categories.size > 1
-      .selected-group{:name => "category"}
-        - categories.each do |value|
-          %a.select.selected.hidden{:data => {:id => value.id}}
-            .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
+        #new_listing_form.new-listing-form
 
-    - if subcategories.size > 1
-      .selected-group{:name => "subcategory"}
-        - subcategories.each do |value|
-          %a.select.selected.hidden{:data => {:id => value.id}}
-            .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
+          #selected-groups
 
-    - if shapes.size > 1
-      .selected-group{:name => "listing_shape"}
-        - shapes.each do |value|
-          %a.select.selected.hidden{:data => {:id => value[:id]}}
-            .link-text= t(".selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
+            - if categories.size > 1
+              .selected-group{:name => "category"}
+                - categories.each do |value|
+                  %a.select.selected.hidden{:data => {:id => value.id}}
+                    .link-text= t(".selected_category", :category => value.display_name(I18n.locale))
 
-  %h2.listing-form-title{:id => "foo"}
+            - if subcategories.size > 1
+              .selected-group{:name => "subcategory"}
+                - subcategories.each do |value|
+                  %a.select.selected.hidden{:data => {:id => value.id}}
+                    .link-text= t(".selected_subcategory", :subcategory => value.display_name(I18n.locale))
 
-  #option-groups
+            - if shapes.size > 1
+              .selected-group{:name => "listing_shape"}
+                - shapes.each do |value|
+                  %a.select.selected.hidden{:data => {:id => value[:id]}}
+                    .link-text= t(".selected_transaction_type", :transaction_type => t(value[:name_tr_key]))
 
-    - if categories.size > 1
-      .option-group{:name => "category"}
-        - categories.each do |value|
-          %a.select.option.hidden{:data => {:id => value.id}}
-            .link-text= value.display_name(I18n.locale)
+          %h2.listing-form-title{:id => "foo"}
 
-    - if subcategories.size > 1
-      .option-group{:name => "subcategory"}
-        - subcategories.each do |value|
-          %a.select.option.hidden{:data => {:id => value.id}}
-            .link-text= value.display_name(I18n.locale)
+          #option-groups
 
-    - if shapes.size > 1
-      .option-group{:name => "listing_shape"}
-        - shapes.each do |value|
-          %a.select.option.hidden{:data => {:id => value[:id]}}
-            .link-text= t(value[:name_tr_key])
+            - if categories.size > 1
+              .option-group{:name => "category"}
+                - categories.each do |value|
+                  %a.select.option.hidden{:data => {:id => value.id}}
+                    .link-text= value.display_name(I18n.locale)
 
-  .js-form-fields.hidden
+            - if subcategories.size > 1
+              .option-group{:name => "subcategory"}
+                - subcategories.each do |value|
+                  %a.select.option.hidden{:data => {:id => value.id}}
+                    .link-text= value.display_name(I18n.locale)
+
+            - if shapes.size > 1
+              .option-group{:name => "listing_shape"}
+                - shapes.each do |value|
+                  %a.select.option.hidden{:data => {:id => value[:id]}}
+                    .link-text= t(value[:name_tr_key])
+
+          .js-form-fields.hidden

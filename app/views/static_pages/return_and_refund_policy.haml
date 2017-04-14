@@ -1,18 +1,16 @@
-- content_for :javascript do
-
 - content_for :title_header do
   .browse-view-search-form
     = render partial: "homepage/search_bar"
 
 / Start Content
-%section.content.checkout
+%section.content
   / Start Content-Header
   .content-header.breadcrumb-header
     .wrapper
       .row
         .col-md-12
           .pull-left
-            %h1 Return & Refund Policy
+            %h2 Return & Refund Policy
           %ul.breadcrumb.pull-right
             %li
               %a{:href => "#"} Home 

@@ -245,6 +245,7 @@ class ListingsController < ApplicationController
   end
 
   def new
+    @body_class_name         = "listing new-listing"
     category_tree = CategoryViewUtils.category_tree(
       categories: ListingService::API::Api.categories.get_all(community_id: @current_community.id)[:data],
       shapes: get_shapes,
