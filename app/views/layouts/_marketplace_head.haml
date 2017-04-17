@@ -63,8 +63,6 @@
 / CSS
 = stylesheet_link_tag "application"
 
-- if @current_community.has_customizations?
-  = render partial: "layouts/style_overrides", locals: MarketplaceHelper.style_customizations_map(@current_community)
 
 = stylesheet_link_tag "app-bundle"
 
