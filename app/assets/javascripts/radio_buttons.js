@@ -4,30 +4,6 @@ window.ST = window.ST || {};
 
   /**
    * Adds radiobutton functionality
-   *
-   * Usage:
-   *
-   * - create an `input` tag
-   * - create two or more buttons
-   * - invoke initializeRadioButtons
-   *
-   * Input tag:
-   *
-   * The selected value will be added to the `input` element. There's no special
-   * requirements for the input element. It has to have a unique selector
-   * (prefer classes over ids)
-   *
-   * Buttons:
-   *
-   * Button needs to contain data attribute `radio-button-value`. The attribute
-   * value will be copied to the `input` element when selected. Also, a class
-   * `radio-button-selected` will be added to the button when it's selected.
-   *
-   * Parameters:
-   *
-   * - buttonSelectors: array of button selectors
-   * - inputSelector: selector for the input element
-   *
    */
 
   var SELECTED_CLASS = "radio-button-selected";

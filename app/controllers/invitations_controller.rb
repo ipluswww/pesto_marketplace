@@ -8,7 +8,8 @@ class InvitationsController < ApplicationController
 
   def new
     @selected_tribe_navi_tab = "members"
-    @invitation = Invitation.new
+    @body_class_name         = "admin invitation-new"
+    @invitation              = Invitation.new
     invitation_limit = @current_community.join_with_invite_only ? Invitation.invite_only_invitation_limit : Invitation.invitation_limit
 
     onboarding_popup_locals = OnboardingViewUtils.popup_locals(

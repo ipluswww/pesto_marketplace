@@ -2,21 +2,6 @@ window.ST = window.ST || {};
 
 /**
   Use translations in JavaScript
-
-  Usage:
-
-  ### Load the translations you need:
-
-  ```haml
-  = js_t(["admin.categories.new", "admin.categories.edit"])
-  ```
-
-  ### Use loaded translations
-
-  ```javascript
-  $('#new-link').text(ST.t("admin.categories.new"))
-  $('#new-link').text(ST.t("admin.categories.edit"))
-  ```
 */
 (function(exports) {
 

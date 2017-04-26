@@ -37,7 +37,6 @@ $bottom-gutter: lines(0.5);
 
 .row {
   @include pie-clearfix;
-  margin-bottom: $bottom-gutter;
 
   &.without-margin {
     margin-bottom: 0;
@@ -61,4 +60,4 @@ $bottom-gutter: lines(0.5);
     .col-3
       = "I'm 1/4 of the total available size"
 */
-@include create-fluid-grid("col", lines(0.5), 12);
+@include create-fluid-grid("col", 15px, 12);

@@ -4,7 +4,8 @@ class Admin::CommunityMembershipsController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "manage_members"
-    @community = @current_community
+    @community               = @current_community
+    @body_class_name         = "admin community-memberships"
 
     respond_to do |format|
       format.html do

@@ -1,13 +1,29 @@
 - content_for :title_header do
-  %h1
-    = t("layouts.admin.admin")
-    = "-"
-    = t("admin.communities.getting_started.getting_started")
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
 
-%article.page-content
-  .row
-    .col-3
-      = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
-    .col-9
-      - react_component_cache(name: "onboarding_guide", props: props) do
-        = react_component("OnboardingGuideApp", props: props)
+/ Start Content
+%section.content
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 
+              = t("admin.communities.getting_started.getting_started")
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li Admin Panel
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        .row
+          .col-3
+            = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+          .col-9
+            - react_component_cache(name: "onboarding_guide", props: props) do
+              = react_component("OnboardingGuideApp", props: props)

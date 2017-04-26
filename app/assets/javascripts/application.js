@@ -11,7 +11,7 @@
 // Basically, in HOT mode, we do not include this file for
 // Rails.application.config.assets.precompile
 //= require vendor-bundle
-//= require app-bundle
+
 
 // This is a manifest file that'll be compiled into including all the files listed below.
 // Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
@@ -42,18 +42,6 @@
 // Allow IE8-9 to post cross domain XHR (required for image upload)
 //= require jquery.iframe-transport.js
 
-//= require vendor/revolution/js/jquery.themepunch.tools.min
-//= require vendor/revolution/js/jquery.themepunch.revolution.min
-//= require vendor/revolution/js/extensions/revolution.extension.actions.min
-//= require vendor/revolution/js/extensions/revolution.extension.carousel.min
-//= require vendor/revolution/js/extensions/revolution.extension.kenburn.min
-//= require vendor/revolution/js/extensions/revolution.extension.layeranimation.min
-//= require vendor/revolution/js/extensions/revolution.extension.migration.min
-//= require vendor/revolution/js/extensions/revolution.extension.navigation.min
-//= require vendor/revolution/js/extensions/revolution.extension.parallax.min
-//= require vendor/revolution/js/extensions/revolution.extension.slideanims.min
-//= require vendor/revolution/js/extensions/revolution.extension.video.min
-//= require homepage
 //= require fastclick
 
 // Responsive helpers

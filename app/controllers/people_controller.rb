@@ -22,6 +22,7 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
 
   def show
+    @body_class_name         = "people-profile"
     @person = Person.find_by!(username: params[:username], community_id: @current_community.id)
     raise PersonDeleted if @person.deleted?
     raise PersonBanned if @person.banned?

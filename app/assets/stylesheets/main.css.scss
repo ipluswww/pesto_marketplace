@@ -30,17 +30,6 @@ a, input, button {
   Typography and link styles
   --------------------------
 */
-
-body {
-  @include source-sans-pro;
-  @include normal-type;
-
-  @include media(tiny-mobile) {
-    // Zooms out on tiny screens
-    font-size: em(13);
-  }
-}
-
 .page-content {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
@@ -70,6 +59,10 @@ body {
     }
   }
 
+}
+
+.flash-notifications {
+  display: none;
 }
 
 /*
@@ -151,11 +144,7 @@ ul {
 }
 
 .centered-section, .centered-section-wide, .centered-section-narrow, .left-navi-section {
-  margin-top: lines(0.25);
-
-  textarea {
-    min-height: lines(5);
-  }
+  margin-top: 0;
 }
 
 .centered-section-narrow {
@@ -368,17 +357,6 @@ form {
   margin-bottom: em(1);
 }
 
-.label {
-  width: 100%;
-  margin-top: lines(0.5);
-  margin-bottom: em(3);
-  font-weight: 600;
-}
-
-label {
-  @extend .label;
-}
-
 label.inline {
   width: auto;
   display: inline;
@@ -396,13 +374,6 @@ label.radiobutton {
   color: $aside;
   @include small-type;
   cursor: pointer;
-}
-
-button, .button {
-  @include button($link);
-  padding-top: lines(0.375);
-  padding-bottom: lines(0.375);
-  height: auto;
 }
 
 .inline-button-container {

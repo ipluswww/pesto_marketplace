@@ -673,8 +673,6 @@ $(document).ready(function() {
     $('.header-top-links .dropdown-search .dropdown-menu').mouseleave(function() {
 		
 		'use strict';
-		
-        $(this).slideUp().removeClass("droped");
     });
 
     /* set owl-carousel in product */

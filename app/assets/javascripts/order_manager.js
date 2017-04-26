@@ -3,27 +3,6 @@ window.ST = window.ST || {};
 /**
   Almost generic order manager.
 
-  Keeps track order of the fields and updates DOM when change happens.
-
-  Return Bacon stream, which is triggered when ever an order change
-  happens. The stream event has following payload:
-  {
-    down: {id: <option.id>, element: <DOM element> } // Field that went down
-    up: {id: <option.id>, element: <DOM element> }, // Field that went up
-    order: [<option.id>, <option.id>, <option.id> , ...] // Current order
-  }
-
-  Params:
-
-  fieldMap: [
-    {
-      id: model id,
-      element: jQuery element,
-      up: Up arrow jQuery element,
-      down: Down arrow jQuery element
-    },
-    ...
-  ]
 */
 window.ST.orderManager = function(fieldMap) {
   var utils = ST.utils;

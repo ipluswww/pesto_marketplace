@@ -8,36 +8,44 @@ class Admin::GettingStartedGuideController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide"
+    
     render :index, locals: { props: data(page: :status) }
   end
 
   def slogan_and_description
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-slogan_and_description"
     render :index, locals: { props: data(page: :slogan_and_description) }
   end
 
   def cover_photo
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-cover_photo"
     render :index, locals: { props: data(page: :cover_photo) }
   end
 
   def filter
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-filter"
     render :index, locals: { props: data(page: :filter) }
   end
 
   def paypal
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-paypal"
     render :index, locals: { props: data(page: :paypal) }
   end
 
   def listing
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-listing"
     render :index, locals: { props: data(page: :listing) }
   end
 
   def invitation
     @selected_left_navi_link = "getting_started_guide"
+    @body_class_name         = "admin getting-started-guide-invitation"
     render :index, locals: { props: data(page: :invitation) }
   end
 

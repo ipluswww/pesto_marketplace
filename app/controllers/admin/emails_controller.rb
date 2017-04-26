@@ -2,6 +2,7 @@
 class Admin::EmailsController < Admin::AdminBaseController
 
   def new
+    @body_class_name         = "admin emails-new"
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "email_members"
   end

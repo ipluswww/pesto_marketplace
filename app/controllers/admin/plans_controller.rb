@@ -2,6 +2,7 @@ class Admin::PlansController < Admin::AdminBaseController
 
   # Redirect to external plan service. Nothing else.
   def show
+    body_class_name         = "admin plans"
     marketplace_default_name = @current_community.name(@current_community.default_locale)
 
     PlanService::API::Api.plans.get_external_service_link(

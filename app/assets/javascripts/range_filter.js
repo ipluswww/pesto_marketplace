@@ -4,13 +4,6 @@ window.ST = window.ST || {};
   Initialize range slider filter
 
   ## Params:
-
-  - `selector`: Selector
-  - `range`: [min, max] array
-  - `start`: [startValueMin, startValueMax]
-  - `labels`: [labelElementMin, labelElementMax]
-  - `fields`: [inputFieldMin, inputFieldMax]
-  - `decimals: boolean allow decimals
 */
 
 window.ST.rangeFilter = function(selector, range, start, labels, fields, decimals) {

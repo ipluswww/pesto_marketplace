@@ -8,7 +8,6 @@ textarea {
   @include border-radius(em(5));
   border: 2px solid $border;
   min-height: 42px;
-  width: 100%;
   padding: em(4) em(8);
 
   @include media(tablet) {

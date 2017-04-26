@@ -4,6 +4,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   before_filter :ensure_white_label_plan, only: [:create_sender_address]
 
   def edit_look_and_feel
+    @body_class_name         = "admin communities-edit-look-and-feel"
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
 
@@ -16,11 +17,13 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def edit_text_instructions
+    @body_class_name         = "admin communities-edit-text-instructions"
     @selected_left_navi_link = "text_instructions"
     @community = @current_community
   end
 
   def edit_welcome_email
+    @body_class_name         = "admin communities-edit-welcome-email"
     @selected_left_navi_link = "welcome_email"
     @community = @current_community
     @recipient = @current_user
@@ -105,6 +108,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def social_media
+    @body_class_name         = "admin social_media"
     @selected_left_navi_link = "social_media"
     @community = @current_community
     render "social_media", :locals => {
@@ -113,6 +117,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def analytics
+    @body_class_name         = "admin analytics"
     @selected_left_navi_link = "analytics"
     @community = @current_community
     render "analytics", :locals => {
@@ -121,6 +126,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def new_layout
+    @body_class_name         = "admin communities-new-layout"
     @selected_left_navi_link = "new_layout"
 
     features = NewLayoutViewUtils.features(@current_community.id,
@@ -154,6 +160,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def topbar
+    @body_class_name         = "admin topbar"
     @selected_left_navi_link = "topbar"
 
     if FeatureFlagHelper.feature_enabled?(:topbar_v1) || CustomLandingPage::LandingPageStore.enabled?(@current_community.id)

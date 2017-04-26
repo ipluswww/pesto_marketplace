@@ -1,14 +1,34 @@
 - content_for :title_header do
-  %h1= t("layouts.no_tribe.inbox")
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
 
-.undo-mobile-wrapper-margin#conversations
-  - if inbox_rows.present?
+/ Start Content
+%section.content
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 
+              = t("layouts.no_tribe.inbox")
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li Admin Panel
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        .undo-mobile-wrapper-margin#conversations
+          - if inbox_rows.present?
 
-    = render :partial => "inbox_row", :collection => inbox_rows, :as => :conversation, locals: { payments_in_use: payments_in_use }
+            = render :partial => "inbox_row", :collection => inbox_rows, :as => :conversation, locals: { payments_in_use: payments_in_use }
 
-    = will_paginate(inbox_rows)
-    = pageless(inbox_rows.total_pages, '#conversations', request.path, t('conversations.index.loading_more_messages'))
+            = will_paginate(inbox_rows)
+            = pageless(inbox_rows.total_pages, '#conversations', request.path, t('conversations.index.loading_more_messages'))
 
-  - else
-    #no_conversations
-      = t("conversations.index.no_received_messages")
+          - else
+            #no_conversations
+              = t("conversations.index.no_received_messages")

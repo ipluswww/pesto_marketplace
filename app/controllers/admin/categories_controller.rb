@@ -1,11 +1,13 @@
 class Admin::CategoriesController < Admin::AdminBaseController
 
   def index
+    @body_class_name         = "admin categories"
     @selected_left_navi_link = "listing_categories"
     @categories = @current_community.top_level_categories.includes(:translations, children: :translations)
   end
 
   def new
+    @body_class_name         = "admin categories-new"
     @selected_left_navi_link = "listing_categories"
     @category = Category.new
     shapes = get_shapes
@@ -32,6 +34,7 @@ class Admin::CategoriesController < Admin::AdminBaseController
   end
 
   def edit
+    @body_class_name         = "admin categories-edit"
     @selected_left_navi_link = "listing_categories"
     @category = @current_community.categories.find_by_url_or_id(params[:id])
     shapes = get_shapes

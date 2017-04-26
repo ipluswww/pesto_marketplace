@@ -1,10 +1,5 @@
 @import "mixins/all";
 
-.topbar-menu-container-padding {
-  padding: lines(0.5);
-  padding-bottom: 0;
-}
-
 .topbar-menu-container {
   @extend .topbar-menu-container-padding;
 

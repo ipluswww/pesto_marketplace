@@ -47,14 +47,6 @@ ST.utils = (function(_) {
 
   /**
     Create relative URLs.
-
-    ## Usage:
-
-    If you're in 'http://market.sharetribe.com/admin/categories/' then
-
-    ```
-      console.log(relativeUrl("order/14")) // -> 'http://market.sharetribe.com/admin/categories/order/15'
-    ```
   */
   function relativeUrl(url) {
     return [window.location.pathname, url].join("/").replace("//", "/");
@@ -62,12 +54,6 @@ ST.utils = (function(_) {
 
   /**
     Give attribute value and get back jqueryfied version that
-    can be used as a part of a selector
-
-    Example:
-
-    var jquerified = jquerifyAttributeValue("person[name]") // => "person\[name\]"
-    nameInput = $("[name=" + jquerified + "]");
   */
   function jquerifyAttributeValue(attrValue) {
     return attrValue.replace(/\[/g, "\\[").replace(/\]/g, "\\]");
@@ -75,12 +61,6 @@ ST.utils = (function(_) {
 
   /**
     Give element `name` attribute value and get back matching elements
-
-    Example:
-    <input name="plaaplaa">
-
-    var plaaplaa = findElementByName("plaaplaa") // => jQuery element
-
   */
   function findElementByName(name) {
     var selector = ["[name=", jquerifyAttributeValue(name), "]"].join("");
@@ -89,10 +69,6 @@ ST.utils = (function(_) {
 
   /**
     Give an array of objects and get back one merged object.
-
-    ## Usage:
-
-    objectsMerge([{a: 1, b: 2}, {c: 3}, {d: 4}]) => {a: 1, b: 2, c: 3, d: 4}
   */
   function objectsMerge(objects) {
     return objects.reduce(function(a, b) {

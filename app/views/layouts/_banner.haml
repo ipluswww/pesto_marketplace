@@ -1,23 +1,12 @@
-<section id="content" class="home1">
-<!-- Start Content-Header -->
-<div class="content-header">
-<div id="rev_slider_wrapper1" class="rev-slider-wrapper" style="position: relative">
-<div id="rev_slider1" class="rev-slider fullwidthbanner" data-version="5.0.7">
-<ul>
-<li data-transition="boxslide">
-<img src="assets/banner/banner1_4.jpg" alt="Jewelry&Watch" data-bgposition="center center" 
-data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
-</li>
-<li data-transition="papercut">
-<img src="assets/banner/banner3_4.jpg" alt="Jewelry&Watch" data-bgposition="center center" 
-data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
-</li>
-<li data-transition="slidingoverlayhorizontal">
-<img src="assets/banner/banner_4_3.jpg" alt="Jewelry&Watch" data-bgposition="center center" 
-data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+%section#content.home1
+  / Start Content-Header
+  .content-header
+    #rev_slider_wrapper1.rev-slider-wrapper{:style => "position: relative"}
+      #rev_slider1.rev-slider.fullwidthbanner{"data-version" => "5.0.7"}
+        %ul
+          %li{"data-transition" => "boxslide"}
+            %img.rev-slidebg{:alt => "Jewelry&Watch", "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", :src => "assets/banner/banner1_4.jpg"}/
+          %li{"data-transition" => "parallaxtoright"}
+            %img.rev-slidebg{:alt => "Jewelry&Watch", "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", :src => "assets/banner/banner3_4.jpg"}/
+          %li{"data-transition" => "slidingoverlayhorizontal"}
+            %img.rev-slidebg{:alt => "Jewelry&Watch", "data-bgfit" => "cover", "data-bgposition" => "center center", "data-bgrepeat" => "no-repeat", :src => "assets/banner/banner_4_3.jpg"}/

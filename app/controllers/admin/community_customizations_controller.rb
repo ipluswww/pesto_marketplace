@@ -1,6 +1,7 @@
 class Admin::CommunityCustomizationsController < Admin::AdminBaseController
 
   def edit_details
+    @body_class_name         = "admin community-customizations"
     @selected_left_navi_link = "tribe_details"
     # @community_customization is fetched in application_controller
     @community_customizations ||= find_or_initialize_customizations(@current_community.locales)

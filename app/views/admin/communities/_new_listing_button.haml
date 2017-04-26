@@ -2,7 +2,7 @@
 
 #post-new-listing-button-table
   .row.topbar-menu-container-padding.visible-tablet
-    .col-10
+    .col-12
       - if show_locales
         .col-2
           = label_tag do
@@ -12,7 +12,7 @@
           = t("admin.communities.menu_links.title")
 
   .row.without-margin.topbar-menu-container
-    .col-10
+    .col-12
       - available_locales.each do |locale_name, locale_value|
         .row
           - if show_locales

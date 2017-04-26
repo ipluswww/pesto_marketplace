@@ -38,6 +38,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "paypal_account"
+    @body_class_name         = "admin paypal-preferences"
     paypal_account = accounts_api.get(community_id: @current_community.id).maybe
     currency = @current_community.currency
     minimum_commission = paypal_minimum_commissions_api.get(currency)
@@ -85,6 +86,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
   end
 
   def preferences_update
+    @body_class_name         = "admin paypal-preferences-update"
     currency = params[:paypal_preferences_form]["marketplace_currency"]
     minimum_commission = paypal_minimum_commissions_api.get(currency)
 
@@ -124,6 +126,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
   end
 
   def account_create
+    @body_class_name         = "admin paypal-preferences-create"
     community_country_code = LocalizationUtils.valid_country_code(@current_community.country)
     response = accounts_api.request(
       body: PaypalService::API::DataTypes.create_create_account_request(
@@ -143,6 +146,7 @@ class Admin::PaypalPreferencesController < Admin::AdminBaseController
   end
 
   def permissions_verified
+    @body_class_name         = "admin paypal-preferences-permisions-verified"
     unless params[:verification_code].present?
       flash[:error] = t("paypal_accounts.new.permissions_not_granted")
       return redirect_to action: :index

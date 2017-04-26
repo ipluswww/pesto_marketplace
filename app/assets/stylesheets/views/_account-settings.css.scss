@@ -21,7 +21,7 @@
     min-height: 42px;
 
     .account-settings-text {
-      margin-left: lines(1.5);
+      margin-left: 15px;
       padding: em(5) 0 em(10) 0;
     }
 
@@ -54,11 +54,11 @@
     }
 
     .account-settings-email-row-highlight {
-      background: $highlight;
+      
     }
 
     .account-settings-email-row-address {
-      padding-left: lines(0.5);
+      padding-left: 0;
 
       @include media(desktop) {
         @include ellipsis;

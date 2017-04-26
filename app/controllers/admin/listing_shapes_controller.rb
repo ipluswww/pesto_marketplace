@@ -7,6 +7,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   Shape = ListingShapeDataTypes::Shape
 
   def index
+    @body_class_name         = "admin listing-shapes"
     category_count = @current_community.categories.count
     template_label_key_list = ListingShapeTemplates.new(process_summary).label_key_list
 
@@ -27,6 +28,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   end
 
   def new
+    @body_class_name         = "admin listing-shapes-new"
     template = ListingShapeTemplates.new(process_summary).find(params[:template], available_locales.map(&:second))
 
     unless template
@@ -39,6 +41,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   end
 
   def edit
+    @body_class_name         = "admin listing-shapes-edit"
     shape = ShapeService.new(processes).get(
       community_id: @current_community.id,
       name: params[:url_name],
@@ -112,6 +115,7 @@ class Admin::ListingShapesController < Admin::AdminBaseController
   end
 
   def order
+    @body_class_name         = "admin listing-shapes-order"
     ordered_ids = params[:order].map(&:to_i)
 
     shapes = all_shapes(community_id: @current_community.id, include_categories: false)

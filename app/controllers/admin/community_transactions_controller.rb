@@ -5,6 +5,7 @@ class Admin::CommunityTransactionsController < Admin::AdminBaseController
 
   def index
     @selected_left_navi_link = "transactions"
+    @body_class_name         = "admin transactions"
     pagination_opts = PaginationViewUtils.parse_pagination_opts(params)
 
     conversations = if params[:sort].nil? || params[:sort] == "last_activity"

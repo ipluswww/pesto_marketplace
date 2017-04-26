@@ -74,9 +74,10 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   DateFieldEntity     = EntityUtils.define_builder(*DateFieldSpec)
 
   def index
-    @selected_left_navi_link = "listing_fields"
-    @community = @current_community
-    @custom_fields = @current_community.custom_fields
+    @selected_left_navi_link  = "listing_fields"
+    @community                = @current_community
+    @custom_fields            = @current_community.custom_fields
+    @body_class_name          = "admin custom-fields"
 
     shapes = listings_api.shapes.get(community_id: @community.id).data
     price_in_use = shapes.any? { |s| s[:price_enabled] }
@@ -91,7 +92,8 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   end
 
   def new
-    @selected_left_navi_link = "listing_fields"
+    @selected_left_navi_link  = "listing_fields"
+    @body_class_name          = "admin custom-fields-new"
     @community = @current_community
     @custom_field = params[:field_type].constantize.new #before filter checks valid field types and prevents code injection
 
@@ -105,7 +107,8 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   end
 
   def create
-    @selected_left_navi_link = "listing_fields"
+    @selected_left_navi_link  = "listing_fields"
+    @body_class_name          = "admin custom-fields-create"
     @community = @current_community
 
     # Hack for comma/dot issue. Consider creating an app-wide comma/dot handling mechanism
