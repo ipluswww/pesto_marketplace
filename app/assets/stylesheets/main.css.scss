@@ -94,6 +94,10 @@ ul {
   padding-left: lines(1);
 }
 
+div [class^=OnboardingTopBar] {
+  display:none;
+}
+
 .section {
   padding: lines(0.5);
   @include clearfix;
