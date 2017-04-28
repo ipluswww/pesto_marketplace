@@ -76,123 +76,36 @@
               / End .pull-right
             / End .category-top
             .products.pt-md
-              .row.grid
-                .product.col-md-4.col-sm-4.col-xs-12.grid-item
-                  .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
-                    %a{:href => "product.html"}
-                      %img.full-width{:alt => "image", :src => "/assets/img/category/270x315/clutch-black-1_270x315.jpg"}/
-                    .over-comment.middle
-                      %div
-                        %span.rating.font-roboto
-                          %i.theme-icon.pesto-icon-star-shape>
-                           5/5
-                        %span.brand.font-istok HP PAVILION
-                        .links
-                          %a.icon-button.small{:href => "#"}
-                            %i.theme-icon.pesto-icon-loving
-                          %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                          %a.icon-button.small{:href => "#"}
-                            %i.pesto-icon-connector
-                  / End .image
-                  .image-comment
-                    %h4 Black lace open back dress
-                    .price
-                      %span $124.00
-                  / End .image-comment
-                / End .product
-                .product.col-md-4.col-sm-4.col-xs-12.grid-item
-                  .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
-                    %a{:href => "product.html"}
-                      %img.full-width{:alt => "image", :src => "/assets/img/category/270x315/crew-neck-1_270x315.jpg"}/
-                    .over-comment.middle
-                      %div
-                        %span.rating.font-roboto
-                          %i.theme-icon.pesto-icon-star-shape>
-                           5/5
-                        %span.brand.font-istok HP PAVILION
-                        .links
-                          %a.icon-button.small{:href => "#"}
-                            %i.theme-icon.pesto-icon-loving
-                          %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                          %a.icon-button.small{:href => "#"}
-                            %i.pesto-icon-connector
-                  / End .image
-                  .image-comment
-                    %h4 Black lace open back dress
-                    .price
-                      %span $124.00
-                  / End .image-comment
-                / End .product
-                .product.col-md-4.col-sm-4.col-xs-12.grid-item
-                  .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
-                    %a{:href => "product.html"}
-                      %img.full-width{:alt => "image", :src => "/assets/img/category/270x315/clutch-black-1_270x315.jpg"}/
-                    .over-comment.middle
-                      %div
-                        %span.rating.font-roboto
-                          %i.theme-icon.pesto-icon-star-shape>
-                           5/5
-                        %span.brand.font-istok HP PAVILION
-                        .links
-                          %a.icon-button.small{:href => "#"}
-                            %i.theme-icon.pesto-icon-loving
-                          %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                          %a.icon-button.small{:href => "#"}
-                            %i.pesto-icon-connector
-                  / End .image
-                  .image-comment
-                    %h4 Black lace open back dress
-                    .price
-                      %span $124.00
-                  / End .image-comment
-                / End .product
-                .product.col-md-4.col-sm-4.col-xs-12.grid-item
-                  .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
-                    %a{:href => "product.html"}
-                      %img.full-width{:alt => "image", :src => "/assets/img/category/270x315/crew-neck-1_270x315.jpg"}/
-                    .over-comment.middle
-                      %div
-                        %span.rating.font-roboto
-                          %i.theme-icon.pesto-icon-star-shape>
-                           5/5
-                        %span.brand.font-istok HP PAVILION
-                        .links
-                          %a.icon-button.small{:href => "#"}
-                            %i.theme-icon.pesto-icon-loving
-                          %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                          %a.icon-button.small{:href => "#"}
-                            %i.pesto-icon-connector
-                  / End .image
-                  .image-comment
-                    %h4 Black lace open back dress
-                    .price
-                      %span $124.00
-                  / End .image-comment
-                / End .product
-                .product.col-md-4.col-sm-4.col-xs-12.grid-item
-                  .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
-                    %a{:href => "product.html"}
-                      %img.full-width{:alt => "image", :src => "/assets/img/category/270x315/luggagetag-brown-2_270x315.jpg"}/
-                    .over-comment.middle
-                      %div
-                        %span.rating.font-roboto
-                          %i.theme-icon.pesto-icon-star-shape>
-                           5/5
-                        %span.brand.font-istok HP PAVILION
-                        .links
-                          %a.icon-button.small{:href => "#"}
-                            %i.theme-icon.pesto-icon-loving
-                          %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                          %a.icon-button.small{:href => "#"}
-                            %i.pesto-icon-connector
-                  / End .image
-                  .image-comment
-                    %h4 Black lace open back dress
-                    .price
-                      %ins $124.00
-                      %del $150.00
-                  / End .image-comment
-                / End .product
+
+              - if @listings.total_entries > 0
+                - if @view_type.eql?("map")
+                  .home-map
+                    = render :partial => "map", locals: { viewport: viewport }
+                - else
+                  - if @view_type.eql?("grid")
+                    %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
+                      .home-fluid-thumbnail-grid
+                        = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
+                  - else
+                    .home-listings
+                      - if (location_search_in_use)
+                        = render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
+                      - else
+                        = render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
+                  .home-loading-more
+                    = will_paginate(@listings)
+                    - item_container = if @view_type.eql?("grid") then '.home-fluid-thumbnail-grid' else '.home-listings' end
+                    = pageless(@listings.total_pages, item_container, current_search_path_without_page, t('.loading_more_content'), current_page)
+              - else
+                .home-no-listings
+                  - if params[:q] || params[:category] || params[:share_type] # Some filter in use
+                    = t(".no_listings_with_your_search_criteria")
+                  - else
+                    = t(".no_listings_notification",
+                          add_listing_link: link_to(t(".add_listing_link_text"),
+                          new_listing_path(ref: "add_listing_link"))).html_safe
+
+              
             .category-bottom.clearfix
               .pagination-container
                 .clearfix

@@ -36,7 +36,8 @@
                     %form.search-form
                       = text_field_tag "q", params[:q], :class => "form-control", :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
                       %a.demo-icon.pesto-icon-cross-mark.menu-close{:href => "#"}
-              
+              %li
+                = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array, locals: {return_after_locale_change: return_after_locale_change}
               - if logged_in
                 %li.dropdown.dropdown-combo.dropdown-language
                   %a.dropdown-toggle{:href => "#"}

@@ -784,7 +784,7 @@ $(document).ready(function() {
         });   
     }
 
-    if ($('.header-normal').length) {
+    if (false) {
         initializeMenuCarousel();            
     }
     

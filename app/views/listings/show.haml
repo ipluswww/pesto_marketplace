@@ -3,8 +3,8 @@
 - content_for :page_css do
   :css
     @import url(/assets/vendor/easy-responsive-tabs/css/easy-responsive-tabs.css);
-- content_for :page_script do
-  <script src="/assets/vendor/easy-responsive-tabs/js/easyResponsiveTabs.js"></script>
+    @import url(/assets/vendor/owlcarousel/owl.carousel.css);
+    @import url(/assets/vendor/owlcarousel/css/animate.css);
 
 - content_for :extra_javascript do
   :javascript
@@ -22,6 +22,10 @@
 - content_for :meta_image_width, dimensions[:width].to_s if !@listing.listing_images.empty?
 - content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
 - content_for :keywords, StringUtils.keywords(@listing.title)
+- content_for :page_script do 
+  = javascript_include_tag 'application'
+  = javascript_include_tag 'vendor/easy-responsive-tabs/js/easyResponsiveTabs'
+  = javascript_include_tag 'vendor/owlcarousel/owl.carousel.min'
 
 - content_for :title_header do
   .browse-view-search-form
@@ -67,25 +71,20 @@
           .product-carousel
             - with_image_frame(@listing) do |reason, listing_images|
               - if reason == :images_ok
-                .listing-image-carousel
-                  #listing-image-frame
-
-                  - if @prev_image_id && @next_image_id
-                    = link_to params.merge(image: @prev_image_id), class: "listing-image-navi listing-image-navi-left", id: "listing-image-navi-left" do
-                      .listing-image-navi-arrow-container
-                        .listing-image-arrow-icon-container.left
-                          = icon_tag("directleft", ["navigate-icon-fix", "listing-image-navi-arrow"])
-                    = link_to params.merge(image: @next_image_id), class: "listing-image-navi listing-image-navi-right", id: "listing-image-navi-right" do
-                      .listing-image-navi-arrow-container
-                        .listing-image-arrow-icon-container.right
-                          = icon_tag("directright", ["navigate-icon-fix", "listing-image-navi-arrow"])
-                #thumbnail-stripe.listing-image-thumbnail-stripe
-
-                - content_for :extra_javascript do
-                  :javascript
-                    var listingImages = #{listing_images.map { |image| ListingImageJSAdapter.new(image) }.to_json }
-                    var currentImage = #{params[:image].present? ? params[:image].to_i : listing_images.first.id};
-                    ST.listingImages(listingImages, currentImage);
+                .theme-ow-carousel-wrapper.advertising
+                  .theme-owl-carousel.owl-carousel.owl-theme
+                    .item
+                      %img{:alt => "", :src => listing_images.first.image.url(:big)}/
+                      .image-over-comment
+                        %div
+                          
+                    / End .item
+                    .item
+                      %img{:alt => "", :src => listing_images.second.image.url(:big)}/
+                      .image-over-comment
+                        %div
+                          
+            
               - else
                 .listing-image-text-container
                   .listing-image-frame
