@@ -85,7 +85,7 @@
           .header-row
             .header-column.logo
               .header-logo
-                %a{:href => "index.html"}
+                %a{:href => "/"}
                   %img{:src => '/assets/theme/logo.png', :alt => 'HAZRATI'}
               / header-logo
             / header-column
@@ -96,20 +96,58 @@
                 %i.pesto-icon-menu
               #main-nav.collapse.header-main-nav
                 %nav.navbar.navbar-default.navbar-right
-                  %ul.nav.navbar-nav
+                  %ul.nav.navbar-nav.hidden-xs.hidden-sm
                     - @categories = @current_community.categories.includes(:children)
                     - @main_categories = @categories.select { |c| c.parent_id == nil }
                     - @main_categories.each do |category|
-                      - show_subcategories = 1==1
                       - if !category.children.empty?
                         %li.dropdown.classic
-                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "dropdown-toggle home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
-                          - if show_subcategories
-                            %ul.dropdown-menu
-                              - category.children.each do |child|
+                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "dropdown-toggle home-categories-main #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+                          %ul.dropdown-menu
+                            - category.children.each do |child|
+                              - if child.children.empty?
                                 %li
                                   - is_selected = (defined? selected_category) ? (selected_category == child) : false;
-                                  = link_to child.display_name(I18n.locale), search_path({category: child}), :class => "home-categories-sub #{if is_selected then 'selected' end}", :data => {:"sub-category" =>child.id}
+                                  = link_to child.display_name(I18n.locale), search_path({category: child}), :class => "home-categories-sub", :data => {:"sub-category" =>child.id}
+                              - else
+                                %li.dropdown.classic
+                                  = link_to child.display_name(I18n.locale), search_path({category: child}), :class => "dropdown-toggle home-categories-main  #{if child.has_subcategories? then 'has-subcategories' end}", :data => {category: child.id}
+                                  %ul.dropdown-menu
+                                    - child.children.each do |grand_child|
+                                      %li
+                                        - is_selected = (defined? selected_category) ? (selected_category == grand_child) : false;
+                                        = link_to grand_child.display_name(I18n.locale), search_path({category: grand_child}), :class => "home-categories-sub", :data => {:"sub-category" =>grand_child.id}
                       - else
                         %li.selfitem
-                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "home-categories-main #{if show_subcategories then 'selected' end} #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "home-categories-main #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+
+                  %ul.nav.navbar-nav.visible-xs.visible-sm
+                    - @categories = @current_community.categories.includes(:children)
+                    - @main_categories = @categories.select { |c| c.parent_id == nil }
+                    - @main_categories.each do |category|
+                      - if !category.children.empty?
+                        %li.dropdown.classic
+                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "dropdown-toggle pull-left home-categories-main #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}
+                          %a.toggle.collapsed.pull-right
+                            %i.visible-collapsed.caret-icon.demo-icon.pesto-icon-plus
+                            %i.visible-opened.fa.caret-icon.demo-icon.pesto-icon-minus
+                          %ul.dropdown-menu
+                            - category.children.each do |child|
+                              - if child.children.empty?
+                                %li
+                                  - is_selected = (defined? selected_category) ? (selected_category == child) : false;
+                                  = link_to child.display_name(I18n.locale), search_path({category: child}), :class => "home-categories-sub", :data => {:"sub-category" =>child.id}
+                              - else
+                                %li.dropdown.classic
+                                  = link_to child.display_name(I18n.locale), search_path({category: child}), :class => "dropdown-toggle home-categories-main  #{if child.has_subcategories? then 'has-subcategories' end}", :data => {category: child.id}
+                                  %a.toggle.collapsed.pull-right
+                                    %i.visible-collapsed.caret-icon.demo-icon.pesto-icon-plus
+                                    %i.visible-opened.fa.caret-icon.demo-icon.pesto-icon-minus
+                                  %ul.dropdown-menu
+                                    - child.children.each do |grand_child|
+                                      %li
+                                        - is_selected = (defined? selected_category) ? (selected_category == grand_child) : false;
+                                        = link_to grand_child.display_name(I18n.locale), search_path({category: grand_child}), :class => "home-categories-sub", :data => {:"sub-category" =>grand_child.id}
+                      - else
+                        %li.selfitem
+                          = link_to category.display_name(I18n.locale), search_path({category: category}), :class => "home-categories-main #{if category.has_subcategories? then 'has-subcategories' end}", :data => {category: category.id}

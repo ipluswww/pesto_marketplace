@@ -33,6 +33,7 @@ a, input, button {
 .page-content {
   padding-bottom: lines(3);
   padding-top: lines(0.5);
+  background-color: #fff;
 
   &.no-cover-photo {
     padding-top: lines(0.5);
@@ -92,6 +93,10 @@ body {
 
 ul {
   padding-left: lines(1);
+}
+
+.wrapper {
+  padding: 0;
 }
 
 div [class^=OnboardingTopBar] {

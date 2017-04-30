@@ -12,4 +12,11 @@
   a:focus, a:hover {
     color: #ccc;
   }
+
+}
+
+@media (max-width: 991px) {
+  .footer-nologo .footer-links ul, .footer-center .footer-links ul {
+    width: auto;
+  }
 }

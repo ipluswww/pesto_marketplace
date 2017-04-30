@@ -11,10 +11,6 @@
   border-bottom: 1px dotted $border;
 }
 
-.wrapper {
-  @include wrapper;
-}
-
 .undo-mobile-wrapper-margin {
   @include undo-mobile-wrapper-margin;
 }

@@ -31,13 +31,13 @@
           .col-md-12
             .pull-left
               %h2 
-                = params[:category]
+                = localized_category_from_id(@listings.first.category_id)
             %ul.breadcrumb.pull-right
               %li
                 %a{:href => "#"} Home 
               %li  Category page 
               %li
-                = params[:category]
+                = localized_category_from_id(@listings.first.category_id)
     / End .content-header
     / Start Content-Main
     .content-main
@@ -65,13 +65,22 @@
                 / End .select_show
               / End .pull-left
               .pull-right
-                .gridlist-toggle.pull-right
-                  .call-to-action-btn.inline-block.mr-xs
-                    %a.active.btn-grid.tiny-size-icon{:href => "#", :title => "Grid View"}
-                      %i.demo-icon.pesto-icon-four
-                  .call-to-action-btn.inline-block
-                    %a.btn-list.tiny-size-icon{:href => "category_page-rightsidebar-list.html", :title => "List View"}
-                      %i.demo-icon.pesto-icon-view2
+                - if @view_type.eql?("grid")
+                  .gridlist-toggle.pull-right
+                    .call-to-action-btn.inline-block.mr-xs
+                      %a.active.btn-grid.tiny-size-icon{:href => "#{search_path(search_params.merge(view: 'grid'))}", :title => "Grid View"}
+                        %i.demo-icon.pesto-icon-four
+                    .call-to-action-btn.inline-block
+                      %a.btn-list.tiny-size-icon{:href => "#{search_path(search_params.merge(view: 'list'))}", :title => "List View"}
+                        %i.demo-icon.pesto-icon-view2
+                - else
+                  .gridlist-toggle.pull-right
+                    .call-to-action-btn.inline-block.mr-xs
+                      %a.btn-grid.tiny-size-icon{:href => "#{search_path(search_params.merge(view: 'grid'))}", :title => "Grid View"}
+                        %i.demo-icon.pesto-icon-four
+                    .call-to-action-btn.inline-block
+                      %a.active.btn-list.tiny-size-icon{:href => "#{search_path(search_params.merge(view: 'list'))}", :title => "List View"}
+                        %i.demo-icon.pesto-icon-view2
                 / End .gridlist-toggle
               / End .pull-right
             / End .category-top
@@ -105,32 +114,6 @@
                           add_listing_link: link_to(t(".add_listing_link_text"),
                           new_listing_path(ref: "add_listing_link"))).html_safe
 
-              
-            .category-bottom.clearfix
-              .pagination-container
-                .clearfix
-                  .title.pull-left
-                    %span Items 1 to 18 of 120 total
-                  %ul.pull-right.pagination.pagination-normal
-                    %li.prev.hidden
-                      %a{:href => "#", :role => "button"}
-                        %i.theme-icon.pesto-icon-left-open-big
-                    %li.active
-                      %a{:href => "#", :role => "button"} 1
-                    %li
-                      %a{:href => "#", :role => "button"} 2
-                    %li
-                      %a{:href => "#", :role => "button"} 3
-                    %li
-                      %a{:href => "#", :role => "button"} 4
-                    %li
-                      %a{:href => "#", :role => "button"} 5
-                    %li.next
-                      %a{:href => "#", :role => "button"}
-                        %i.theme-icon.pesto-icon-right-open-big
-              / End .pagination-container
-            / End .category-bottom
-          / End .col-md-9
           %aside.col-md-3.sidebar
             .panel-group.widget-category
               .panel-group-heading
@@ -532,46 +515,7 @@
                       %h2 Smart &amp; Simple
                       %p Nec dui eros aliquet tempor. Morbi id lacus at urna.
                       %button.btn.btn-borders.btn-transparent{:type => "button"} READ MORE
-                / End .item
-              / End .theme-owl-carousel
-            / End .theme-ow-carousel-wrapper
-          / End .col-md-3
-        / End .row
-      / End .wrapper
-    / End .content-main
-  / End .content
 
-
-  = render :partial => "layouts/banner"  
-  .home-products
-    .product-list-title 
-      %h2 Jewely & Watches Marketplace
-    - main_container_class = "product-container col-12"
-    %div{:class => main_container_class}
-      - if @listings.total_entries > 0
-        - if @view_type.eql?("map")
-          .home-map
-            = render :partial => "map", locals: { viewport: viewport }
-        - else
-          - if @view_type.eql?("grid")
-            %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
-              .home-fluid-thumbnail-grid
-                = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
-          - else
-            .home-listings
-              - if (location_search_in_use)
-                = render partial: "list_item_with_distance", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map, show_distance: location_search_in_use }
-              - else
-                = render partial: "list_item", collection: @listings, as: :listing, locals: { shape_name_map: shape_name_map }
-
-      - else
-        .home-no-listings
-          - if params[:q] || params[:category] || params[:share_type] # Some filter in use
-            = t(".no_listings_with_your_search_criteria")
-          - else
-            = t(".no_listings_notification",
-                  add_listing_link: link_to(t(".add_listing_link_text"),
-                  new_listing_path(ref: "add_listing_link"))).html_safe
 
 - else
   - content_for :javascript do

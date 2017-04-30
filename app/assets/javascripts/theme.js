@@ -743,7 +743,7 @@ $(document).ready(function() {
 			
 			'use strict';
 			
-            $('.browse-view-search-form').toggleClass('droped');
+            $('.dropdown-search > ul.dropdown-menu').toggleClass('droped');
         });
     }
 
@@ -773,7 +773,9 @@ $(document).ready(function() {
                         setTimeout(refreshHeader3(),400);
                     }
                 });
+                
                 $(this).find('>.dropdown-menu').toggleClass('droped');
+                $(this).find('>.toggle').toggleClass('collapsed');
                 $(this).find('.dropdown-menu .dropdown-menu.droped').removeClass('droped');
                 $(this).find('>.dropdown-table-sub-nav.droped').removeClass('droped').slideUp('slow');
             }

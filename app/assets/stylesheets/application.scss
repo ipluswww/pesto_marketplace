@@ -401,16 +401,29 @@ body.new-listing {
 	}
 
 	.listing_description_textarea {
-		height: 90px;
+		
+		height: 90px !important;
+    	width: 100%;
 	}
 
 	.feed-actions .request-link, .view-item .listing-icons a:hover, .pagination a, a, .checkbox-option-checkmark {
 	    color: #999;
 	}
 
+	label {
+		margin-top: 25px;
+		display: block;
+	}
+
+	.delivery-left-field label {
+		margin-top: 0;
+	}
+
 	legend {
 		color: #777;
 		font-size: 16px;
+		margin-top: 25px;
+		margin-bottom: 0;
 	}
 
 	button.send_button {
@@ -439,9 +452,16 @@ body.new-listing {
 		}
 	}
 
-	.header-main .header-main-nav .nav li a.hidden {
-	    display: block !important;
+	#listing_origin {
+		width: 100%;
+    	margin-bottom: 1px;
 	}
+
+	.jsmap {
+		height: 600px;
+	}
+
+
 }
 
 .category_page .category-top .gridlist-toggle {

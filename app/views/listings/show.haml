@@ -57,7 +57,8 @@
           %ul.breadcrumb.pull-right
             %li
               %a{:href => "#"} Home
-            %li Clothes
+            %li 
+              = localized_category_from_id(@listing.category_id)
             %li 
               = @listing.title
   / End .content-header

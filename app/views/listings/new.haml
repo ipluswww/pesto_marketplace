@@ -1,10 +1,10 @@
 - content_for :extra_javascript do
+  = javascript_include_tag 'application'
   :javascript
     $(document).ready(function() {
       window.ST.initialize_new_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json});
     });
 
-  = javascript_include_tag 'application'
   - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
