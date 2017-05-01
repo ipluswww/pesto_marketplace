@@ -9,7 +9,7 @@ $(document).ready(function() {
                 jsFileLocation:"vendor/revolution/js/",
                 sliderLayout:"auto",
                 dottedOverlay:"none",
-                delay:9000,
+                delay:4000,
                 navigation: {
                     keyboardNavigation:"off",
                     keyboard_direction: "horizontal",
@@ -81,7 +81,7 @@ $(document).ready(function() {
                 },
                 spinner:"spinner3",
                 stopLoop:"on",
-                stopAfterLoops:0,
+                stopAfterLoops: 6,
                 stopAtSlide:1,
                 shuffle:"off",
                 autoHeight:"on",
