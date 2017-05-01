@@ -50,7 +50,7 @@ $fluid-thumbnail-grid-margin-mobile: lines(0.5);
   .#{$prefix}-fluid-thumbnail-grid-item {
     float: left;
     padding-right: $fluid-thumbnail-grid-margin-mobile;
-    margin-bottom: $fluid-thumbnail-grid-margin-mobile;
+    margin-bottom: 30px;
     @include thumnail-grid-items-per-row(
       $tiny-mobile-rows,
       $mobile-rows,
@@ -63,7 +63,7 @@ $fluid-thumbnail-grid-margin-mobile: lines(0.5);
     );
     @include media(tablet) {
       padding-right: $fluid-thumbnail-grid-margin;
-      margin-bottom: $fluid-thumbnail-grid-margin;
+      margin-bottom: 45px;
     }
   }
 }
