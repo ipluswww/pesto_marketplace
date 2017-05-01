@@ -31,13 +31,13 @@
           .col-md-12
             .pull-left
               %h2 
-                = localized_category_from_id(@listings.first.category_id)
+                = localized_category_from_id(selected_category.id)
             %ul.breadcrumb.pull-right
               %li
-                %a{:href => "#"} Home 
+                %a{:href => "/"} Home 
               %li  Category page 
               %li
-                = localized_category_from_id(@listings.first.category_id)
+                = localized_category_from_id(selected_category.id)
     / End .content-header
     / Start Content-Main
     .content-main
