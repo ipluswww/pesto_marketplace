@@ -12,12 +12,6 @@
       .noscript-padding
         -# Noscript content will be positioned here
 
-    - if display_onboarding_topbar?
-      - props = onboarding_topbar_props
-      - unless props[:next_step] == :all_done
-        - react_component_cache(name: "onboarding_topbar", props: props) do
-          = react_component("OnboardingTopBar", props: props, prerender: true)
-
     - if FeatureFlagHelper.feature_enabled?(:topbar_v1)
       - if(search_mode != :keyword || @view_type.eql?("map"))
         - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
