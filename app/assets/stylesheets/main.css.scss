@@ -1323,17 +1323,23 @@ $noscript-height: lines(4);
     position: relative;
     display: block;
     width: 100%;
-    @include border-radius(em(5));
-    border: 2px solid $border;
+    border: 1px solid $border;
     min-height: 42px;
+    color: #444645;
+    border: 1px solid #ccc;
+    margin-bottom: lines(0.25);
+    
     &:hover {
-      background: $highlight;
+      color: #fff;
+      border: 1px solid #6cf;
+      background-color: #6cf;
+      text-decoration: none;
       cursor: pointer;
     }
-    margin-bottom: lines(0.25);
+    
     .link-text {
-      margin-left: em(15);
-      padding: em(6) 0 em(8) 0;
+      margin-left: 21px;
+      padding: em(8.5) 0 em(8) 0;
     }
   }
 
