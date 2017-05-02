@@ -135,11 +135,12 @@ header {
   }
 }
 
-.content-header.breadcrumb-header .wrapper {
-  width: auto;
-}
 
 @media (max-width: 991px) {
+  .content-header.breadcrumb-header .wrapper {
+    width: auto;
+  }
+  
   .responsive-type1 .header-main .navbar-nav li {
       clear: both;
       overflow-y: auto;
