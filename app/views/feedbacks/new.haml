@@ -11,6 +11,8 @@
 - content_for :page_script do
   <script src="/assets/vendor/jquery.gmap/jquery.gmap.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4yCiozYi-XtMSWuqUl9_x4IzVv4K_Hhc"
+  type="text/javascript"></script>
 
 - if has_admin_rights
   %p= render :partial => "layouts/info_text", :locals => { :text => t("layouts.application.dont_use_to_contact_support") }
