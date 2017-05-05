@@ -1,18 +1,179 @@
-= render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
+- content_for :page_css do 
+  :css
+    @import url(/assets/css/theme-contactus);
 
-- content_for :title, t('layouts.infos.about')
 
-- content_for :title_header do
-  %h1= t("layouts.infos.info_about_kassi")
+/ Start Content
+%section.content.aboutus
+  / Start Content-Header
+  .content-header.image-header
+    .wrapper
+      .row
+        .col-md-12
+          .image
+            %img{:alt => "loading...", :src => "/assets/img/aboutus-background.jpg"}/
+            .page-title
+              %h1.medium.font-roboto ABOUT US
+              %ol.breadcrumb
+                %li
+                  %a{:href => "#"} Home 
+                %li  About us
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .product-summary
+      .wrapper
+        .row
+          .col-md-12.text-center
+            %span.mark
+              %i.demo-icon.pesto-icon-left
+            %p.summary 
+              Hazrati is your one-stop-shop to buy and sell a range of products that inspire and amaze!
+      / End .wrapper
+    / End .product-summary
+    .product-functions
+      .wrapper
+        .row
+          .col-md-6
+            .product-function
+              .function-mark
+                %span
+                  %i.pesto-icon-analytics
+              .function-comment
+                %h2.small.font-roboto Our Mission
+                %p
+                  Our mission is to be the ultimate destination for buyers and sellers all over the world by allowing them to find unique range of products, discover great value, and receive support sellers need to grow their businesses and thrive. For more information about our services, please contact us
+            / End .product-function
+            .product-function
+              .function-mark
+                %span
+                  %i.demo-icon.pesto-icon-settings
+              .function-comment
+                %h2.small.font-roboto Shop for Unique Jewelry and Watch
+                %p
+                  Find flea markets, boutiques, and craft fairs, all on Hazrati. Discover craft supplies, handmade jewelry and watches, and vintage goods, all in one place. Get accurate recommendations for jewelry and watches, based on your taste and preferences.
+            / End .product-function
+          .col-md-6
+            .product-function
+              .function-mark
+                %span
+                  %i.demo-icon.pesto-icon-eye
+              .function-comment
+                %h2.small.font-roboto Our Vision
+                %p Hazrati’s vision is simple: to create an online marketplace that connects customers with passionate and professional makers of goods and supplies. We want to help people find the unique goods, gifts, and objects they can’t find in traditional brick-and-mortar stores and other online e-commerce shops.
+            / End .product-function
+            .product-function
+              .function-mark
+                %span
+                  %i.demo-icon.pesto-icon-setting
+              .function-comment
+                %h2.small.font-roboto Craftsmen
+                %p
+                  Apart from the usual buying and selling services, Hazrati also offers excellent repairing services. We provide a place online where you can easily connect with trustworthy craftsmen, who can repair anything, from luxury jewelry to watches.
+                %p
+                  After all, every person tries their best to retain jewelry and watches for a long period of time. They need to get these jewelry and watches repaired, resized, re-polished, etc.
 
-.left-navi-section.about-section
-  = render :layout => "layouts/mercury_editable_page", :locals => { :content_type => "about_page_content" } do
-    - if @community_customization && @community_customization.about_page_content
-      - content = @community_customization.about_page_content.html_safe
-    - else
-      - content = render :partial => "default_about_page"
+            / End .product-function
+          / End .col-md-6
+        / End row
+      / End .wrapper
+    / End .product-fuctions
+    .short-about-us
+      .wrapper
+        .row
+          .col-md-7.col-sm-6
+            .image-comments
+              %h2.font-roboto.large SHORTLY ABOUT US
+              .explanation.type1
+                %p
+                  Founded in 2015, Hazrati is a buyer and seller marketplace that is powered by a global community of vintage collectors, independent artists, and product makers, based in New York. Need a product to sell or buy? Look no further and shop for the most inspiring, amazing and unique products that can’t be found anywhere else.
+                %p
+                  So, what makes us so special? Why should you buy or sell your products here? When you buy something from Hazrati, you are supporting an individual seller, who manages the creation process from conception, all the way to packaging and shipping the product to your home. Buyers can find plenty of sellers, and sellers can find other sellers and buyers.
+                .quote
+                  %span
+                    %i.demo-icon.pesto-icon-left
+                  %p
+                    %i
+                      From buying one-of-a-kind to trendy, rare or commonplace, luxurious or plain, used or new, if the Jewelry or Watch related item exists on this planet, you can find it for sale at a reasonable price here on Hazrati.
+                %p Hazrati is a global community that supports local economies by connecting to global markets. We empower people to sell their products and create opportunities for buyers to purchase products at the best prices. This is why we stay true to delivering value to our customers and clients all over the world.
+          .col-md-5.col-sm-6
+            .image
+              %img{:alt => "", :src => "/assets/aboutus/short-about-us-410.jpg"}/
+          / End .col-md-5
+        / End .row
+      / End .wrapper
+    / End .short-about-us
+    .team
+      .wrapper
+        .row.text-center
+          %h4.medium.font-roboto MEET OUR TEAM
+          .col-md-3.col-sm-6
+            .member.flipInX.wow{"data-wow-duration" => "500ms"}
+              .image
+                %img{:alt => "member1", :src => "/assets/img/member1.png"}/
+              .image-comment
+                %span.name
+                  WALTER MARTIN
+                %span.role.font-roboto
+                  CEO
+            / End .member
+          / End .col-md-3
+          .col-md-3.col-sm-6
+            .member.flipInX.wow{"data-wow-duration" => "500ms"}
+              .image
+                %img{:alt => "member2", :src => "/assets/img/member2.png"}/
+              .image-comment
+                %span.name
+                  HUNTER GONZALES
+                %span.role.font-istok President
+            / End .member
+          / End .col-md-3
+          .col-md-3.col-sm-6
+            .member.flipInX.wow{"data-wow-duration" => "500ms"}
+              .image
+                %img{:alt => "member3", :src => "/assets/img/member3.png"}/
+              .image-comment
+                %span.name
+                  CHRISTINE PETERSON
+                %span.role.font-istok Commercial Director
+            / End .member
+          / End .col-md-3
+          .col-md-3.col-sm-6
+            .member.flipInX.wow{"data-wow-duration" => "500ms"}
+              .image
+                %img{:alt => "member4", :src => "/assets/img/member4.png"}/
+              .image-comment
+                %span.name AIDEN BROWN
+                %span.role.font-istok Chief Financial Officer
+            / End .member
+          / End .col-md-3
+        / End .row
+      / End .wrapper
+    / End .team
+  / End .wrapper
+  / Start Content-Footer
+  .content-footer
+    .wrapper
+      .row
+        .col-md-4.text-center.location.fadeInUp.wow{"data-wow-duration" => "500ms"}
+          %a.fs-xxl.pt-sm.pb-sm{:href => "#"}
+            %i.demo-icon.pesto-icon-gps
+          %h4 OUR LOCATION
+          %div 62W 47th Street #904A
+          %div New York NY 10036
+        .col-md-4.text-center.details.fadeInUp.wow{"data-wow-duration" => "500ms"}
+          %a{:href => "#"}
+            %i.demo-icon.pesto-icon-email
+          %h4 CONTACT DETAILS
+          %div Email: hazratigmail.com
+          %div Skype: hazrati
+        .col-md-4.text-center.phone.fadeInUp.wow{"data-wow-duration" => "500ms"}
+          %a.fs-xxl.pt-sm.pb-sm{:href => "#"}
+            %i.demo-icon.pesto-icon-telephone
+          %h4 CONTACT US
+          %div Phone: 1 - 888 - 339 - 0277
+          %div Mobile: 0203 - 478 - 12 - 96
+    / End .wrapper
+  / End Content-footer
+/ End .content
 
-    - content_for :meta_description, StringUtils.first_words(strip_tags(content.html_safe))
-    - content_for :keywords, StringUtils.keywords(strip_tags(content.html_safe))
-
-    - content
