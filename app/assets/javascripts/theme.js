@@ -580,6 +580,18 @@ $(document).ready(function() {
     setSelect();
     setSlider();
 
+    $('.new_person .btn-continue').on('click', function(event) {
+        var $pass = $('#person_password1').val();
+        var $pass_confirm = $('#person_password2').val();
+
+        if ($pass == $pass_confirm) {
+            return;
+        }
+
+        event.preventDefault();
+        alert('Please re-enter password');
+    });
+
     //Calcualte height of left-sidebar header when left-sidebar header is clicked
     $('.left-sidebar .header-body.fixed-bottom *').on('click',function(){
 		

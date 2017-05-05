@@ -53547,9 +53547,6 @@
 	// logout => (/:locale)/logout(.:format)
 	  // function(options)
 	  logout_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"logout",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
-	// mail_preview => /mail_view
-	  // function(options)
-	  mail_preview_path: Utils.route([], [], [2,[7,"/",false],[6,"mail_view",false]], {}),
 	// menu_links_admin_community => (/:locale)/admin/communities/:id/menu_links(.:format)
 	  // function(id, options)
 	  menu_links_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"menu_links",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -53835,18 +53832,6 @@
 	// promote_admin_admin_community_community_memberships => (/:locale)/admin/communities/:community_id/community_memberships/promote_admin(.:format)
 	  // function(community_id, options)
 	  promote_admin_admin_community_community_memberships_path: Utils.route(["community_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"community_id",false],[2,[7,"/",false],[2,[6,"community_memberships",false],[2,[7,"/",false],[2,[6,"promote_admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
-	// rails_info => /rails/info(.:format)
-	  // function(options)
-	  rails_info_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"info",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
-	// rails_info_properties => /rails/info/properties(.:format)
-	  // function(options)
-	  rails_info_properties_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"info",false],[2,[7,"/",false],[2,[6,"properties",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
-	// rails_info_routes => /rails/info/routes(.:format)
-	  // function(options)
-	  rails_info_routes_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"info",false],[2,[7,"/",false],[2,[6,"routes",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
-	// rails_mailers => /rails/mailers(.:format)
-	  // function(options)
-	  rails_mailers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"rails",false],[2,[7,"/",false],[2,[6,"mailers",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
 	// received_person_messages => (/:locale)/:person_id/messages/received(.:format)
 	  // function(person_id, options)
 	  received_person_messages_path: Utils.route(["person_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"messages",false],[2,[7,"/",false],[2,[6,"received",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
@@ -53862,6 +53847,9 @@
 	// resend_verification_email_admin_community => (/:locale)/admin/communities/:id/resend_verification_email(.:format)
 	  // function(id, options)
 	  resend_verification_email_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"resend_verification_email",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// return_and_refund_policy => (/:locale)/return-and-refund-policy(.:format)
+	  // function(options)
+	  return_and_refund_policy_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"return-and-refund-policy",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// s => /s(.:format)
 	  // function(options)
 	  s_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"s",false],[1,[2,[8,".",false],[3,"format",false]],false]]], {}),

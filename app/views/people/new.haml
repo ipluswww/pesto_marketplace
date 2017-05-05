@@ -28,13 +28,13 @@
                 .row.pt-xlg.mt-sm
                   .col-md-12.input-field
                     %label ENTER YOUR FIRST NAME*
-                    = form.text_field :given_name, :class => "form-control", :id => "first_name", :maxlength => "30"
+                    = form.text_field :given_name, :class => "form-control", :required => "required", :id => "first_name", :maxlength => "30"
                   .col-md-12.input-field
                     %label ENTER YOUR LAST NAME*
-                    = form.text_field :family_name, :class => "form-control", :id => "last_name", :maxlength => "30"
+                    = form.text_field :family_name, :class => "form-control", :required => "required", :id => "last_name", :maxlength => "30"
                   .col-md-12.input-field
                     %label ENTER YOUR E-MAIL*
-                    = form.text_field :email, :class => "form-control", :id => "detail_email", :maxlenght => "255"
+                    = form.text_field :email, :class => "form-control", :required => "required", :id => "detail_email", :maxlenght => "255"
 
             .col-md-6
               .your-password
@@ -42,13 +42,13 @@
                 .row.pt-one-40
                   .col-md-12.input-field
                     %label ENTER YOUR UER NAME*
-                    = form.text_field :username, :maxlength => "20", :class => "form-control", :id => "person_username1"
+                    = form.text_field :username, :maxlength => "20", :class => "form-control", :required => "required", :id => "person_username1"
                   .col-md-12.input-field
                     %label ENTER YOUR PASSWORD*
-                    = form.password_field :password, :class => "form-control", :maxlength => "255", :id => "person_password1"
+                    = form.password_field :password, :class => "form-control", :maxlength => "255", :required => "required", :id => "person_password1"
                   .col-md-12.input-field
                     %label ENTER YOUR PASSWORD*
-                    = form.password_field :password2, :class => "form-control", :maxlength => "255"
+                    = form.password_field :password2, :class => "form-control", :required => "required", :maxlength => "255"
 
           .register_account_row.row
             .col-md-6
@@ -58,18 +58,18 @@
                 .row.pt-xlg
                   .col-md-12.checkbox-field.pt-one-14
                     .inputbox-type1
-                      %input.smart_input{:type => "checkbox"}/
+                      %input.smart_input{:type => "checkbox",}/
                       .input-skin
                         %i.visible-checked.theme-icon.pesto-icon-ok
                     %label I wish to subscribe to the Hazrati Shop newsletter.
                   .col-md-12.checkbox-field.mt-one-29
                     .inputbox-type1
-                      %input.smart_input{:type => "checkbox"}/
+                      %input.smart_input{:type => "checkbox",  :required => "required"}/
                       .input-skin
                         %i.visible-checked.theme-icon.pesto-icon-ok
                     %label
                       I have reed and agree to the
-                      %a.action-privacy{:href => "#"} Privacy Policy.
+                      %a.action-privacy{:href => "/infos/terms"} Privacy Policy.
                   .col-md-12.action-field
                     %button.btn-default.btn-continue{:type => "submit"} CONTINUE
               / End .your-newsletter
