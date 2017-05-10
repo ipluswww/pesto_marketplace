@@ -1,5 +1,6 @@
 = render :partial => 'layouts/head'
 - body_class = @body_class_name ? @body_class_name : '';
+- is_default_page = true
 %body{:class => body_class}
 
   #sidewinder-wrapper
@@ -80,7 +81,9 @@
     = render :partial => "layouts/global_footer"
 
     = render :partial => "layouts/noscript"
-    = render :partial => "layouts/online_script"
+    - if is_default_page
+      = render :partial => "layouts/online_script"
     = yield :page_script
-    = javascript_include_tag 'theme.js'
+    - if is_default_page
+      = javascript_include_tag 'theme.js'
     

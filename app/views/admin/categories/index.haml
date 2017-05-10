@@ -1,7 +1,10 @@
 - content_for :title_header do
   .browse-view-search-form
     = render partial: "homepage/search_bar"
-
+- content_for :page_script do
+  = javascript_include_tag 'application'
+  :javascript
+    window.ST.initializeCategoriesOrder();
 / Start Content
 %section.content
   / Start Content-Header
