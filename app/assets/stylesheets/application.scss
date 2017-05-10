@@ -24,6 +24,16 @@
 	border-radius: 0;
 }
 
+body.admin.categories-new {
+	label {
+		display: block;
+	}
+
+	.row {
+		margin-bottom: 30px;
+	}
+}
+
 body.category_page {
 	.wrapper-fulid {
 	

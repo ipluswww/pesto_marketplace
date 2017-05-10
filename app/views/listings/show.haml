@@ -81,9 +81,10 @@
                           
                     / End .item
                     .item
-                      %img{:alt => "", :src => listing_images.second.image.url(:big)}/
-                      .image-over-comment
-                        %div
+                      - if listing_images.second
+                        %img{:alt => "", :src => listing_images.second.image.url(:big)}/
+                        .image-over-comment
+                          %div
                           
             
               - else

@@ -392,7 +392,10 @@ label.radiobutton {
 
 .cancel-button {
   @include button($aside);
-  margin-left: lines(0.25);
+  margin: 0;
+  padding: 10px 15px;
+  text-decoration: none !important;
+  border-radius: 0;
 }
 
 .delete-button {
