@@ -4,6 +4,21 @@ header {
     padding: 0;
   }
 
+  &.header-normal .header-main .header-main-nav .navbar-right .dropdown-menu a {
+    white-space: normal;
+  }
+
+  @media (min-width: 992px) {
+    .header-main .classic .dropdown-menu a {
+        padding: 13px 20px !important;
+    }
+
+    .header-main #main-nav > nav > ul.nav > li:last-child > ul {
+      left: initial;
+      right: 0;
+    }
+  }
+
   @media (min-width: 1200px) {
     .wrapper {
         margin: 0 40px;
@@ -137,6 +152,10 @@ header {
 
 
 @media (max-width: 991px) {
+  
+  .fixed-top {
+    position: absolute !important;
+  }
   .content-header.breadcrumb-header .wrapper {
     width: auto;
   }
