@@ -7,9 +7,10 @@
   - content_for :page_css do 
     :css
         @import url(https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css);
-        @import url(/assets/vendor/bootstrap-select/css/bootstrap-select.min.css);
-        @import url(/assets/vendor/owlcarousel/owl.carousel.css);
-        @import url(/assets/vendor/owlcarousel/css/animate.css);
+     
+    = stylesheet_link_tag "vendor/bootstrap-select/css/bootstrap-select.min.css"
+    = stylesheet_link_tag "vendor/owlcarousel/owl.carousel.css"
+    = stylesheet_link_tag "vendor/owlcarousel/css/animate.css"
 
 
   - content_for :title_header do
@@ -525,10 +526,9 @@
     = "without-text"
 
   - content_for :page_css do 
-    :css
-        @import url(/assets/vendor/revolution/css/settings.css);
-        @import url(/assets/vendor/revolution/css/layers.css);
-        @import url(/assets/vendor/revolution/css/navigation.css);
+    = stylesheet_link_tag "vendor/revolution/css/settings.css"
+    = stylesheet_link_tag "vendor/revolution/css/layers.css"
+    = stylesheet_link_tag "vendor/revolution/css/navigation.css"
 
   - content_for :page_script do
     = javascript_include_tag 'vendor/revolution/js/jquery.themepunch.tools.min'

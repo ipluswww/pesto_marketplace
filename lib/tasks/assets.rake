@@ -35,4 +35,19 @@ namespace :assets do
     # Remove routes
     rm_r Dir.glob(Rails.root.join("client/app/routes/*"))
   end
+
+  desc "Create symlinks without cache busting digest"
+  task :create_symlinks_without_digest => :environment do
+    Dir.glob(Rails.root.join('public', 'assets', '**', '*')).each do |item|
+      if File.file?(item) && item.match(/-[a-f0-9]{32}/)
+        FileUtils.ln_s Pathname(item).basename, item.sub(/-[a-f0-9]{32}/, '')
+      end
+    end
+
+    Dir.glob(Rails.root.join('public/assets/vendor/revolution/css/*')).each do |item|
+      if File.file?(item) && item.match(/-[a-f0-9]{32}/)
+        FileUtils.ln_s Pathname(item).basename, item.sub(/-[a-f0-9]{32}/, '')
+      end
+    end
+  end
 end

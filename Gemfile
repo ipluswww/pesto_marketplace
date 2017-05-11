@@ -195,3 +195,4 @@ gem 'intercom', '~> 3.5.10'
 # daemon
 
 gem "daemons"
+gem "non-stupid-digest-assets"
