@@ -193,6 +193,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
+    eventmachine (1.0.9.1)
     execjs (2.7.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
@@ -490,6 +491,10 @@ GEM
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     thinking-sphinx (3.1.4)
       activerecord (>= 3.1.0)
       builder (>= 2.1.2)
@@ -623,6 +628,7 @@ DEPENDENCIES
   statesman (~> 1.3.1)
   stringex (~> 2.5.2)
   therubyracer (~> 0.12.2)
+  thin
   thinking-sphinx (~> 3.1.1)
   timecop (~> 0.6.3)
   transit-ruby (~> 0.8)
