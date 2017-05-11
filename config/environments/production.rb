@@ -125,4 +125,5 @@ Kassi::Application.configure do
 
   # We don't need schema dumps in this environment
   config.active_record.dump_schema_after_migration = false
+  config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
 end
