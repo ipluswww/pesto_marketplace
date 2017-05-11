@@ -10,9 +10,6 @@
 
 development:
   # Add local `development` environment configuration overrides here
-  mail_delivery_method: smtp
-  smtp_email_address: "localhost"
-  smtp_email_port: 25
 
 test:
   # Add local `test` environment configuration overrides here
