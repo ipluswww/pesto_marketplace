@@ -1,10 +1,9 @@
 - content_for :javascript do
   initialize_listing_view('#{I18n.locale}');
 - content_for :page_css do
-  :css
-    @import url(/assets/vendor/easy-responsive-tabs/css/easy-responsive-tabs.css);
-    @import url(/assets/vendor/owlcarousel/owl.carousel.css);
-    @import url(/assets/vendor/owlcarousel/css/animate.css);
+  = stylesheet_link_tag "vendor/easy-responsive-tabs/css/easy-responsive-tabs.css"
+  = stylesheet_link_tag "vendor/owlcarousel/owl.carousel.css"
+  = stylesheet_link_tag "vendor/owlcarousel/css/animate.css"
 
 - content_for :extra_javascript do
   :javascript
@@ -22,8 +21,8 @@
 - content_for :meta_image_width, dimensions[:width].to_s if !@listing.listing_images.empty?
 - content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
 - content_for :keywords, StringUtils.keywords(@listing.title)
-- content_for :page_script do 
-  = javascript_include_tag 'application'
+- content_for :page_script do
+
   = javascript_include_tag 'vendor/easy-responsive-tabs/js/easyResponsiveTabs'
 
 - content_for :title_header do

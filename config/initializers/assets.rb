@@ -19,7 +19,10 @@ Rails.application.config.assets.precompile << "server-bundle.js"
 
 Rails.application.config.assets.precompile += ["main.js", 
 	"vendor/owlcarousel/owl.carousel.min.js", 
+	"vendor/owlcarousel/owl.carousel.css",
+	"vendor/owlcarousel/css/animate.css",
 	"vendor/bootstrap-select/bootstrap-select.min.js", 
+	"vendor/bootstrap-select/css/bootstrap-select.min.css",
 	"vendor/bootstrap/css/bootstrap.min.css",
 	"vendor/revolution/js/jquery.themepunch.tools.min.js",
 	"vendor/revolution/js/jquery.themepunch.revolution.min.js",
