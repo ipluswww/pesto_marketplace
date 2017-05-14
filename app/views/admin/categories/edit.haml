@@ -2,6 +2,43 @@
   initialize_admin_category_form_view("#{I18n.locale}", "#edit_category_#{@category.id}");
   ST.initializeCategoriesSelectionClickHandlers();
 
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  :javascript
+    initialize_admin_category_form_view("#{I18n.locale}", "#edit_category_#{@category.id}");
+    ST.initializeCategoriesSelectionClickHandlers();
+
 - content_for :title_header do
   %h1
     = t("layouts.admin.admin")
@@ -17,7 +54,7 @@
         .col-md-12
           .pull-left
             %h2 
-              = t(".listing_categories")
+              = t(".edit_listing_category", :category => @category.display_name(I18n.locale))
           %ul.breadcrumb.pull-right
             %li
               %a{:href => "#"} Home 

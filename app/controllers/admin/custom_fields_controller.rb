@@ -162,6 +162,7 @@ class Admin::CustomFieldsController < Admin::AdminBaseController
   def edit
     @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "listing_fields"
+    @body_class_name          = "admin custom-fields-edit"
     @community = @current_community
 
     if params[:field_type] == "CheckboxField"

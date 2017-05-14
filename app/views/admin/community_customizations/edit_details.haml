@@ -51,7 +51,7 @@
 
             .row
               .col-12
-                = button_tag t("admin.communities.edit_details.save")
+                = button_tag t("admin.communities.edit_details.save"), :class => "btn btn-default mt-one-45"
 
 
         = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

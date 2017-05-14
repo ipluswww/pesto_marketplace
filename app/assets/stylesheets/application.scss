@@ -24,7 +24,9 @@
 	border-radius: 0;
 }
 
-body.admin.categories-new {
+body.admin.categories-new,
+body.admin.categories-edit,
+body.admin.custom-fields-create {
 	label {
 		display: block;
 	}
@@ -32,6 +34,61 @@ body.admin.categories-new {
 	.row {
 		margin-bottom: 30px;
 	}
+}
+
+body.admin.custom-fields-new {
+	label {
+		display: block;
+
+		&.custom-field-category-checkbox-label {
+			display: inline;
+		}
+	}
+
+	.row {
+		margin-bottom: 13px;
+	}
+
+	form .checkbox-container input[type=checkbox] {
+        top: 0;
+	}
+
+	.custom-field-categories-checkbox-container, .category-listing-shapes-checkbox-container {
+    	min-width: 290px;
+    	margin-left: 10px;
+    }
+
+    .add-custom-field-buttons {
+    	margin-top: 40px;
+    }
+}
+
+
+body.admin.custom-fields-edit {
+	label {
+		display: block;
+
+		&.custom-field-category-checkbox-label {
+			display: inline;
+		}
+	}
+
+	.row {
+		margin-bottom: 13px;
+	}
+
+	form .checkbox-container input[type=checkbox] {
+        top: 0;
+	}
+
+	.custom-field-categories-checkbox-container, .category-listing-shapes-checkbox-container {
+    	min-width: 290px;
+    	margin-left: 10px;
+    }
+
+    .add-custom-field-buttons {
+    	margin-top: 40px;
+    }
 }
 
 body.category_page {
