@@ -32,6 +32,7 @@ class TransactionsController < ApplicationController
   )
 
   def new
+    @body_class_name         = "transction-new"
     Result.all(
       ->() {
         fetch_data(params[:listing_id])

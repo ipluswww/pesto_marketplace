@@ -13,14 +13,17 @@ class FreeTransactionsController < ApplicationController
     .with_validations { validates_presence_of :content, :listing_id }
 
   def new
+    @body_class_name         = "free_transactions new"
     render_contact_form
   end
 
   def contact
+    @body_class_name         = "free_transactions contact"
     render_contact_form
   end
 
   def create_contact
+    @body_class_name         = "free_transactions create_ontact"
     contact_form = new_contact_form(params[:listing_conversation])
 
     if contact_form.valid?

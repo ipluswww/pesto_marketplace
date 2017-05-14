@@ -24,6 +24,25 @@
 	border-radius: 0;
 }
 
+body.transction-new {
+	#message {
+	    width: 100%;
+	    height: 111px;
+	}
+}
+
+body.free_transactions.contact {
+	label {
+		display: block;
+	}
+
+	#listing_conversation_content {
+		display: block;
+		height: 111px;
+		width: 100%;
+	}
+}
+
 body.admin.categories-new,
 body.admin.categories-edit,
 body.admin.custom-fields-create {

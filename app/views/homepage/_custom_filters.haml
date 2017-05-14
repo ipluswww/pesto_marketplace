@@ -2,20 +2,26 @@
 
   - field.with_type do |type|
     - if [:dropdown, :checkbox].include?(type)
-      .row
-        .col-12
-          .custom-filter-title
+      .panel-group.widget-color
+        .panel-group-heading
+          .title
             = field.name(I18n.locale)
-          - make_scrollable = field.options.size > 10
-          .custom-filter-options{:class => make_scrollable ? "scrollable" : ""}
+            %a.toggle{"data-object" => "colorwidget", "data-toggle" => "collapse", :href => "#widget" + field.name}
+              %i.visible-collapsed.pesto-icon-up-open-mini
+              %i.visible-opened.pesto-icon-down-open-mini
+        .panel-group-body.panel-collapse.collapse.in{:id => "widget" + field.name, "aria-labelledby" => "headingOne", :role => "tabpanel"}
+          %ul.checkbox-list
             - field.options.sort.each do |option|
-              .custom-filter-checkbox-container
-                %label.custom-filter-checkbox-label
-                  - param_name = type == :dropdown ? CustomFieldSearchParams.dropdown_param_name(option.id) : CustomFieldSearchParams.checkbox_param_name(option.id)
-                  = check_box_tag param_name, "#{option.id}", params[param_name]
-                  %span.custom-filter-checkbox-label-text
-                    = option.title(I18n.locale)
-
+              %li
+                - param_name = type == :dropdown ? CustomFieldSearchParams.dropdown_param_name(option.id) : CustomFieldSearchParams.checkbox_param_name(option.id)
+                .input-container
+                  = check_box_tag param_name, "#{option.id}", params[param_name],  class: 'smart_input'
+                  .input-skin
+                    %i.visible-unchecked.theme-icon.pesto-icon-circle-empty
+                    %i.visible-checked.theme-icon.pesto-icon-ok
+                .inline-block.input-text
+                  = option.title(I18n.locale)
+                  %span.color-count
   - field.with(:numeric) do
     - min_param = CustomFieldSearchParams.numeric_min_param_name(field.id)
     - max_param = CustomFieldSearchParams.numeric_max_param_name(field.id)

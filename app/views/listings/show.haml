@@ -111,7 +111,9 @@
                 %ins
                 = humanized_money_with_symbol(@listing.price).upcase
                 
-            
+            #listing-message-links
+              = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type, country_code: country_code, blocked_dates_end_on: blocked_dates_end_on, blocked_dates_result: blocked_dates_result, manage_availability_props: manage_availability_props, availability_enabled: availability_enabled }
+
             .listing-author
               .listing-author-avatar
                 = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
@@ -171,7 +173,7 @@
                 %li
                   %input.qty{:type => "text", :value => "1"}/
                 %li
-                  %a.btn.btn-md{:href => form_path} Buy This Product
+                  %button.btn.btn-md.enabled-book-button Buy This Product
                 %li
                   %a.icon-button.small{:href => "#"}
                     %i.theme-icon.pesto-icon-loving

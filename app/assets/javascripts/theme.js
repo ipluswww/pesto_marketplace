@@ -511,8 +511,8 @@ function setSlider()
 			'use strict';
 			
             var $start_value, $end_value;
-            $start_value 	= 250;
-            $end_value 		= 750;
+            $start_value 	= $("#price_min").val();
+            $end_value 		= $("#price_max").val();
 
             $(this).slider({
                 range: true,
@@ -520,13 +520,13 @@ function setSlider()
                 max: 1000,
                 values: [ $start_value, $end_value ],
                 slide: function( event, ui ) {
-                    $( ".amount-start", $(this).parent(), $(this).parent() ).val('$'+ui.values[ 0 ]);
-                    $( ".amount-end", $(this).parent() ).val('$'+ui.values[ 1 ]);
+                    $( ".amount-start", $(this).parent()).val('$'+ui.values[ 0 ]);
+                    $( ".amount-end", $(this).parent()).val('$'+ui.values[ 1 ]);
+                    $( "#price_min", $(this).parent()).val(ui.values[ 0 ]);
+                    $( "#price_max", $(this).parent()).val(ui.values[ 1 ]);
                 }
             });
-
-            $(".amount-start", $(this).parent()).val('$'+$(this).slider( "values", 0 ));
-            $( ".amount-end", $(this).parent()).val('$'+$(this).slider( "values", 1 ));	
+           
         });
 
         $('.slider-default').each(function(){

@@ -8,6 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    @body_class_name         = "conversations_show"
     conversation_id = params[:id]
 
     conversation = MarketplaceService::Conversation::Query.conversation_for_person(
