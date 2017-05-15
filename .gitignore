@@ -28,7 +28,7 @@ public/system/wide_logos/
 .project
 cg.sh
 public/assets/
-public/assets/webpack/*
+app/assets/webpack
 app/assets/webfonts/
 app/assets/stylesheets/customizations-*
 app/assets/stylesheets/custom-style-*
