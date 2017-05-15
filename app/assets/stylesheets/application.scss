@@ -140,6 +140,29 @@ body.category_page {
 	.category-bottom {
 		margin-top: 45px;
 	}
+
+	h4 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.product .image {
+	    border: 1px solid #eee;
+	}
+
+	.grid-item .image img {
+		@media (min-width: 992px) {
+	    	height: 270px;
+	    }
+	}
+
+	.home-products.wrapper {
+		.grid-item .image img {
+		    @media (min-width: 992px) {
+		    	height: 356px;
+		    }
+		}
+	}
 }
 
 body.info {

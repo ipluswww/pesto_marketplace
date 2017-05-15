@@ -93,9 +93,8 @@
                     = render :partial => "map", locals: { viewport: viewport }
                 - else
                   - if @view_type.eql?("grid")
-                    %div{class: @category_menu_enabled ? "home-fluid-thumbnail-grid-narrow" : "home-fluid-thumbnail-grid-wide"}
-                      .home-fluid-thumbnail-grid
-                        = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
+                    %div{class: "row grid"}
+                      = render partial: "grid_item", collection: @listings, as: :listing, locals: { show_distance: location_search_in_use }
                   - else
                     .home-listings
                       - if (location_search_in_use)
@@ -144,54 +143,7 @@
                 .mt-lg
                   %button.btn.btn-ok.btn-borders.btn-transparent.mr-sm{:type => "submit"} OK
                   %button.btn.btn-clear.btn-borders.btn-transparent.mr-xs{:type => "button"} CLEAR
-              / End #pricewidget
-            / End .panel-group
-            .panel-group.widget-bestsellers
-              .panel-group-heading
-                .title
-                  BESTSELLERS
-                  %a.toggle{"data-object" => "bestsellerswidget", "data-toggle" => "collapse", :href => "#bestsellerswidget"}
-                    %i.visible-collapsed.pesto-icon-up-open-mini
-                    %i.visible-opened.pesto-icon-down-open-mini
-                / End .title
-              / End .panel-group-heading
-              #bestsellerswidget.panel-group-body.panel-collapse.collapse.in
-                .bestseller-post
-                  .bestseller-item
-                    .image
-                      %a{:href => "product.html"}
-                        %img{:alt => "loading", :src => "/assets/img/category/100x116/bestseller1.jpg"}/
-                    .image-comment
-                      .title-box
-                        %p.title Black puplum waist tie kudu dress
-                      .price-box
-                        %p.price $478.00
-                  / End .bestseller-item
-                  .bestseller-item
-                    .image
-                      %a{:href => "product.html"}
-                        %img{:alt => "loading", :src => "/assets/img/category/100x116/bestseller2.jpg"}/
-                    .image-comment
-                      .title-box
-                        %p.title Pale pink and black buttoned dress
-                      .price-box
-                        %p.price
-                          $180.00 
-                          %span.oldprice $250.00
-                  / End .bestseller-item
-                  .bestseller-item
-                    .image
-                      %a{:href => "product.html"}
-                        %img{:alt => "loading", :src => "/assets/img/category/100x116/bestseller3.jpg"}/
-                    .image-comment
-                      .title-box
-                        %p.title Shetland Wool Full Zip Sweater
-                      .price-box
-                        %p.price $478.00
-                  / End .bestseller-item
-                / End
-              / End #bestsellerswidget
-            / End .panel-group
+            
             .theme-ow-carousel-wrapper.advertising
               .theme-owl-carousel.owl-carousel.owl-theme
                 .item
@@ -265,7 +217,7 @@
   - else
 
     = render :partial => "layouts/banner"  
-    .home-products
+    .home-products.wrapper
       .product-list-title 
         %h2 Jewely & Watches Marketplace
       - main_container_class = "product-container col-12"
