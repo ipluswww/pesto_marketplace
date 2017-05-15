@@ -1,5 +1,11 @@
 - content_for :title_header do
   %h1= t(".edit_listing")
+- content_for :map_js do
+  :javascript
+    $(document).ready(function() {
+      var source = "listing_origin";
+      googlemapMarkerInit('listing_map_canvas',"listing_origin_loc_attributes","listing_origin",true, #{tribe_latitude}, #{tribe_longitude});
+    });
 
 - content_for :extra_javascript do
   :javascript
@@ -8,10 +14,47 @@
     });
 
 - content_for :extra_javascript do
-  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+  - maps_key = "AIzaSyA4yCiozYi-XtMSWuqUl9_x4IzVv4K_Hhc"
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
+
+
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  = yield :extra_javascript;
+  = yield :map_js;
 
 / Start Content
 %section.content
@@ -21,17 +64,17 @@
       .row
         .col-md-12
           .pull-left
-            %h2 Add A New Product
+            %h2 Edit Product
           %ul.breadcrumb.pull-right
             %li
               %a{:href => "#"} Home 
-            %li  Post a new listing
+            %li  Edit Product
   / End .content-header
   / Start Content-Main
   .content-main
     .wrapper
       .pt-one-41
-        #new_listing_form.new-listing-form.centered-section
+        #new_listing_form.new-listing-form
 
           #selected-groups
 

@@ -388,6 +388,7 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @body_class_name         = "listing edit-listing"
     @selected_tribe_navi_tab = "home"
     unless @listing.origin_loc
         @listing.build_origin_loc()

@@ -19,7 +19,6 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require jquery
 //= require jquery-ui-1.9.2.custom
 //= require jquery_ujs
 //= require jquery.form
@@ -75,7 +74,6 @@
 //= require range_filter
 //= require translations
 //= require image_uploader
-//= require image_carousel
 //= require thumbnail_stripe
 //= require listing
 //= require listing_images

@@ -1,3 +1,7 @@
 - question_name = custom_field_value.question.name(I18n.locale)
-%b= "#{question_name}:"
-= custom_field_value.display_value
+%tr
+  %td 
+    = "#{question_name}"
+  %td 
+    = custom_field_value.display_value
+

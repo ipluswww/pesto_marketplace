@@ -8,7 +8,7 @@
 - content_for :extra_javascript do
   :javascript
     window.ST.listing();
-  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+  - maps_key = "AIzaSyA4yCiozYi-XtMSWuqUl9_x4IzVv4K_Hhc"
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
@@ -24,6 +24,41 @@
 - content_for :page_script do
 
   = javascript_include_tag 'vendor/easy-responsive-tabs/js/easyResponsiveTabs'
+
+- content_for :page_second_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  = yield :extra_javascript;
 
 - content_for :title_header do
   .browse-view-search-form
@@ -96,12 +131,6 @@
                           - else
                             = t(".no_description")
 
-            - @listing.custom_field_values.each do |custom_field_value|
-              .row
-                .col-12
-                  - custom_field_value.with_type do |question_type|
-                    = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
-
           .product-summary
             .clearfix
               %h1.pull-left 
@@ -114,7 +143,7 @@
             #listing-message-links
               = render :partial => "listing_actions", locals: { form_path: form_path, payment_gateway: payment_gateway, delivery_opts: delivery_opts, process: process, listing_unit_type: listing_unit_type, country_code: country_code, blocked_dates_end_on: blocked_dates_end_on, blocked_dates_result: blocked_dates_result, manage_availability_props: manage_availability_props, availability_enabled: availability_enabled }
 
-            .listing-author
+            .listing-author.mt-one-15
               .listing-author-avatar
                 = medium_avatar_thumb(@listing.author, {:class => "listing-author-avatar-image"})
               .listing-author-details
@@ -122,64 +151,10 @@
                   = link_to PersonViewUtils.person_display_name(@listing.author, @current_community), @listing.author, :id => "listing-author-link", :class => "listing-author-name-link", :title => "#{PersonViewUtils.person_display_name(@listing.author, @current_community)}"
                 - if @listing.author != @current_user
                   .listing-author-contact
-                    %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "listing-author-contact-button"}
+                    %a#listing-contact{href: contact_to_listing_path(:listing_id => @listing.id.to_s), :class => "btn btn-default"}
                       .content
                         = t(".contact")
 
-
-            %p.product-comment
-              Vestibulum pharetra mauris ac viverra rhoncus. Suspendisse vitae malesuada sem,
-              auctor lacus facilisis auctor da sem, finibus ultrices risus. Aliquam sit amet felis auctor
-              lacus
-              = succeed "." do
-                %i facilisis auctor
-            .select
-              %select#selSize{:style => "display: none"}
-                %option xs
-                %option s
-                %option m
-                %option l
-                %option xl
-              %div Select size
-              %ul.list-inline.size
-                %li
-                  %a{:role => "button"} XS
-                %li
-                  %a{:role => "button"} S
-                %li
-                  %a{:role => "button"} M
-                %li
-                  %a{:role => "button"} L
-                %li
-                  %a{:role => "button"} XL
-            .select
-              %select#selColor{:style => "display: none"}
-                %option black
-                %option blue
-                %option red
-                %option green
-              %div Select color
-              %ul.list-inline.color
-                %li
-                  %a{"data-bgcolor" => "#5d5d5f", :href => "#", :style => "background-color: #5d5d5f;"}
-                %li
-                  %a{"data-bgcolor" => "#4e5e79", :href => "#", :style => "background-color: #4e5e79"}
-                %li
-                  %a{"data-bgcolor" => "#704a48", :href => "#", :style => "background-color: #704a49;"}
-                %li
-                  %a{"data-bgcolor" => "#577873", :href => "#", :style => "background-color: #577873;"}
-            %form.cart{:enctype => "multipart/form-data", :action => form_path, :method => "get"}
-              %ul.list-float-left.clearfix
-                %li
-                  %input.qty{:type => "text", :value => "1"}/
-                %li
-                  %button.btn.btn-md.enabled-book-button Buy This Product
-                %li
-                  %a.icon-button.small{:href => "#"}
-                    %i.theme-icon.pesto-icon-loving
-                %li
-                  %a.icon-button.small{:href => "#"}
-                    %i.demo-icon.pesto-icon-arrow
             .share
               Share
               - if !@current_community.private?
@@ -217,10 +192,7 @@
                   %a{"data-toggle" => "tab", :href => "#target_description"} DESCRIPTION
                 %li
                   %a{"data-toggle" => "tab", :href => "#target_details"} DETAILS
-                %li
-                  %a{"data-toggle" => "tab", :href => "#target_comments"} COMMENTS
-                %li
-                  %a{"data-toggle" => "tab", :href => "#target_tags"} TAGS
+
               .resp-tabs-container.tab-part
                 #target_description.tab-pane
                   .explanation
@@ -235,196 +207,8 @@
                      
                 #target_details.tab-pane
                   %table.table.table-striped.detail-table
-                    %tr
-                      %td 1.  Digital TV or ATV
-                      %td ATSC/NTSC
-                    %tr
-                      %td 2.  Area
-                      %td North America
-                    %tr
-                      %td 3.  Display Technology
-                      %td ELED
-                    %tr
-                      %td 4.  2D/3D
-                      %td 2D
-                    %tr
-                      %td 5.  Refresh Rate
-                      %td EMR120
-                    %tr
-                      %td 6.  Aspect Ratio
-                      %td 16:9
-                    %tr
-                      %td 7.  Resolution
-                      %td 1920 x 1080 px
-                    %tr
-                      %td 8.  Energy Grade
-                      %td ENERGY STAR 6.1
-                    %tr
-                      %td 9.  ID Features
-                      %td Plastic frame, ultra-narrow
-                    %tr
-                      %td 10.  Main Function
-                      %td Multimedia play
-                #target_comments.tab-pane.active
-                  .comments-header.clearfix
-                    %h3.pull-left
-                      %span.comment-title> 2 REVIEW(S)
-                      for "Black lace open back dress"
-                    .pull-right
-                      %span.font-roboto
-                        %i.demo-icon.pesto-icon-star-shape>
-                        5/5
-                  .reviews.clearfix
-                    / Start Review
-                    - if received_testimonials.size > 0
-                      .review
-                        .image
-                          %i.listing-author-activity-icon{:class => icon_class("testimonial")}
-                        .image-comment
-                          .clearfix
-                            .pull-left
-                              %span.review-title.font-istok
-                                %i The best service ever!
-                            .pull-right
-                              %span.font-roboto
-                                %i.demo-icon.pesto-icon-star-shape
-                                - if received_testimonials.size > 0
-                                  = feedback_positive_percentage.to_s + "%"
-                                  = t("people.show.positive")
-                                  = "(#{received_positive_testimonials.size}/#{received_testimonials.size})"
-                                - else
-                                  = t(".no_reviews")
-                          %p 
-                            = t(".feedback")
-                          %span Nicole Bailey, 12.04.2016
-                    / End review
-                    / Start Review
-                    .review
-                      .image
-                        %img{:alt => "photo", :src => "/assets/img/photo-shadow.png"}/
-                      .image-comment
-                        .clearfix
-                          .pull-left
-                            %span.review-title.font-istok
-                              %i Very fast support!
-                          .pull-right
-                            %span.font-roboto
-                              %i.demo-icon.pesto-icon-star-shape>  
-                              5/5
-                        %p
-                          Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pretium suscipit
-                          cursus. Vivamus eget tortor vel tellus consequat. Nam efficitur egestas diam, dignissim hendrerit purus placerat vitae. Nam efficitur egestas diam.
-                        %span Andre Bailey, 12.05.2016
-
-                    / End review
-                  / End Reviews
-                  / Start Customer's review
-                  .review-customer
-                    %h3 WRITE YOUR REVIEW
-                    .rating
-                      Your Rating*   
-                      %span.fa.star-rating
-                    %form#reviewForm{:method => "POST", :novalidate => "novalidate"}
-                      .row
-                        .col-md-6
-                          %input#nick_name.form-control{:maxlength => "100", :name => "nick_name", :placeholder => "Enter your nickname*"}/
-                        .col-md-6
-                          %input#email.form-control{:maxlength => "100", :name => "email", :placeholder => "Enter your email*"}/
-                      .row
-                        .col-md-12
-                          %textarea#ta_review.form-control{"aria-invalid" => "true", "aria-required" => "true", :maxlength => "5000", :name => "ta_review", :placeholder => "Write your review*", :rows => "10"}
-                      .row
-                        .col-md-12
-                          %input.btn.btn-default{"data-loading-text" => "Loading...", :name => "review", :type => "submit", :value => "SUBMIT REVIEW"}/
-                  / End Customer's review
-                #target_tags.tab-pane
-                  .explanation
-                    %p
-                      Vestibulum pharetra mauris ac viverra rhoncus. Suspendisse vitae malesuada sem, finibus ultrices risus. Aliquam sit amet felis
-                      auctor lacus
-                      %i facilisis auctor
-                      da sem, finibus ultrices risus. Aliquam sit amet felis auctor lacus facilisis auctor. Sed quis tortor vitae tellus. Duis ligula justo, vulputate vitae malesuada eget, varius eu sapien. Duis vel mauris in risus porta sollicitudin vitae ac est. Duis augue nisl, feugiat eu turpis, congue porta lectus. Praesent auctor, ipsum ut pretium pulvinar, purus nibh accumsan lacus,
-                      sit amet lobortis sapien tortor ut mi. Integer porttitor, velit sit amet dapibus luctus.
-                    %p
-                      Tellus justo sagittis ligula, sed posuere ante mauris ornare lectus. Fusce eleifend nulla sit amet purus fermentum sem gravida. Praesent posuere vehicula nunc ac,
-                      %i porttitor tempus
-                      ipsum. Ut vitae neque accumsan, consequat sem et, id vehicula augue.
-                      Vestibulum suscipit mi a metus efficitur, a volutpat leo finibus. Vestibulum porttitor ultrices mi a iaculis. Praesent ornare est dolor, pellentesque dapibus nulla suscipit sollicitudin. Mauris blandit, nulla sed maximus auctor.
-                    %p
-                      Duis ac ipsum rutrum ex consequat volutpat eu eget arcu. Nunc euismod, est et finibus vehicula, neque lorem varius lectus,
-                      sed posuere turpis quam vitae est. Morbi mattis molestie dictum. Mauris vel nulla et est interdum aliquam. Phasellus ut nisl
-                      sapien. Morbi ut lacus id massa feugiat commodo ut eget justo.
-  / End .content-main
-  .content-footer
-    .wrapper
-      .row.text-center
-        %h2 RELATED PRODUCTS
-        .col-md-3.col-sm-6.col-xs-12.text-center.wow.fadeIn{"data-wow-duration" => "1000ms"}
-          .product
-            .image
-              %a{:href => "product.html"}
-                %img{:alt => "", :src => "/assets/img/products/related-1.jpg"}/
-              .over-comment.middle
-                %div
-                  .links
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.theme-icon.pesto-icon-loving
-                    %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.pesto-icon-connector
-            .image-content.text-left
-              %h4.smaller Black lace open back dress
-              %span.price
-                %ins $124.00
-        .col-md-3.col-sm-6.col-xs-12.text-center.wow.fadeIn{"data-wow-duration" => "1000ms"}
-          .product
-            .image
-              %a{:href => "product.html"}
-                %img{:alt => "", :src => "/assets/img/products/related-2.jpg"}/
-              .over-comment.middle
-                %div
-                  .links
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.theme-icon.pesto-icon-loving
-                    %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.pesto-icon-connector
-            .image-content.text-left
-              %h4.smaller Black lace open back dress
-              %span.price
-                %ins $124.00
-                %del $150.00
-        .col-md-3.col-sm-6.col-xs-12.text-center.wow.fadeIn{"data-wow-duration" => "1000ms"}
-          .product
-            .image
-              %a{:href => "product.html"}
-                %img{:alt => "", :src => "/assets/img/products/related-3.jpg", :style => "border-bottom: solid 1px white;"}/
-              .over-comment.middle
-                %div
-                  .links
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.theme-icon.pesto-icon-loving
-                    %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.pesto-icon-connector
-            .image-content.text-left
-              %h4.smaller Black lace open back dress
-              %span.price
-                %ins $124.00
-        .col-md-3.col-sm-6.col-xs-12.text-center.wow.fadeIn{"data-wow-duration" => "1000ms"}
-          .product
-            .image
-              %a{:href => "product.html"}
-                %img{:alt => "", :src => "/assets/img/products/related-4.jpg"}/
-              .over-comment.middle
-                %div
-                  .links
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.theme-icon.pesto-icon-loving
-                    %a.btn.btn-default.btn-md{:href => "shopping-cart.html"} ADD TO CART
-                    %a.icon-button.small.hidden-sm.hidden-xs{:href => "#"}
-                      %i.pesto-icon-connector
-            .image-content.text-left
-              %h4.smaller Black lace open back dress
-              %span.price
-                %ins $124.00
+                    - @listing.custom_field_values.each do |custom_field_value|
+                      - custom_field_value.with_type do |question_type|
+                        = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
+                            
+  

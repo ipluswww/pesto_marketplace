@@ -19,6 +19,24 @@
 //= require_tree ./partials
 //= require_tree ./views
 
+body.product {
+	#listing-contact {
+		position: absolute;
+	    bottom: 0;
+	    padding-left: 45px;
+	    padding-right: 45px;
+	}
+
+	.listing-author-name-link {
+		color: #6cf;
+
+		&:hover {
+			color: #08c;
+			text-decoration: none;
+		}
+	}
+}
+
 .btn,
 .btn-default {
 	border-radius: 0;
@@ -470,7 +488,8 @@ body.static_pages {
 	}
 }
 
-body.new-listing {
+body.new-listing,
+body.edit-listing {
 	color: #666;
 
 	.marketplace-lander {
@@ -498,6 +517,10 @@ body.new-listing {
 
 	.feed-actions .request-link, .view-item .listing-icons a:hover, .pagination a, a, .checkbox-option-checkmark {
 	    color: #999;
+	}
+
+	form .checkbox-container input[type=checkbox] {
+        top: 0;
 	}
 
 	label {
