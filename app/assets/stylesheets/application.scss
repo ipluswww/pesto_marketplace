@@ -19,6 +19,20 @@
 //= require_tree ./partials
 //= require_tree ./views
 
+body.seller_manual {
+	.contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+
+	li .media {
+		margin-bottom: 25px;
+	}
+}
+
 body.affiliates {
     .contactus.type1 .review-customer {
     	margin-top: 0;
@@ -27,6 +41,10 @@ body.affiliates {
 
 	.std {
 		margin-top: 0px;
+
+		section {
+			margin-bottom: 8px;
+		}
 	}
 
 	h3 {
@@ -45,6 +63,10 @@ body.affiliates {
 
 	.welcome-message {
 		margin-bottom: 25px;
+	}
+
+	.content-main .foot {
+	    margin-top: 30px;
 	}
 }
 
@@ -84,6 +106,10 @@ body.terms_of_use {
 	.welcome-message {
 		margin-bottom: 25px;
 	}
+	
+	h2 {
+		margin-top: 30px;
+	}
 }
 
 body.cookies {
@@ -108,6 +134,10 @@ body.cookies {
 		margin-bottom: 15px;
 		list-style: disc outside;
 	}
+	
+	h2 {
+		margin-top: 30px;
+	}
 }
 
 body.privacy {
@@ -121,6 +151,10 @@ body.privacy {
 
 	h3 {
 		margin-bottom: 10px;
+	}
+	
+	h2 {
+		margin-top: 30px;
 	}
 }
 
@@ -144,6 +178,10 @@ body.interest_based_ads {
 
 	.std {
 		margin-top: 25px;
+	}
+
+	h2 {
+		margin-top: 30px;
 	}
 }
 
