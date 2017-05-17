@@ -39,7 +39,7 @@
             #google_map.left-map.type1
         / Start form
         .col-md-5.col-sm-12.review-customer#contactForm
-          %h3.mt-md.mb-md WRITE YOUR REVIEW
+          %h3.mt-md.mb-md CONTACT US
           #contactSuccess.alert.alert-success.hidden
             %strong
               Success!
@@ -64,11 +64,7 @@
             .row.pt-sm.pb-sm
               .col-md-12.mt-sm
                 = form.button t("layouts.application.send_feedback_to_admin"), :class => "btn btn-default", "data-loading-text" => "Loading...", :name => "review", :type => "submit", :value => "POST COMMENT"
-        / End form
-      / End .row
-    / End .wrapper
-  / End .content-main
-  / Start Content-Footer
+
   .content-footer
     .wrapper
       .row
@@ -88,7 +84,3 @@
             %i.demo-icon.pesto-icon-telephone
           %h4 CONTACT US
           %div Phone: 1 888 339 0277
-      / End .row
-    / End .wrapper
-  / End .content-Footer
-/ End .content
