@@ -48,19 +48,19 @@
             %strong
               Danger!
             Your message has been sent to us.
+          
           = form_for feedback_form, :url => user_feedbacks_path do |form|
+            - unless email_present
+              .row.pt-sm.pb-sm
+                .col-md-12
+                  = form.text_field :email, :id => "email", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your e-mail*", :type => "text"
             .row.pt-sm.pb-sm
               .col-md-12
-                = form.text_field :name, :id => "name", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your name*", :type => "text"
+                = form.text_field :title, :id => "subject", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your title*", :type => "text"
             .row.pt-sm.pb-sm
               .col-md-12
-                = form.text_field :email, :id => "email", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your e-mail*", :type => "text"
-            .row.pt-sm.pb-sm
-              .col-md-12
-                = form.text_field :subject, :id => "subject", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "100", :placeholder => "Enter your subject*", :type => "text"
-            .row.pt-sm.pb-sm
-              .col-md-12
-                = form.text_area :content, :id => "review", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "5000", :placeholder => "Write your review*", :rows => "10"
+                = form.text_area :content, :id => "review", :class => "form-control", "aria-invalid" => "false", "aria-required" => "true", :maxlength => "5000", :placeholder => "Write your Message*", :rows => "10"
+            = form.hidden_field :url, :value => request.headers["HTTP_REFERER"] || request.original_url
             .row.pt-sm.pb-sm
               .col-md-12.mt-sm
                 = form.button t("layouts.application.send_feedback_to_admin"), :class => "btn btn-default", "data-loading-text" => "Loading...", :name => "review", :type => "submit", :value => "POST COMMENT"

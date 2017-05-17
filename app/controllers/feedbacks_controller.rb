@@ -10,8 +10,6 @@ class FeedbacksController < ApplicationController
                                        :title,
                                        :url, # referrer
                                        :email,
-                                       :name,
-                                       :subject,
   ).with_validations {
     validates_presence_of :content
   }
