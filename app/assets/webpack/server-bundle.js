@@ -53181,6 +53181,9 @@
 	// admin_update_settings => (/:locale)/admin/settings(.:format)
 	  // function(options)
 	  admin_update_settings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// affiliates => (/:locale)/affiliates(.:format)
+	  // function(options)
+	  affiliates_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"affiliates",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// analytics_admin_community => (/:locale)/admin/communities/:id/analytics(.:format)
 	  // function(id, options)
 	  analytics_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"analytics",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -53277,6 +53280,15 @@
 	// contact_to_listing => (/:locale)/listings/:listing_id/contact(.:format)
 	  // function(listing_id, options)
 	  contact_to_listing_path: Utils.route(["listing_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[3,"listing_id",false],[2,[7,"/",false],[2,[6,"contact",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// contacts => (/:locale)/contacts(.:format)
+	  // function(options)
+	  contacts_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"contacts",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// cookies => (/:locale)/cookies(.:format)
+	  // function(options)
+	  cookies_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"cookies",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// copyright => (/:locale)/copyright(.:format)
+	  // function(options)
+	  copyright_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"copyright",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// create_contact => (/:locale)/listings/:listing_id/create_contact(.:format)
 	  // function(listing_id, options)
 	  create_contact_path: Utils.route(["listing_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[3,"listing_id",false],[2,[7,"/",false],[2,[6,"create_contact",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
@@ -53493,6 +53505,12 @@
 	// int_api_prospect_emails => /int_api/prospect_emails(.:format)
 	  // function(options)
 	  int_api_prospect_emails_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"int_api",false],[2,[7,"/",false],[2,[6,"prospect_emails",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
+	// interest_based_ads => (/:locale)/interest-based-ads(.:format)
+	  // function(options)
+	  interest_based_ads_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"interest-based-ads",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// investors => (/:locale)/investors(.:format)
+	  // function(options)
+	  investors_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"investors",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// invitation => (/:locale)/invitations/:id(.:format)
 	  // function(id, options)
 	  invitation_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"invitations",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -53826,6 +53844,9 @@
 	// preferences_update_admin_community_paypal_preferences => (/:locale)/admin/communities/:community_id/paypal_preferences/preferences_update(.:format)
 	  // function(community_id, options)
 	  preferences_update_admin_community_paypal_preferences_path: Utils.route(["community_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"community_id",false],[2,[7,"/",false],[2,[6,"paypal_preferences",false],[2,[7,"/",false],[2,[6,"preferences_update",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
+	// privacy => (/:locale)/privacy(.:format)
+	  // function(options)
+	  privacy_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"privacy",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// privacy_infos => (/:locale)/infos/privacy(.:format)
 	  // function(options)
 	  privacy_infos_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"infos",false],[2,[7,"/",false],[2,[6,"privacy",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -53859,6 +53880,9 @@
 	// search_without_locale => /s(.:format)
 	  // function(options)
 	  search_without_locale_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"s",false],[1,[2,[8,".",false],[3,"format",false]],false]]], {}),
+	// seller_manual => (/:locale)/seller-manual(.:format)
+	  // function(options)
+	  seller_manual_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"seller-manual",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// send_confirmation_person_email => (/:locale)/:person_id/emails/:id/send_confirmation(.:format)
 	  // function(person_id, id, options)
 	  send_confirmation_person_email_path: Utils.route(["person_id","id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"emails",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"send_confirmation",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -53904,6 +53928,9 @@
 	// terms_infos => (/:locale)/infos/terms(.:format)
 	  // function(options)
 	  terms_infos_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"infos",false],[2,[7,"/",false],[2,[6,"terms",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// terms_of_use => (/:locale)/terms-of-use(.:format)
+	  // function(options)
+	  terms_of_use_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"terms-of-use",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
 	// test_welcome_email_admin_community => (/:locale)/admin/communities/:id/test_welcome_email(.:format)
 	  // function(id, options)
 	  test_welcome_email_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"test_welcome_email",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
