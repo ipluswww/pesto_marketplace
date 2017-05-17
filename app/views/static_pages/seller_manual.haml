@@ -1,0 +1,156 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Seller Manual
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li  Seller Manual
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41        
+        %section.shb-categories
+          .container
+            .row.mt-md.mb-five-9
+              .col-md-12
+                .review-customer.text-center
+                  %h3
+                    %span Categories
+            .row
+              .col-md-6
+                %ul.items.items-listing-1
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/brand-marketing/"}
+                        %img.media-object{:alt => "Brand & Marketing", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/brand_marketing.png"}/
+                      .media-body
+                        %h4.media-heading Branding &amp; Marketing
+                        %p
+                          Promoting your brand to buyers and press.
+                          %br>/
+                          Informations about customer service.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/brand-marketing/"} Read 15 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/community/"}
+                        %img.media-object{:alt => "Community", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/community.png"}/
+                      .media-body
+                        %h4.media-heading Community
+                        %p
+                          Inspire others, be inspired by others.
+                          %br>/
+                          Motivational sellers stories, evetns and more.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/community/"} Read 3 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/getting-found/"}
+                        %img.media-object{:alt => "Getting Found", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/getting_found.png"}/
+                      .media-body
+                        %h4.media-heading Getting Found
+                        %p
+                          Get connected with buyers all over the world.
+                          %br>/
+                          Learn everything about SEO and promotion.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/getting-found/"} Read 8 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/growth-strategies/"}
+                        %img.media-object{:alt => "Growth Strategies", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/growth_strategies.png"}/
+                      .media-body
+                        %h4.media-heading Growth Strategies
+                        %p
+                          Learn how to expand your business.
+                          %br>/
+                          Manufacturing partnerships.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/growth-strategies/"} No article was posted
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/legal/"}
+                        %img.media-object{:alt => "Legal", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/legal.png"}/
+                      .media-body
+                        %h4.media-heading Legal
+                        %p
+                          Demystifying intellectual property law,
+                          %br>/
+                          legal structures for your business and more.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/legal/"} No article was posted
+              .col-md-6
+                %ul.items.items-listing-2
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/photography/"}
+                        %img.media-object{:alt => "Photography", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/photography.png"}/
+                      .media-body
+                        %h4.media-heading Photography
+                        %p
+                          Learn how to present your products.
+                          %br>/
+                          Best practise for representing your brand.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/photography/"} Read 9 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/pricing-finances/"}
+                        %img.media-object{:alt => "Pricing & Finances", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/community.png"}/
+                      .media-body
+                        %h4.media-heading Pricing &amp; Finances
+                        %p
+                          Practical informations how to price items.
+                          %br>/
+                          Bookkeeping and taxes.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/pricing-finances/"} Read 12 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/productivity/"}
+                        %img.media-object{:alt => "Productivity", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/productivity.png"}/
+                      .media-body
+                        %h4.media-heading Productivity
+                        %p
+                          Strategies for working smarter, not harder,
+                          %br>/
+                          including tips on hiring and leadership.
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/productivity/"} Read 19 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/seasonal-tips/"}
+                        %img.media-object{:alt => "Seasonal tips", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/seasonal_tips.png"}/
+                      .media-body
+                        %h4.media-heading Seasonal tips
+                        %p
+                          Trends and advice to help you capitalize
+                          = succeed "on" do
+                            %br/
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/seasonal-tips/"} Read 8 articles
+                  %li
+                    .media
+                      %a.pull-left{:href => "https://www.hazrati.com/section/seller-manual/shipping/"}
+                        %img.media-object{:alt => "Shipping", :src => "https://d3c5gpp280u0ho.cloudfront.net/sellerhandbook/shipping.png"}/
+                      .media-body
+                        %h4.media-heading Shipping
+                        %p
+                          Tips and tricks to save you money
+                          = succeed "and" do
+                            %br/
+                        %p.more
+                          %a{:href => "https://www.hazrati.com/section/seller-manual/shipping/"} Read 5 articles

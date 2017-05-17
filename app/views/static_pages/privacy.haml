@@ -1,0 +1,101 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Privacy
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Privacy
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41  
+        .main
+          .col-main
+            #amfpc-global_messages
+            .review-customer
+              %h3 Hazrati's Privacy Notice
+            .std
+              #amfpc-messages
+              %h2
+                %span{:style => "color: #4f81bd;"} Hazrati’s Dedication and Promise to Privacy
+              %p At Hazrati (“hazrati.com”), we respect each visitor’s and member’s privacy and we understand that visitors to our site need to have control over the use of their personal information. We believe in transparency, and we’re committed to being straightforward regarding our practices, including how we collect, gather, and treat your personal information. We know you care about your privacy too, so we provide configuration and personalization to help you to control how “we” use certain information on our website. The complete privacy policy below explains all our privacy practices for Hazrati’s mobile applications and website.
+              %h2
+                %span{:style => "color: #4f81bd;"} What Hazrati’s Privacy Policy Covers
+              %p
+                This privacy policy covers the use of
+                = succeed "," do
+                  %a{:href => "http://www.hazrati.com/"} Hazrati
+              %h2
+                %span{:style => "color: #4f81bd;"} Acceptance of Hazrati’s Privacy Policy
+              %p When you visit our site and use it for shopping and selling, you are subject to this Privacy Policy and the “Terms of Use”. By using Hazrati and its services, you ACCEPT the practices which are set out in the Terms of Use and this Privacy Policy. We reserve the right of modifying this Privacy Policy at any given time by posting specific changes on this page. Your continued use even after the changes implemented in the Privacy Policy constitutes your acceptance of the changes.
+              %h3
+                %span{:style => "color: #4f81bd;"} Information Collected or Received
+              %p Read our Cookies Policy and Terms of Use to understand how information is collected and received. Apart from the methods of collection mentioned in the Cookies Policy, in order to become a member you have to provide signup information. This includes your first name, last name, phone no, and valid email address. You also have to choose a username and alias that represents your identity as a shopper and/or seller at Hazrati.
+              %p Depending on the type of service you use, Hazrati may require additional information. This includes a physical postal address, a telephone number, billing and payment information (credit card information and billing address), and shop name. As a Hazrati Seller, if you use our Payment Service, you may be required to provide information regarding your credit card, bank account, date of birth, tax ID, identification ID, social security number and any other proof of identification to verify your identity.
+              %p We may store credit card information and use it for billing and payment purposes. Hazrati may contact individual shop owners to confidentially seek more information about items listed on the site and to ensure compliance with Hazrati’s applicable laws and rules. Some services and products may require you to complete an application.
+              %p You may optionally choose to publicly display and provide your first name, last name, and other personal information in connection with your activity and account. If you don’t want to provide this information or display it publicly, Hazrati gives you the option to remove it through your Public Profile Page. Configure your profile according to your requirements. Your alias, username and Hazrati ID may be displayed publicly and connected to your activities.
+              %p Other visitors and members may be able to view your comments in community spaces, services provided, sold item listings, shop pages, items listed for sale, profile information, ratings, reviews, the date you joined and any other personal information (if your settings grant it). All information is recorded from your mobile device or browser the moment you use our site and apps. This means, Hazrati may also store information, like data about which pages you visit, cookies, unique device identifier, and IP address. This information helps keep the site secure, prevents fraud, and helps us understand how we can provide a more personalized and better experience to our members.
+              %h3
+                %span{:style => "color: #4f81bd;"} Choice &amp; Control
+              %p Hazrati knows that members of its community do require the liberty of having control over their information. Therefore, we give you the opportunity, settings, and choice of removing, providing, and editing certain information, as well as your choice on how we contact you. You may correct, edit, change, or modify all Hazrati account information with the exception of your Username, alias, or Hazrati ID (you can’t change your username once you have created an account).
+              %p Hazrati also allows users to remove certain optional information on the site you don’t want to be publicly visible to other users and visitors. This includes your full name, email address, and other information. If you have connected your account to an external, third-party application, such as Facebook or any other social media website, you can also change your settings and remove permission for the app to change your account settings. When you sign up with social media accounts we may pull information from those accounts for use on Hazrati.
+              %h3
+                %span{:style => "color: #4f81bd;"} Messages from Hazrati
+              %p Hazrati may contact you by sending messages for various reasons to gain information about our quality of services and your activity. Some of these messages are compulsory for us to send, such as legal notices and transactional messages, along with service-related messages for members. Other messages may not be compulsory or required, but are sent to provide you information regarding latest news, changes in privacy, settings in your account, or links to articles/newsletters.
+              %p Primarily, these messages are delivered in the form of push notifications or email. This is why Hazrati makes it compulsory for every member to have a valid email address for sending and receiving messages. Apart from messages, Hazrati may also contact you via telephone to provide support for membership or transaction related purposes. Furthermore, Hazrati may send mail or SMS messages to provide information about features and products you might be interested in or to simply provide customer support.
+              %p Some messages are service-related and are usually sent as a welcome/confirmation email when you register your account, correspond with a Hazrati support team member, or notification of an order.
+              %p Users and members cannot opt out of receiving service-related messages from Hazrati, unless you decide to close your account. In the event of an account closure for whatever reasons we may still save the information with us for future reference. Messages may also be sent to provide information regarding the latest features or your activity on Hazrati’s site and apps. We may send you updates or news with regards to the latest changes in our policy as well.
+              %h3
+                %span{:style => "color: #4f81bd;"} Community
+              %p Hazrati is both a community and a marketplace for selling and buying products/services. We offer several features that allow users and members to connect with others and communicate in semi-public and public spaces, like Blogs, Teams, and Forums. Please abstain from using bad words or abusive language in our community. Be aware that users and members also have the right to report other individuals (in cases of fraud, spam messages, or abusive language, etc).
+              %p Hazrati may remove any content from community spaces if it violates guidelines and privacy policies. In other cases, comments and posts that meet privacy guidelines may remain public, even after your account is closed. You are responsible for the personal information and comments you post in the community spaces on Hazrati. Members can also follow other users’ public activity. They will receive updates regarding your activity.
+              %p
+                If another member harasses or threatens you in any way, feel free to report the account, email us, or
+                %a{:href => "/contacts"} contact us
+                immediately.
+              %h3
+                %span{:style => "color: #4f81bd;"} Security
+              %p Hazrati gives security top priority and your personal information’s safety is important to us. Your account information will be protected by a password of your choice. It is imperative that you protect against unauthorized access to your account, so choose your password carefully, sign out after using our services, and keep your computer secure to prevent unauthorized users from accessing your information.
+              %p Hazrati follows all industry standards to protect the personal information you submit on our site. While no service on the internet is 100% secure, we strive and work as hard as possible to guarantee absolute security.
+              %h3
+                %span{:style => "color: #4f81bd;"} Data Retention
+              %p Hazrati retains your account and personal information for only as long as necessary for the purposes set out in this policy, the Terms of Use, and cookies policy. If you don’t want Hazrati to use your information collected via cookies, you can delete cookies from your browser settings. For other information that we use to provide our services, you will be required to close your account in case you don’t approve of the set guidelines and security details provided.
+              %p Hazrati retains and uses your information to the extent necessary for complying with our agreements, resolve disputes, and legal obligations. You may inform us about any requests or changes regarding your personal data. We will try our best to alter your details as necessary, as long as it is in obligation of the applicable data protection law.
+              %h2
+                %span{:style => "color: #4f81bd;"} Sharing of Information with Third Parties
+              %p We do not provide any information to third-party services, without your approval and consent. Even the information shared with third parties is governed by a strict policy, which you can read about in our “Cookies Policy”. Therefore, members don’t have to worry about their information being used or shared with non-trusted parties. Hazrati shares information with third-party services for the following purposes:
+              %h3
+                %span{:style => "color: #4f81bd;"} Service Providers:
+              %p We may employ individuals and companies to provide services on our behalf. This can include consulting or marketing tasks, creating new policies, or analyzing customer data and lists. These third-party service providers will only have access to the information needed to perform these limited functions.
+              %h3
+                %span{:style => "color: #4f81bd;"} Credit Card Companies:
+              %p When you place an online order at Hazrati, the personal information you provide with your billing and transaction information is sent to your credit card company for verification.
+              %h3
+                %span{:style => "color: #4f81bd;"} Third Party Marketing Partners:
+              %p To promote our services and establish a good customer base, we establish a relationship with other business and third-party marketing partners who we deem trustworthy. In such cases, we might cross-reference, share, exchange or license information, including your postal mailing address and name to contact you regarding services and products you might be interested in.
+              %h3
+                %span{:style => "color: #4f81bd;"} Related Companies
+              %p We provide aggregate information to some of our business partners in order to learn more about the general profile of Hazrati’s customers to improve overall shopping experience. Information may also be shared with shippers, in circumstances where you have made a purchase that requires shipping. We may also require you to add your name, telephone number and shipping information to third-party shippers like FedEx, UPS, and the Postal service.
+              %p There may be instances where we drop-ship orders, which requires us to give your name, postal address, and telephone number for the sole purpose of delivering your order on time. Our site features certain links to third-party websites, like our vendors. We are not responsible or liable for the content or privacy practices found on these websites. Therefore, check the privacy notice of each website you visit.
+              %p To the extent permitted by law in each country/state/province, we may be required to disclose personal information to third parties, subpoena, and government authorities in response to a legal request. We may also disclose information (permitted by law) to perform charge verifications, protect our rights or property (along with our customers, affiliates, and users), prevent fight fraud, and report/collect debts owed.
+              %h2
+                %span{:style => "color: #4f81bd;"} Opt-Out
+              %p If you don’t wish to receive communication from us in the form of email, SMS, or call, you may opt out by sending us a message or simply clicking on the unsubscribe link in any email you receive from us. To opt out from using cookies and related collection technologies, visit our Cookies Policy page.
+              %h2
+                %span{:style => "color: #4f81bd;"} Contact Information
+              %p
+                If you have any concerns, questions, or issues about this Privacy Notice or our services, feel free to
+                %a{:href => "/contacts"} contact us

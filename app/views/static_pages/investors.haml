@@ -1,0 +1,40 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Investors
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Investors
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        .main
+          .col-main
+            #amfpc-global_messages
+            .review-customer
+              %h3 Investors
+            .std
+              #amfpc-messages
+              %p Hazrati is a Jewelry and Watches focused marketplace for sellers, buyers and craftsmen from around the world. It is powered by a global community and allows people to connect online to buy, sell or repair Jewelry and watches.
+              %p We support the local economy by connecting to global markets as well as empowering people to sell their products and create opportunities for buyers to purchase products at the most reasonable prices, while availing amazing discounts/offers.
+              %p Together with our shareholders, members, and investors, we are building a community-centric, human, and authentic local and global marketplace to create a better online selling/buying world, which is more buyer and seller-friendly than ever.
+              %p In fact, after being founded in 2015, we have taken the time to understand seller, craftsman and buyer needs to drive strong positive social/environmental change and business performance. Through our team of professional employees, global network and latest technologies, we aim to create value for our society and shareholders.
+              %p In short, we plan on becoming the most popular customer-centric company for five primary types of customers: content creators, enterprises, sellers, craftsmen and consumers.
+              %p
+                Please
+                %a{:href => "/contacts", :title => "Contact Us"} contact us
+                if you are interested in investing in Hazrati Marketplace

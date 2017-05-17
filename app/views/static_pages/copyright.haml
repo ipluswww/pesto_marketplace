@@ -1,0 +1,35 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Copyright
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Copyright
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41    
+        .main
+          .col-main
+            #amfpc-global_messages
+            .review-customer
+              %h3 Copyright
+            .std
+              #amfpc-messages
+              %p © Hazrati Marketplace 2015
+              %p Hazrati Marketplace and other designs, trademarks, and service marks are the unregistered or registered trademarks of Hazrati, Inc. in the United States and other countries. All other trademarks are property of their respective owners and except as permitted by the copyright law applicable to you, you may not communicate, reproduce, or copy any content from this website without written permission from Hazrati.
+              %p This includes downloading files, images, and content from this website, without the approval, permission, or consent of the copyright owners. The US Copyright allows only certain uses of content from the internet, without the copyright owner’s permission. This includes sharing information with proper references and giving credit to original author.
+              %p If, by any chance, a person, organization, or institution, is found using content without consent, owners of the copyright may receive compensation. We also change the policies and terms surrounding Copyright from time to time. Double-check before using or re-using any content from this website. We reserve the right to remove any content reported to us as copyrighted.

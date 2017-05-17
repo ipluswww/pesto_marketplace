@@ -19,6 +19,144 @@
 //= require_tree ./partials
 //= require_tree ./views
 
+body.affiliates {
+    .contactus.type1 .review-customer {
+    	margin-top: 0;
+    	margin-bottom: 25px;
+    }
+
+	.std {
+		margin-top: 0px;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	ol {
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.content-main ul {
+		margin-bottom: 15px;
+		list-style: disc outside;
+	}
+
+	.welcome-message {
+		margin-bottom: 25px;
+	}
+}
+
+body.investors {
+	.contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+}
+
+body.terms_of_use {
+    .contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	ol {
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.content-main ul {
+		margin-bottom: 15px;
+		list-style: disc outside;
+	}
+
+	.welcome-message {
+		margin-bottom: 25px;
+	}
+}
+
+body.cookies {
+    .contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	ol {
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.content-main ul {
+		margin-bottom: 15px;
+		list-style: disc outside;
+	}
+}
+
+body.privacy {
+    .contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+}
+
+body.interest_based_ads {
+	.contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	ol {
+		list-style-type: none;
+		margin-bottom: 15px;
+	}
+
+	.content-main ul {
+		margin-bottom: 15px;
+	}
+
+	h3 {
+		margin-bottom: 10px;
+	}
+
+	.std {
+		margin-top: 25px;
+	}
+}
+
+body.copyright {
+    .contactus.type1 .review-customer {
+    	margin-top: 0;
+    }
+
+	.std {
+		margin-top: 25px;
+	}
+}
+
 body.product {
 	#listing-contact {
 		position: absolute;

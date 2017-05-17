@@ -8,15 +8,12 @@
           .foot-info
             %ul
               %li
-                %a{:href => "#"} Open a Store
+                %a{:href => new_listing_path} Post a New Product
               %li
-                %a{:href => "#"} Seller Manual
+                %a{:href => "/seller-manual"} Seller Manual
               %li
-                %a{:href => "#"} View All Sellers
-              %li
-                %a{:href => "#"} View All Craftsmen
-              %li
-                %a{:href => "#"} Sellers  Craftsment
+                %a{:href => "/"} View All Sellers
+
           / End foot-info
         / End col-md-3
         .col-md-3.col-sm-3
@@ -25,55 +22,51 @@
           .foot-service
             %ul
               %li
-                %a{:href => "#"} Affilates
+                %a{:href => "/affiliates"} Affiliates
           / End foot-service
         / End col-md-3
         .col-md-3.col-sm-3
-          %h4 Gift  Education
-          / Start foot-account
-          .foot-account
+          %h4 All About US
+          / Start foot-support
+          .foot-support
             %ul
               %li
-                %a{:href => "#"} Gift Cards
+                %a{:href => about_infos_path} About
               %li
-                %a{:href => "#"} Blog
+                %a{:href => "/investors"} Investors
               %li
-                %a{:href => "#"} Gift Registries
+                %a{:href => "/return-and-refund-policy"} Return  Refund Policy
+              %li
+                %a{:href => new_user_feedback_path} Contact Us
+            / End foot-support
+          / Start follow
           / End foot-account
         / End col-md-3
         .col-md-3.col-sm-3
           .support
-            %h4 All About US
-            / Start foot-support
-            .foot-support
+            %h4 Community
+            / Start foot-account
+            .foot-account
               %ul
                 %li
-                  %a{:href => "#"} About
-                %li
-                  %a{:href => "#"} Investors
-                %li
-                  %a{:href => "/return-and-refund-policy"} Return  Refund Policy
-                %li
-                  %a{:href => "#"} Contact Us
-            / End foot-support
-          / Start follow
+                  %a{:href => "/"} Blog
           .follow
             .footer-follow
               %ul.list-float-left
                 %li
-                  %a.facebook.icon-button.smaller.border-none{:href => "#"}
+                  %a.facebook.icon-button.smaller.border-none{:href => "https://www.facebook.com/Hazraticom-401120739940918/"}
                     %i.demo-icon.pesto-icon-facebook
                 %li
-                  %a.twitter.icon-button.smaller.border-none{:href => "#"}
+                  %a.twitter.icon-button.smaller.border-none{:href => "https://twitter.com/HazratiJewelry"}
                     %i.demo-icon.pesto-icon-twitter
                 %li
-                  %a.instagram.icon-button.smaller.border-none{:href => "#"}
+                  %a.instagram.icon-button.smaller.border-none{:href => "https://www.instagram.com/hazratimp/"}
                     %i.demo-icon.pesto-icon-instagram
                 %li
-                  %a.google.icon-button.smaller.border-none{:href => "#"}
+                  %a.google.icon-button.smaller.border-none{:href => "https://plus.google.com/114018279538405001230"}
                     %i.demo-icon.pesto-icon-google
                 %li
-                  %a.pinterest.icon-button.smaller.border-none{:href => "#"}
+                  %a.pinterest.icon-button.smaller.border-none{:href => "https://www.pinterest.com/hazratijewelry/"}
                     %i.demo-icon.pesto-icon-pinterest
             / End foot-follow
           / End follow
@@ -101,18 +94,17 @@
         .footer-links.clearfix
           %ul
             %li
-              %a{:href => "#"} About Us
+              %a{:href => about_infos_path} About Us
             %li
-              %a{:href => "#"} Information
+              %a{:href => "/terms-of-use"} Terms of Use
             %li
-              %a{:href => "#"} Terms  Conditions
+              %a{:href => "/cookies"} Cookies
             %li
-              %a{:href => "#"} Privacy Policy
+              %a{:href => "/privacy"} Privacy Policy
             %li
-              %a{:href => "#"} Sitemap
+              %a{:href => "/copyright"} Copyright
             %li
-              %a.free{:href => "#"} Free Delivery
-            %li
-              %a{:href => "#"} Privacy
+              %a.free{:href => "/interest-based-ads"} Interest-based Ads
+
     / End Footer-main
   / End footer

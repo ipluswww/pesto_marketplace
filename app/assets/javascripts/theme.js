@@ -517,7 +517,7 @@ function setSlider()
             $(this).slider({
                 range: true,
                 min: 0,
-                max: 1000,
+                max: 100000,
                 values: [ $start_value, $end_value ],
                 slide: function( event, ui ) {
                     $( ".amount-start", $(this).parent()).val('$'+ui.values[ 0 ]);

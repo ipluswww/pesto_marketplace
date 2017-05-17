@@ -1,0 +1,101 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Affiliates
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Affiliates
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41        
+        .main
+          .col-main
+            #amfpc-global_messages
+            .std
+              #amfpc-messages
+              %section.head
+                .row
+                  .col-md-6
+                    .review-customer
+                      %h3 Become an Affiliate
+                    %p By becoming an affiliate you become part of our success. Help us grow one of the largest Watch and Jewelry marketplace and get paid to do it. No commitment necessary. All you need is a website, whenever your website refers a qualified customer you earn a commission of the sale.
+                  .col-md-6
+                    %img{:alt => "", :src => "/assets/theme/affiliate_sprite.png", :style => "margin: 17px auto 0; display: block;"}/
+              %section.feature.adv
+                %h2 Advantages
+                .row
+                  .col-md-6
+                    %ul
+                      %li
+                        %span Quick, free and easy
+                      %li{:style => "background-position: 0 -149px;"}
+                        %span
+                          Over a million products
+                          %br>/
+                          to choose from
+                  .col-md-6
+                    %ul
+                      %li{:style => "background-position: 0 -739px;"}
+                        %span
+                          Commissions up to 15%
+                          %br>/
+                          on any sales generated
+                      %li{:style => "background-position: 0 -887px;"}
+                        %span High conversion rates
+              %section.feature.prom
+                %h2 Promotions
+                .row
+                  .col-md-6
+                    %ul
+                      %li{:style => "background-position: 0 -299px;"}
+                        %span
+                          Free shipping on thousands
+                          %br>/
+                          of unique items
+                  .col-md-6
+                    %ul
+                      %li{:style => "background-position: 0 -1040px;"}
+                        %span
+                          Other hot promotions
+                          %br>/
+                          and sales
+              %section.feature.tools
+                %h2 Tools
+                .row
+                  .col-md-6
+                    %ul
+                      %li{:style => "background-position: 0 -450px;"}
+                        %span
+                          Product catalog updated
+                          %br/
+                          multiple times daily
+                      %li{:style => "background-position: 0 -594px;"}
+                        %span RSS feeds
+                  .col-md-6
+                    %ul
+                      %li{:style => "background-position: 0 -1189px;"}
+                        %span
+                          Easy-to-use text
+                          %br>/
+                          and banner links
+                      %li{:style => "background-position: 0 -1334px;"}
+                        %span
+                          Deep-linking for creating direct
+                          %br>/
+                          affiliate links to any product on our site
+              %section.foot
+                %a.btn.btn-primary{:href => "/contacts"} Become an Affiliate

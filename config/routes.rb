@@ -148,6 +148,16 @@ Kassi::Application.routes.draw do
     get "/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
     get '/:person_id/settings/payments/paypal_account' => 'paypal_accounts#index', :as => :paypal_account_settings_payment
     get "/return-and-refund-policy" => "static_pages#return_and_refund_policy"
+    get "/seller-manual" => "static_pages#seller_manual"
+    get "/affiliates" => "static_pages#affiliates"
+    get "/investors" => "static_pages#investors"
+    get "/terms-of-use" => "static_pages#terms_of_use"
+    get "/cookies" => "static_pages#cookies"
+    get "/privacy" => "static_pages#privacy"
+    get "/interest-based-ads" => "static_pages#interest_based_ads"
+    get "/copyright" => "static_pages#copyright"    
+    get "/contacts", to: redirect("/user_feedbacks/new")
+
 
     # community membership related actions
 
