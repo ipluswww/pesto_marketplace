@@ -121,9 +121,11 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
 
     var newUpValue = downHidden.val();
     var newDownValue = upHidden.val();
-
-    upHidden.val(newUpValue);
-    downHidden.val(newDownValue);
+    
+    if (newUpValue < newDownValue) {
+      upHidden.val(newUpValue);
+      downHidden.val(newDownValue);
+    }
   });
 
   var newOptionTmpl = _.template($("#new-option-tmpl").html());
