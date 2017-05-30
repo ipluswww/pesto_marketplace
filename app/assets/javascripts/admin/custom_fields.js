@@ -122,7 +122,7 @@ window.ST.createCustomFieldOptionOrder = function(rowSelector) {
     var newUpValue = downHidden.val();
     var newDownValue = upHidden.val();
     
-    if (newUpValue < newDownValue) {
+    if (parseInt(newUpValue) < pareseInt(newDownValue)) {
       upHidden.val(newUpValue);
       downHidden.val(newDownValue);
     }
