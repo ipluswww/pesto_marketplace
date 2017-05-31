@@ -39,7 +39,7 @@ body.people-settings {
 		display: block;
 	}
 
-	.jsmap {
+	#settings_map_canvas {
 		height: 600px;
 	}
 
@@ -55,7 +55,9 @@ body.people-settings {
     	margin-bottom: 25px;
 	}
 
-	button.send_button {
+	button.send_button,
+	button.send_button_account,
+	button.send_button_notifications {
 		border: 1px solid #444645;
 		border-radius: 0px;
 		color: #444645;
@@ -80,7 +82,50 @@ body.people-settings {
 			color: #fff;
 		}
 	}
+
+	.account-settings-row {
+		border: 1px solid #f2f2f2;
+    	border-radius: 0;
+
+    	form {
+    		margin-bottom: 35px;
+    	}
+	}
+
+	.account-settings .account-settings-row .account-settings-text {
+	    margin-left: 15px;
+	    padding: 10px 0 10px 0;
+   	}
+
+   	form .checkbox-container input[type=checkbox] {
+    	top: 0;
+	}
+
+	form .checkbox-container input[type=radio] {
+		top: 0;
+	}
+
+	.notification-settings {
+		h2 {
+		    margin-bottom: 15px;
+		}
+
+		button {
+			margin-top: 35px;
+		}
+
+		.checkbox-container label {
+		    margin-top: 0.4375em;
+		}
+	}
+
+	@media (min-width: 48em) {
+		.left-navi .left-navi-link-icon {
+		    text-decoration: none;
+		}
+	}
 }
+
 
 body.affiliates {
     .contactus.type1 .review-customer {

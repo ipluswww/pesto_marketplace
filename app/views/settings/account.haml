@@ -1,6 +1,41 @@
 - content_for :javascript do
   initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}", "#{t("people.new.notification_is_mandatory", service_name: service_name)}");
 
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+    initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}", "#{t("people.new.notification_is_mandatory", service_name: service_name)}");
+    
 - content_for :title_header do
   .browse-view-search-form
     = render partial: "homepage/search_bar"
@@ -148,7 +183,7 @@
               = t("settings.account.delete_information_others_involved")
 
             = form_tag url_for(:controller => :people, :action => :destroy, :id => target_user.username), :method => :delete do
-              = button_tag t('.delete_account_button'), :class => (has_unfinished ? 'disabled-button' : ''), :disabled => has_unfinished, :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
+              = button_tag t('.delete_account_button'), :class => (has_unfinished ? 'disabled-button' : 'btn btn-danger'), :disabled => has_unfinished, :id => "delete_account_button", :data => {:confirm => t('.delete_account_confirmation_popup')}
 
             - if has_unfinished
               %p
