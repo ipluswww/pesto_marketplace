@@ -50,6 +50,12 @@
     initialize_email_members_form("#{I18n.locale}");
 
   = yield :extra_javascript
+  
+  :javascript
+    source = document.getElementById("person_street_address");
+    $(document).ready(function(){
+      googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
+      });
 
 - content_for :title_header do
   .browse-view-search-form
@@ -112,12 +118,6 @@
               = t("settings.profile.location_description")
             = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
             #settings_map_canvas.map
-              - content_for :extra_javascript do
-                :javascript
-                  source = document.getElementById("person_street_address");
-                  $(document).ready(function(){
-                    googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
-                    });
 
             -# Phone number
             .inline-label-container
