@@ -10,6 +10,47 @@
 - content_for :javascript do
   initialize_email_members_form("#{I18n.locale}");
 
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  - content_for :javascript do
+    initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
+
+  - content_for :javascript do
+    initialize_email_members_form("#{I18n.locale}");
+
+  = yield :extra_javascript
+
 - content_for :title_header do
   .browse-view-search-form
     = render partial: "homepage/search_bar"

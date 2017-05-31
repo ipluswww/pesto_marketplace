@@ -21,8 +21,8 @@
 
 body.seller_manual {
 	.contactus.type1 .review-customer {
-    	margin-top: 0;
-    }
+		margin-top: 0;
+	}
 
 	.std {
 		margin-top: 25px;
@@ -30,6 +30,55 @@ body.seller_manual {
 
 	li .media {
 		margin-bottom: 25px;
+	}
+}
+
+body.people-settings {
+	label {
+		margin-top: 25px;
+		display: block;
+	}
+
+	.jsmap {
+		height: 600px;
+	}
+
+	input[type=text] {
+		display: block;
+	    width: 100%;
+	    margin-top: 5px;
+	}
+
+	textarea {
+		height: 90px;
+    	width: 100%;
+    	margin-bottom: 25px;
+	}
+
+	button.send_button {
+		border: 1px solid #444645;
+		border-radius: 0px;
+		color: #444645;
+		background-color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 10.5px 29px;
+		font-family: "Roboto Condensed";
+		letter-spacing: 1.2px;
+		
+		&:active,
+		&:hover,
+		&:focus {
+			color: #fff;
+			background-color: #6cf;
+			border-color: #6cf;
+		}
+		
+		&:hover:focus {
+			background-color: lighten(#6cf, 5%);
+			border-color: #6cf;
+			color: #fff;
+		}
 	}
 }
 

@@ -13,12 +13,10 @@
       window.ST.initialize_edit_listing_form_selectors("#{I18n.locale}", #{category_tree.to_json}, #{listing_form_menu_titles().to_json}, #{category_id.to_json}, #{subcategory_id.to_json}, #{shape_id.to_json}, #{@listing.id});
     });
 
-- content_for :extra_javascript do
-  - maps_key = "AIzaSyA4yCiozYi-XtMSWuqUl9_x4IzVv4K_Hhc"
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
   - key_param = maps_key ? "?key=#{maps_key}" : ""
   - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
   = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
-
 
 - content_for :page_script do
   -# Initialize global I18n variable and load translations there

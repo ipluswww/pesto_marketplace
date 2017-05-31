@@ -9,8 +9,10 @@
   = stylesheet_link_tag "css/theme-contactus.css";
 
 - content_for :page_script do
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4yCiozYi-XtMSWuqUl9_x4IzVv4K_Hhc"
-  type="text/javascript"></script>
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+  - key_param = maps_key ? "?key=#{maps_key}" : ""
+  - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
 
 - if has_admin_rights
   %p= render :partial => "layouts/info_text", :locals => { :text => t("layouts.application.dont_use_to_contact_support") }
