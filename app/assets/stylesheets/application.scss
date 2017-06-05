@@ -21,8 +21,8 @@
 
 body.seller_manual {
 	.contactus.type1 .review-customer {
-    	margin-top: 0;
-    }
+		margin-top: 0;
+	}
 
 	.std {
 		margin-top: 25px;
@@ -32,6 +32,100 @@ body.seller_manual {
 		margin-bottom: 25px;
 	}
 }
+
+body.people-settings {
+	label {
+		margin-top: 25px;
+		display: block;
+	}
+
+	#settings_map_canvas {
+		height: 600px;
+	}
+
+	input[type=text] {
+		display: block;
+	    width: 100%;
+	    margin-top: 5px;
+	}
+
+	textarea {
+		height: 90px;
+    	width: 100%;
+    	margin-bottom: 25px;
+	}
+
+	button.send_button,
+	button.send_button_account,
+	button.send_button_notifications {
+		border: 1px solid #444645;
+		border-radius: 0px;
+		color: #444645;
+		background-color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 10.5px 29px;
+		font-family: "Roboto Condensed";
+		letter-spacing: 1.2px;
+		
+		&:active,
+		&:hover,
+		&:focus {
+			color: #fff;
+			background-color: #6cf;
+			border-color: #6cf;
+		}
+		
+		&:hover:focus {
+			background-color: lighten(#6cf, 5%);
+			border-color: #6cf;
+			color: #fff;
+		}
+	}
+
+	.account-settings-row {
+		border: 1px solid #f2f2f2;
+    	border-radius: 0;
+
+    	form {
+    		margin-bottom: 35px;
+    	}
+	}
+
+	.account-settings .account-settings-row .account-settings-text {
+	    margin-left: 15px;
+	    padding: 10px 0 10px 0;
+   	}
+
+   	form .checkbox-container input[type=checkbox] {
+    	top: 0;
+	}
+
+	form .checkbox-container input[type=radio] {
+		top: 0;
+	}
+
+	.notification-settings {
+		h2 {
+		    margin-bottom: 15px;
+		}
+
+		button {
+			margin-top: 35px;
+		}
+
+		.checkbox-container label {
+		    margin-top: 0.4375em;
+		}
+	}
+
+	@media (min-width: 48em) {
+		.left-navi .left-navi-link-icon {
+		    text-decoration: none;
+		}
+	}
+}
+
 
 body.affiliates {
     .contactus.type1 .review-customer {
