@@ -119,28 +119,28 @@
                     Find handmade, vintage, and unique goods that express who you are.
   .app_dialogs.hidden
     #etsy_app_dialog
-       = form_for target_user do |form|
-          %h2
-            Enter your Etsy API credentials
-          %p
-            Follow these steps to get connected:
-          %p
-            1. Enter your Etsy shop name below :
-          = form.label :app_etsy_shop_name, "API Key"
-          = form.text_field :app_etsy_shop_name, :class => "text_field", :maxlength => "255"
-          
-          %p
-            2. Obtain your Etsy API credentials and enter below. For more information
-            %a{:href => "https://www.etsy.com/developers/documentation/getting_started/api_basics", :target => "_blank"}
-              %strong Click Here
+      = form_for target_user do |form|
+        %h2
+          Enter your Etsy API credentials
+        %p
+          Follow these steps to get connected:
+        %p
+          1. Enter your Etsy shop name below :
+        = form.label :app_etsy_shop_name, "API Key"
+        = form.text_field :app_etsy_shop_name, :class => "text_field", :maxlength => "255"
+        
+        %p
+          2. Obtain your Etsy API credentials and enter below. For more information
+          %a{:href => "https://www.etsy.com/developers/documentation/getting_started/api_basics", :target => "_blank"}
+            %strong Click Here
 
-          = form.label :app_etsy_api_key, "API Key"
-          = form.text_field :app_etsy_api_key, :class => "text_field", :maxlength => "255"
-          
-          = form.label :app_etsy_api_secret, "API Secret"
-          = form.text_field :app_etsy_api_secret, :class => "text_field", :maxlength => "255"
-          
-          = form.button "Connect", :class => "btn btn-primary"
+        = form.label :app_etsy_api_key, "API Key"
+        = form.text_field :app_etsy_api_key, :class => "text_field", :maxlength => "255"
+        
+        = form.label :app_etsy_api_secret, "API Secret"
+        = form.text_field :app_etsy_api_secret, :class => "text_field", :maxlength => "255"
+        
+        = form.button "Connect", :class => "btn btn-primary"
 
 
 
