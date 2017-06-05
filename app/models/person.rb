@@ -42,6 +42,9 @@
 #  min_days_between_community_updates :integer          default(1)
 #  deleted                            :boolean          default(FALSE)
 #  cloned_from                        :string(22)
+#  app_etsy_shop_name                 :string(255)
+#  app_etsy_api_key                   :string(255)
+#  app_etsy_api_secret                :string(255)
 #
 # Indexes
 #
