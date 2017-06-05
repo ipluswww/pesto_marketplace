@@ -511,6 +511,13 @@ module ApplicationHelper
         :icon_class => icon_class("notification_settings"),
         :path => notifications_person_settings_path(person),
         :name => "notifications"
+      },
+      {
+        :id => "settings-tab-apps",
+        :text => "Apps",
+        :icon_class => icon_class("notification_settings"),
+        :path => apps_person_settings_path(person),
+        :name => "apps"
       }
     ]
 

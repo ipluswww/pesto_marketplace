@@ -455,6 +455,7 @@ Kassi::Application.routes.draw do
         resource :settings do
           member do
             get :account
+            get :apps
             get :notifications
             get :unsubscribe
           end
