@@ -32,6 +32,13 @@ class SettingsController < ApplicationController
     render locals: {target_user: target_user}
   end
 
+  def apps
+    @body_class_name         = "people-settings"
+    target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
+    @selected_left_navi_link = "account"
+    render locals: {target_user: target_user}
+  end
+
   def unsubscribe
     target_user = find_person_to_unsubscribe(@current_user, params[:auth])
 

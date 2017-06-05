@@ -1,0 +1,146 @@
+- content_for :javascript do
+  initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
+
+- content_for :extra_javascript do
+  - maps_key = MarketplaceHelper.google_maps_key(@current_community.id)
+  - key_param = maps_key ? "?key=#{maps_key}" : ""
+  - needs_maps = !FeatureFlagHelper.feature_enabled?(:topbar_v1) || search_mode == :keyword
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js#{key_param}" if needs_maps
+
+- content_for :javascript do
+  initialize_email_members_form("#{I18n.locale}");
+
+- content_for :page_css do 
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox-buttons.css"
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox-thumbs.css"
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox.css"
+
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  - content_for :javascript do
+    initialize_update_profile_info_form("#{I18n.locale}","#{target_user.id.to_s}", #{@current_community.real_name_required?});
+
+  - content_for :javascript do
+    initialize_email_members_form("#{I18n.locale}");
+
+  = yield :extra_javascript
+  
+  :javascript
+    source = document.getElementById("person_street_address");
+    $(document).ready(function(){
+      googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
+    });
+
+  :javascript
+    $(document).ready(function(){
+      $('#etsy_app').on('click', function(event) {
+        debugger;
+        event.preventDefault();
+
+      });
+
+
+    });
+
+  = javascript_include_tag "vendor/fancybox/js/jquery.fancybox"
+  = javascript_include_tag "vendor/fancybox/js/jquery.fancybox-buttons"
+  = javascript_include_tag "vendor/fancybox/js/jquery.fancybox-thumbs"
+  = javascript_include_tag "vendor/fancybox/js/jquery.easing-1.3.pack"
+  = javascript_include_tag "vendor/fancybox/js/jquery.mousewheel-3.0.6.pack"
+
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+
+/ Start Content
+%section.content.aboutus
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 
+              = Apps
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "#"} Home 
+            %li 
+              = t("layouts.no_tribe.settings")
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(target_user, @current_community) }
+
+        #apps_container
+          .row
+            .col-md-6
+              .media
+                %a#etsy_app.pull-left{:href => "#", :class => "fancybox"}
+                  %img{:alt => "Etsy", :src => "/apps/etsy.png"}
+
+                .app-details
+                  %h2.small.font-roboto
+                    Etsy
+                  %p
+                    Find handmade, vintage, and unique goods that express who you are.
+  .app_dialogs.hidden
+    #etsy_app_dialog
+       = form_for target_user do |form|
+          %h2
+            Enter your Etsy API credentials
+          %p
+            Follow these steps to get connected:
+          %p
+            1. Enter your Etsy shop name below :
+          = form.label :app_etsy_shop_name, "API Key"
+          = form.text_field :app_etsy_shop_name, :class => "text_field", :maxlength => "255"
+          
+          %p
+            2. Obtain your Etsy API credentials and enter below. For more information
+            %a{:href => "https://www.etsy.com/developers/documentation/getting_started/api_basics", :target => "_blank"}
+              %strong Click Here
+
+          = form.label :app_etsy_api_key, "API Key"
+          = form.text_field :app_etsy_api_key, :class => "text_field", :maxlength => "255"
+          
+          = form.label :app_etsy_api_secret, "API Secret"
+          = form.text_field :app_etsy_api_secret, :class => "text_field", :maxlength => "255"
+          
+          = form.button "Connect", :class => "btn btn-primary"
+
+
+
