@@ -18,6 +18,10 @@ Rails.application.config.assets.paths << Rails.root.join("app", "assets", "webpa
 Rails.application.config.assets.precompile << "server-bundle.js"
 
 Rails.application.config.assets.precompile += ["main.js", 
+    "fancybox.js",
+    "vendor/fancybox/css/jquery.fancybox-buttons.css",
+    "vendor/fancybox/css/jquery.fancybox-thumbs.css",
+    "vendor/fancybox/css/jquery.fancybox.css",
 	"vendor/owlcarousel/owl.carousel.min.js", 
 	"vendor/owlcarousel/owl.carousel.css",
 	"vendor/owlcarousel/css/animate.css",
