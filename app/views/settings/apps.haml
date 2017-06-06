@@ -73,6 +73,8 @@
 
     });
 
+   = javascript_include_tag 'fancybox'
+
 - content_for :title_header do
   .browse-view-search-form
     = render partial: "homepage/search_bar"
@@ -103,10 +105,10 @@
           .row
             .col-md-6
               .media
-                %a#etsy_app.pull-left{:href => "#", :class => "fancybox"}
-                  %img{:alt => "Etsy", :src => "/apps/etsy.png"}
+                %a#etsy_app.col-md-4.pull-left{:href => "#", :class => "fancybox"}
+                  %img{:alt => "Etsy", :src => "/assets/apps/etsy.png"}
 
-                .app-details
+                .app-details.col-md-8
                   %h2.small.font-roboto
                     Etsy
                   %p
