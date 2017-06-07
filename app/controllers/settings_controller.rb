@@ -35,7 +35,7 @@ class SettingsController < ApplicationController
   def apps
     @body_class_name         = "people-settings"
     target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
-    @selected_left_navi_link = "account"
+    @selected_left_navi_link = "apps"
     render locals: {target_user: target_user}
   end
 

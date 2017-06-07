@@ -57,7 +57,6 @@
   :javascript
     $(document).ready(function(){
       $('#etsy_app').on('click', function(event) {
-        debugger;
         event.preventDefault();
 
       });
@@ -95,7 +94,7 @@
           .row
             .col-md-6
               .media
-                %a#etsy_app.col-md-4.pull-left{:href => "#", :class => "fancybox"}
+                %a#etsy_app.col-md-4.pull-left{:href => "#etsy_app_dialog", :class => "fancybox"}
                   %img{:alt => "Etsy", :src => "/assets/apps/etsy.png"}
 
                 .app-details.col-md-8
@@ -110,12 +109,12 @@
           Enter your Etsy API credentials
         %p
           Follow these steps to get connected:
-        %p
+        %p.mt-one-15
           1. Enter your Etsy shop name below :
         = form.label :app_etsy_shop_name, "API Key"
         = form.text_field :app_etsy_shop_name, :class => "text_field", :maxlength => "255"
         
-        %p
+        %p.mt-one-28
           2. Obtain your Etsy API credentials and enter below. For more information
           %a{:href => "https://www.etsy.com/developers/documentation/getting_started/api_basics", :target => "_blank"}
             %strong Click Here
@@ -126,7 +125,7 @@
         = form.label :app_etsy_api_secret, "API Secret"
         = form.text_field :app_etsy_api_secret, :class => "text_field", :maxlength => "255"
         
-        = form.button "Connect", :class => "btn btn-primary"
+        = form.button.mt-one-25 "Connect", :class => "btn btn-primary"
 
 
 
