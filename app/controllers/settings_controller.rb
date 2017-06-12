@@ -37,7 +37,6 @@ class SettingsController < ApplicationController
   end
 
   def apps
-    debugger
     @body_class_name         = "people-settings"
     target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
     @selected_left_navi_link = "apps"
@@ -45,7 +44,6 @@ class SettingsController < ApplicationController
   end
 
   def do_etsy_authorization
-    debugger
     @callback_url   = return_etsy_authorization_person_settings_path
     consumer_key    = 'ri6jzs9jkwlf09ipma5ld60j'
     consumer_secret = 'sd0un6wwa3'
@@ -65,11 +63,16 @@ class SettingsController < ApplicationController
   end
 
   def return_etsy_authorization
-    debugger
+    access = {:access_token => 'token', :access_secret => 'secret'}
+
+    Etsy::Request.get('/taxonomy/tags', access.merge(:limit => 5))
+    
+    return
+
     @verifier = params[:oauth_verifier]
 
     if @verifier.valid?
-      return;
+      return
     end
 
     access_token = Etsy.access_token(
@@ -79,7 +82,6 @@ class SettingsController < ApplicationController
     )
 
     Etsy.myself(access.token, access.secret)
-    
 
   end
 
