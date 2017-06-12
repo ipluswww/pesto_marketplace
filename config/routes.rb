@@ -459,6 +459,10 @@ Kassi::Application.routes.draw do
             get :notifications
             get :unsubscribe
           end
+          collection do
+            get :do_etsy_authorization
+            get :return_etsy_authorization
+          end
         end
         resources :testimonials
         resources :emails do

@@ -1,3 +1,7 @@
+require 'date'
+require 'oauth'
+require 'etsy'
+
 class SettingsController < ApplicationController
 
   before_filter :except => :unsubscribe do |controller|
@@ -33,10 +37,50 @@ class SettingsController < ApplicationController
   end
 
   def apps
+    debugger
     @body_class_name         = "people-settings"
     target_user = Person.find_by!(username: params[:person_id], community_id: @current_community.id)
     @selected_left_navi_link = "apps"
     render locals: {target_user: target_user}
+  end
+
+  def do_etsy_authorization
+    debugger
+    @callback_url   = return_etsy_authorization_person_settings_path
+    consumer_key    = 'ri6jzs9jkwlf09ipma5ld60j'
+    consumer_secret = 'sd0un6wwa3'
+    request_token_endpoint = "https://openapi.etsy.com/v2/oauth/request_token?scope=email_r%20listings_r"
+
+    Etsy.protocol = "https"
+    Etsy.api_key = consumer_key
+    Etsy.api_secret = consumer_secret
+    Etsy.callback_url = @callback_url
+
+    request_token = Etsy.request_token
+
+    session[:request_token]  = request_token.token
+    session[:request_secret] = request_token.secret
+
+    redirect_to Etsy.verification_url
+  end
+
+  def return_etsy_authorization
+    debugger
+    @verifier = params[:oauth_verifier]
+
+    if @verifier.valid?
+      return;
+    end
+
+    access_token = Etsy.access_token(
+      session[:request_token],
+      session[:request_secret],
+      @verifier
+    )
+
+    Etsy.myself(access.token, access.secret)
+    
+
   end
 
   def unsubscribe

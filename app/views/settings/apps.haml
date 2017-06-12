@@ -56,10 +56,7 @@
 
   :javascript
     $(document).ready(function(){
-      $('#etsy_app').on('click', function(event) {
-        event.preventDefault();
 
-      });
     });
 
   = javascript_include_tag 'fancybox'
@@ -94,10 +91,10 @@
           .row
             .col-md-6
               .media
-                %a#etsy_app.col-md-4.pull-left{:href => "#etsy_app_dialog", :class => "fancybox"}
+                %a#etsy_app.col-xs-4.pull-left{:href => do_etsy_authorization_person_settings_path}
                   %img{:alt => "Etsy", :src => "/assets/apps/etsy.png"}
 
-                .app-details.col-md-8
+                .app-details.col-xs-8
                   %h2.small.font-roboto
                     Etsy
                   %p

@@ -196,5 +196,8 @@ gem 'intercom', '~> 3.5.10'
 
 gem "daemons"
 gem "non-stupid-digest-assets"
+
+gem 'oauth'
+gem 'etsy'
 # gem "rack-ssl", :require => "rack/ssl"
 # gem "thin"
