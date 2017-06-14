@@ -45,13 +45,13 @@ class SettingsController < ApplicationController
 
   def do_etsy_authorization
     @callback_url   = return_etsy_authorization_person_settings_path
-    consumer_key    = 'ri6jzs9jkwlf09ipma5ld60j'
-    consumer_secret = 'sd0un6wwa3'
+    @consumer_key    = 'ri6jzs9jkwlf09ipma5ld60j'
+    @consumer_secret = 'sd0un6wwa3'
     request_token_endpoint = "https://openapi.etsy.com/v2/oauth/request_token?scope=email_r%20listings_r"
 
     Etsy.protocol = "https"
-    Etsy.api_key = consumer_key
-    Etsy.api_secret = consumer_secret
+    Etsy.api_key = @consumer_key
+    Etsy.api_secret = @consumer_secret
     Etsy.callback_url = @callback_url
 
     request_token = Etsy.request_token
@@ -63,25 +63,50 @@ class SettingsController < ApplicationController
   end
 
   def return_etsy_authorization
-    access = {:access_token => 'token', :access_secret => 'secret'}
-
-    Etsy::Request.get('/taxonomy/tags', access.merge(:limit => 5))
+    if (session[:request_token].nil? || session[:request_secret].nil? || params[:oauth_verifier].nil?)
+      return
+    end 
     
-    return
-
     @verifier = params[:oauth_verifier]
 
-    if @verifier.valid?
-      return
+    access = Etsy.access_token(session[:request_token], session[:request_secret], @verifier)
+
+    access_token  = access.token
+    access_secret = access.secret
+    
+    Etsy.api_key = @consumer_key 
+    Etsy.api_secret = @consumer_secret
+    
+    user = Etsy.myself(access_token, access_secret)
+    
+    # Start finding listings.
+    listings = Etsy::Listing.find_all_by_shop_id(user.shop.id, :limit => 5)
+    #Etsy::Listing.find_all_by_shop_id('NeedlesOfSvetlana', :limit => 5)
+
+
+
+  end
+
+  def test_return_etsy_authorization
+    debugger
+    @consumer_key    = 'ri6jzs9jkwlf09ipma5ld60j'
+    @consumer_secret = 'sd0un6wwa3'
+    
+    Etsy.api_key = @consumer_key 
+    Etsy.api_secret = @consumer_secret
+    
+    user = Etsy.user('63547260')
+    
+    listings = nil
+
+    for i in 0..3
+      listings = Etsy::Listing.find_all_by_shop_id(user.shop.id, :limit => 5)
+      if !listings.nil? then
+        puts "#{i} get Success"
+        break
+      end
     end
-
-    access_token = Etsy.access_token(
-      session[:request_token],
-      session[:request_secret],
-      @verifier
-    )
-
-    Etsy.myself(access.token, access.secret)
+    
 
   end
 

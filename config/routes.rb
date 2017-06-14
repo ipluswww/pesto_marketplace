@@ -462,6 +462,7 @@ Kassi::Application.routes.draw do
           collection do
             get :do_etsy_authorization
             get :return_etsy_authorization
+            get :test_return_etsy_authorization
           end
         end
         resources :testimonials
