@@ -1,7 +1,7 @@
 - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
 - is_category_page = !params[:category].blank?
 - if is_homepage && (!is_category_page)
-  = render :partial => 'homepage/origin_hompage'
+  = render :partial => 'homepage/origin_hompage', locals: header_props()
 - else
   = render :partial => 'layouts/head'
   - body_class = @body_class_name ? @body_class_name : '';
