@@ -1,6 +1,8 @@
 - is_homepage = params[:controller] == "homepage" && params[:action] == "index"
 - is_category_page = !params[:category].blank?
-- if is_homepage && (!is_category_page)
+- is_contains_query = !params[:q].blank?
+- is_origin_homepage = is_homepage && (!is_category_page) && (!is_contains_query)
+- if is_origin_homepage
   = render :partial => 'homepage/origin_hompage', locals: header_props()
 - else
   = render :partial => 'layouts/head'

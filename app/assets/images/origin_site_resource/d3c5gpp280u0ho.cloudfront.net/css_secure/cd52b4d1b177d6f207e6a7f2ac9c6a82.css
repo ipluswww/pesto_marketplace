@@ -271,8 +271,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.eot');
-  src: url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://www.hazrati.com/skin/frontend/hazrati/default/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.eot');
+  src: url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/origin_site_resource/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;

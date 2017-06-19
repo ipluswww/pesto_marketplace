@@ -14,6 +14,8 @@ namespace :assets do
   # In this task, set prerequisites for the assets:precompile task
   task compile_environment: :webpack do
     Rake::Task["assets:environment"].invoke
+    sh "mkdir public/assets"
+    sh "cp app/assets/images/origin_site_resource public/assets/origin_site_resource -a"
   end
 
   desc "Compile assets with webpack"
@@ -49,5 +51,6 @@ namespace :assets do
         FileUtils.ln_s Pathname(item).basename, item.sub(/-[a-f0-9]{32}/, '')
       end
     end
+
   end
 end

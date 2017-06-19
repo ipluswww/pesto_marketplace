@@ -23,16 +23,16 @@
     %link{:href => "https://d3c5gpp280u0ho.cloudfront.net/favicon/default/favicon_10.png", :rel => "icon", :type => "image/x-icon"}/
     %link{:href => "https://d3c5gpp280u0ho.cloudfront.net/favicon/default/favicon_10.png", :rel => "shortcut icon", :type => "image/x-icon"}/
     /[if lt IE 7] <script type="text/javascript">var BLANK_URL='https://www.hazrati.com/js/blank.html';var BLANK_IMG='https://www.hazrati.com/js/spacer.gif';</script>
-    %link{:href => "https://d3c5gpp280u0ho.cloudfront.net/css_secure/7af57e35e0b6d4473994269d76a47c78.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "https://d3c5gpp280u0ho.cloudfront.net/css_secure/cd52b4d1b177d6f207e6a7f2ac9c6a82.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
-    %script{:src => "https://d3c5gpp280u0ho.cloudfront.net/js/1b8d008c6f6b3c9f0762aff704a4e74b.js", :type => "text/javascript"}
-    %script{"data-group" => "js001", :src => "https://d3c5gpp280u0ho.cloudfront.net/js/daa9674501e59fe9ec5db54178a9e543.js", :type => "text/javascript"}
+    %link{:href => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/css_secure/7af57e35e0b6d4473994269d76a47c78.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/css_secure/cd52b4d1b177d6f207e6a7f2ac9c6a82.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/js/1b8d008c6f6b3c9f0762aff704a4e74b.js", :type => "text/javascript"}
+    %script{"data-group" => "js001", :src => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/js/daa9674501e59fe9ec5db54178a9e543.js", :type => "text/javascript"}
     %link{:href => "//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600", :rel => "stylesheet"}
     /[if (lte IE 8) & (!IEMobile)]
       <link
-      rel="stylesheet" type="text/css" href="https://d3c5gpp280u0ho.cloudfront.net/css_secure/86495397f188f2e02ae487a7810e4bcf.css" media="all" />
+      rel="stylesheet" type="text/css" href="/assets/origin_site/d3c5gpp280u0ho.cloudfront.net/css_secure/86495397f188f2e02ae487a7810e4bcf.css" media="all" />
     / [if (gte IE 9) | (IEMobile)]><!
-    %link{:href => "https://d3c5gpp280u0ho.cloudfront.net/css_secure/4d49f0cf5a31c835a4373e1f4dbac46e.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/css_secure/4d49f0cf5a31c835a4373e1f4dbac46e.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
     / <![endif]
     :javascript
       Mage.Cookies.path='/';Mage.Cookies.domain='.www.hazrati.com';
@@ -195,11 +195,9 @@
                 .item
                   %img{:alt => "Banner 3", :src => "/assets/banner/banner_4_3.jpg"}/
                 .item
-                  %img{:alt => "Banner 4", :src => "/assets/banner/banner5_2.jpg"}/
+                  %img{:alt => "Banner 4", :src => "/assets/banner/banner1_4.jpg"}/
                 .item
                   %img{:alt => "Banner 5", :src => "/assets/banner/banner3_4.jpg"}/
-                .item
-                  %img{:alt => "Banner 6", :src => "/assets/banner/banner6_2.jpg"}/
               .featured_seller.hidden-xs
                 .container
                   .row
@@ -546,7 +544,7 @@
                     %li
                       %a{:href => "/copyright"} Copyright
                     %li
-                      %a{:href => "https://www.hazrati.com/interest-based-ads/"} Interest-based Ads
+                      %a{:href => "/interest-based-ads"} Interest-based Ads
         %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js", :type => "text/javascript"}
         %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.css", :rel => "stylesheet", :type => "text/css"}/
         :javascript
@@ -577,7 +575,7 @@
           (function($){$(document).on('click','a',function(e){var base=$(this);if(base.attr('data-target')=='#messenger-modal'){$('#messenger-modal').find('input[name="to_id"]').val($(this).attr('data-recipient'));$('#messenger-modal form').trigger('reset');$('#messenger-upload').uploadify('reset');}});$('#messenger-upload').uploadify({'formData':{'timestamp':'1497430398','token':'a09008614301789f91da5de832fc2e20'},'removeCompleted':false,'buttonClass':'btn btn-primary','swf':'https://www.hazrati.com/skin/frontend/hazrati/default/uploadify.swf','uploader':'https://www.hazrati.com/messenger/message/attach/','onUploadSuccess':function(file,data,response){$('#'+file.id).append('<input type="hidden" name="attachment[]" value="'+data+'"/>');},});$('#messenger-modal form').on('submit',function(e){e.preventDefault();var form=$(this);if(window.confirm("Do you really want to send the message?")==true){$.ajax({url:form.attr('action'),method:'POST',dataType:'JSON',data:form.serialize(),beforeaSend:function(){console.log(form.serialize());}}).always(function(result){alert(result.message);if(result.status==true){$('#messenger-modal button.close').trigger('click');}}).fail(function(){alert('An error occurred. Please try again later.');});}else{}});})(jQuery);
         :javascript
           var FEED_BASE_URL="https://www.hazrati.com/";
-        %script{:src => "https://www.hazrati.com/js/mirasvit/code/feedexport/performance.js", :type => "text/javascript"}
+        %script{:src => "/assets/origin_site_resource/js/performance.js", :type => "text/javascript"}
         #wc-overlay.wc-overlay
           .wc-overlay-loading
         :javascript
