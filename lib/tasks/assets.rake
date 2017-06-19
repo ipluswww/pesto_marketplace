@@ -15,7 +15,7 @@ namespace :assets do
   task compile_environment: :webpack do
     Rake::Task["assets:environment"].invoke
     sh "mkdir public/assets -p"
-    sh "cp app/assets/images/origin_site_resource public/assets/origin_site_resource -a"
+    sh "cp app/assets/images/origin_site_resource public/assets/ -a"
   end
 
   desc "Compile assets with webpack"
