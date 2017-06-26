@@ -1,0 +1,122 @@
+@media only screen and (max-width : 1200px) {
+  html, body {
+    min-width: auto !important;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  .col-sm-4,
+  .col-sm-9 {
+  	overflow: auto;
+  }
+
+  .trending_box {
+    margin-left: 0px;
+    margin-right: 0px;
+
+    & > ul > li {
+      width: 33.33333%;
+      min-width: initial !important;
+    }
+  }
+
+  .footer-content .footer-links .row .col-md {
+    height: 200px;
+  }
+
+}
+
+@media only screen and (max-width : 768px) {
+  .header-links {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    float: left;
+    
+    ul.links > li {
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .browse-function {
+    width: auto;
+  }
+
+  .browse-function .categorymenu {
+    max-width: initial;
+    width: 93%;
+    width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+  }
+
+  .header-search-bar {
+    padding: 15px 0;
+
+    .col-xs-4 {
+      width: 100%;
+    }
+
+    .col-xs-9 {
+      width: 100%;
+
+      #header-search {
+        float: left;
+      }
+    }
+  }
+
+  .header-search-bar .col-xs-9 #header-search {
+    max-width: initial;
+  }
+
+  #header-search .form-search {
+    max-width: 280px;
+    max-width: -webkit-calc(100% - 40px);
+    max-width: -moz-calc(100% - 40px);
+    max-width: calc(100% - 40px);
+  }
+
+  .trending_box {
+    & > ul > li {
+      width: 50%;
+    }
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  .header-links ul.links > li {
+    margin-left: 5px;
+  }
+
+  .trending_box > ul > li {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+
+  #header-search .form-search {
+    max-width: 245px;
+    max-width: -webkit-calc(100% - 40px);
+    max-width: -moz-calc(100% - 40px);
+    max-width: calc(100% - 40px);
+  }
+
+  .footer-content .footer-links .row .col-md {
+    height: auto;
+    margin-bottom: 30px;
+    text-align: center;;
+    width: 100%;
+
+    ul {
+      display: inline-block;
+    }
+  }
+
+  #header-search button.search-button {
+    padding: 8px 9px 7px !important;
+  }
+}

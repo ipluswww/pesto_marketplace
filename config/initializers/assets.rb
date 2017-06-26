@@ -55,4 +55,5 @@ Rails.application.config.assets.precompile += ["main.js",
     "fontawesome-webfont.woff",
     "css/theme-contactus.css",
     "vendor/jquery.gmap/jquery.gmap.min.js",
+    "origin_responsive.css",
 	"application.js", "application_reactpage.js", "application.css", "react_page/styles.css"]
