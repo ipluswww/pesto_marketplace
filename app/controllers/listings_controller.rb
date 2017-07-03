@@ -304,7 +304,6 @@ class ListingsController < ApplicationController
   end
 
   def create_listing(shape, listing_uuid)
-    debugger
     with_currency = params[:listing].merge({currency: @current_community.currency})
     valid_until_enabled = !@current_community.hide_expiration_date
     listing_params = ListingFormViewUtils.filter(with_currency, shape, valid_until_enabled)

@@ -94,7 +94,7 @@ class Listing < ActiveRecord::Base
   before_validation :set_valid_until_time
 
   validates_presence_of :author_id
-  validates_length_of :title, :in => 2..60, :allow_nil => false
+  validates_length_of :title, :in => 1..256, :allow_nil => false
 
   before_create :set_sort_date_to_now
   def set_sort_date_to_now
