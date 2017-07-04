@@ -9,7 +9,6 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def index
-    debugger
     @body_class_name         = "page-type-1 category_page"
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 
