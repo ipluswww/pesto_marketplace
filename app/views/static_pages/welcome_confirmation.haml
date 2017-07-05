@@ -1,0 +1,32 @@
+- content_for :title_header do
+  .browse-view-search-form
+    = render partial: "homepage/search_bar"
+- content_for :page_css do
+  = stylesheet_link_tag "css/theme-contactus.css";
+
+/ Start Content
+%section#content.contactus.type1
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Welcome Confirmation
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Welcome Confirmation
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41    
+        .main
+          .col-main
+            #amfpc-global_messages
+            .review-customer
+              %h3.text-center Your Email has been confirmed.
+            .std.text-center.mt-lg
+              #amfpc-messages
+              %a{:href => "/"} Go to Homepage

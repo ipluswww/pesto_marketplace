@@ -155,7 +155,8 @@ Kassi::Application.routes.draw do
     get "/cookies" => "static_pages#cookies"
     get "/privacy" => "static_pages#privacy"
     get "/interest-based-ads" => "static_pages#interest_based_ads"
-    get "/copyright" => "static_pages#copyright"    
+    get "/copyright" => "static_pages#copyright"
+    get "/welcome_confirmation" => "static_pages#welcome_confirmation"     
     get "/contacts", to: redirect("/user_feedbacks/new")
 
 

@@ -30,4 +30,7 @@ class StaticPagesController < ApplicationController
 	def copyright
 		@body_class_name         = "static_pages copyright"
 	end
+	def welcome_confirmation
+		@body_class_name         = "static_pages welcome_confirmation"
+	end
 end

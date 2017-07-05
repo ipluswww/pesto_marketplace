@@ -55,12 +55,14 @@ class ConfirmationsController < Devise::ConfirmationsController
           redirect_to session[:return_to]
           session[:return_to] = nil
         else
-          redirect_to search_path
+          redirect_to welcome_confirmation_path
+          # redirect_to search_path
         end
 
         return
       else # no logged in session
-        redirect_to login_path and return
+        redirect_to welcome_confirmation_path and return
+        # redirect_to login_path and return
       end
     end
 
