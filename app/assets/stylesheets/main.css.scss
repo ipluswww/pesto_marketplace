@@ -205,6 +205,11 @@ div [class^=OnboardingTopBar] {
 
 }
 
+// validation styles 
+input.danger {
+  background-color: #f77;
+}
+
 // Used for views with left hand navigation
 .left-navi-section {
   padding: lines(0.5) 0;

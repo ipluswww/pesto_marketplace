@@ -14,12 +14,13 @@
             %h1 REGISTER ACCOUNT
           %ul.breadcrumb.pull-right
             %li
-              %a{:href => "#"} Home 
+              %a{:href => "/"} Home 
             %li  Register Account
   / End .content-header
   .content-main
     .wrapper
       .pt-one-3
+        %input#json_existing_users{:type => "hidden", :value => @exist_users.to_json}
         = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
           .register_account_row.row
             .col-md-6

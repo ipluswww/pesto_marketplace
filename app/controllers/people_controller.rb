@@ -1,3 +1,4 @@
+require 'json'
 class PeopleController < Devise::RegistrationsController
   class PersonDeleted < StandardError; end
   class PersonBanned < StandardError; end
@@ -76,6 +77,7 @@ class PeopleController < Devise::RegistrationsController
   def new
     @selected_tribe_navi_tab = "members"
     @body_class_name         = "register-account page-type-1"
+
     redirect_to search_path if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
 
@@ -86,7 +88,16 @@ class PeopleController < Devise::RegistrationsController
     end
 
     @container_class = params[:private_community] ? "container_12" : "container_24"
-    @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
+    @grid_class      = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
+    @exist_users     = Person.all.select('uuid, username, email')
+    
+    @array_exist_users = @exist_users.to_a
+    @exist_users       = Array.new
+
+    @array_exist_users.each do |i|
+      @exist_users += [:username => i.username, :email => i.email]
+    end
+
   end
 
   def create

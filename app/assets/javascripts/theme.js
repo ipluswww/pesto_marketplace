@@ -589,11 +589,27 @@ $(document).ready(function() {
         var $pass_confirm = $('#person_password2').val();
 
         if ($pass == $pass_confirm) {
+            //return;
+        }
+        else {
+            event.preventDefault();
+            alert('Please re-enter password');
             return;
         }
 
-        event.preventDefault();
-        alert('Please re-enter password');
+        var re = /^[a-zA-Z0-9_]+$/;
+
+        var $username = $('#person_username1').val();
+
+        if (re.test($username)) {
+            //return;
+        }
+        else {
+            event.preventDefault();
+            alert('Username should be consist of alphabet, numbers and underline!!!');
+        }
+
+        
     });
 
     //Calcualte height of left-sidebar header when left-sidebar header is clicked
@@ -1011,3 +1027,65 @@ $(document).ready(function() {
 });
 
 
+var form_state = true;
+var existing_users = [];
+
+$(document).ready(function() {
+    if ($('#json_existing_users').val() != undefined)
+    {
+        existing_users = JSON.parse($('#json_existing_users').val());
+    }  
+
+    $('#person_username1').change(function() {
+        var $this = $(this).val();
+
+        form_state = true;
+
+        for (i=0; i<existing_users.length; i++) {
+            if (existing_users[i].username == $this) {
+                form_state = false; 
+
+            }
+        }
+
+        if (form_state) {
+            $(this).removeClass('danger'); 
+        }
+        else {
+
+            $(this).addClass('danger'); 
+        }    
+
+    });
+
+    $('#detail_email').change(function() {
+        var $this = $(this).val();
+
+        form_state = true;
+
+        for (i=0; i<existing_users.length; i++) {
+            if (existing_users[i].email == $this) {
+                form_state = false;                
+            }
+        }
+
+        if (form_state) {
+            $(this).removeClass('danger'); 
+        }
+        else {
+
+            $(this).addClass('danger'); 
+        }    
+    });
+
+    $('.new_person .btn-continue').on('click', function(event) {
+
+        if (form_state) {
+            //return;
+        }
+        else {
+            event.preventDefault();
+        }
+        
+    });
+});

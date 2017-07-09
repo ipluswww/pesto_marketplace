@@ -199,5 +199,6 @@ gem "non-stupid-digest-assets"
 
 gem 'oauth'
 gem 'etsy'
+gem 'json'
 # gem "rack-ssl", :require => "rack/ssl"
 # gem "thin"
