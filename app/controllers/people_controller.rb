@@ -89,8 +89,9 @@ class PeopleController < Devise::RegistrationsController
 
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class      = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
-    @exist_users     = Person.all.select('uuid, username, email')
-    
+
+    @exist_users     = Person.joins(:emails).where("emails.person_id = people.id").select('uuid, username, emails.address AS email')
+
     @array_exist_users = @exist_users.to_a
     @exist_users       = Array.new
 
