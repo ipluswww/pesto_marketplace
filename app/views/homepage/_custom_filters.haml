@@ -7,10 +7,11 @@
           .title
             = field.name(I18n.locale)
             - field_name = field.name
-            %a.toggle{"data-object" => "colorwidget", "data-toggle" => "collapse", :href => "#widget" + (field_name.to_s.gsub!(/\s+/, '')).to_s}
+            - field_name = (field_name.to_s.gsub(/\s+/, '')).to_s
+            %a.toggle{"data-object" => "customfilterwidget", "data-toggle" => "collapse", :href => "#widget" + field_name}
               %i.visible-collapsed.pesto-icon-up-open-mini
               %i.visible-opened.pesto-icon-down-open-mini
-        .panel-group-body.panel-collapse.collapse.in{:id => "widget" + (field_name.to_s.gsub!(/\s+/, '')).to_s, "aria-labelledby" => "headingOne", :role => "tabpanel"}
+        .panel-group-body.panel-collapse.collapse.in{:id => "widget" + field_name, "aria-labelledby" => "headingOne", :role => "tabpanel"}
           %ul.checkbox-list
             - field.options.sort.each do |option|
               %li
