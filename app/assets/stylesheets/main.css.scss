@@ -2172,3 +2172,47 @@ figure.fluidratio {
 .page-type-1 .content-header h2 {
   text-transform: uppercase;
 }
+
+.home-loading-more .pagination {
+  margin-top: 20px;
+
+  .disabled {
+    display: none;
+  }
+
+  & > span,
+  & > em,
+  & > a {
+    padding: 5px 10px;
+    border: 1px solid #ebebeb;
+    color: #b2b2b2;
+    font-style: initial;
+    font-size: 16px;
+    min-width: 35px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  & > span {
+
+  }
+
+  & > em {
+    //border: 1px solid #c1c1c1;
+    //color: #8a8a8a;
+    border: 1px solid #38c;
+    background-color: #08c;
+    color: #fff;
+  }
+
+  & > a {
+    text-decoration: none;
+  }
+
+  & > a:hover,
+  & > a:active {
+    border: 1px solid #38c;
+    background-color: #08c;
+    color: #fff;
+  }
+}
