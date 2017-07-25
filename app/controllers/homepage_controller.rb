@@ -9,6 +9,14 @@ class HomepageController < ApplicationController
   # rubocop:disable AbcSize
   # rubocop:disable MethodLength
   def index
+    @autofind_words = []
+
+    all_products = Listing.select('uuid, title').to_a
+
+    all_products.each do |product| 
+      @autofind_words += [product.title]
+    end
+
     @body_class_name         = "page-type-1 category_page"
     redirect_to landing_page_path and return if no_current_user_in_private_clp_enabled_marketplace?
 

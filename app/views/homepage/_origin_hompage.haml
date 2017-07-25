@@ -28,6 +28,8 @@
     %script{:src => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/js/1b8d008c6f6b3c9f0762aff704a4e74b.js", :type => "text/javascript"}
     %script{"data-group" => "js001", :src => "/assets/origin_site_resource/d3c5gpp280u0ho.cloudfront.net/js/daa9674501e59fe9ec5db54178a9e543.js", :type => "text/javascript"}
     %link{:href => "//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600", :rel => "stylesheet"}
+    %link{:href => "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css", :rel => "stylesheet"}
+
     /[if (lte IE 8) & (!IEMobile)]
       <link
       rel="stylesheet" type="text/css" href="/assets/origin_site/d3c5gpp280u0ho.cloudfront.net/css_secure/86495397f188f2e02ae487a7810e4bcf.css" media="all" />
@@ -594,19 +596,23 @@
         var $zoho=$zoho||{salesiq:{values:{},ready:function(){}}};var d=document;s=d.createElement("script");s.type="text/javascript";s.defer=true;s.src="https://salesiq.zoho.com/hazraticom/float.ls?embedname=hazraticom";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);$zoho.salesiq.ready=function(embedinfo){$zoho.salesiq.floatbutton.visible("hide");}
       :javascript
         var scRec=document.createElement('SCRIPT');scRec.type='text/javascript';scRec.src="//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js";document.getElementsByTagName('head')[0].appendChild(scRec);
+
+    %input#json_autofind_words{:type => "hidden", :value => @autofind_words.to_json}
+
+    %script{:src => "//code.jquery.com/jquery-1.12.4.js", :type => "text/javascript"}  
+    %script{:src => "//code.jquery.com/ui/1.12.1/jquery-ui.js", :type => "text/javascript"}
+
     :javascript
-      new Ajax.Request('/', {
-          parameters: {amfpc_ajax_blocks: 'top.links.custom,top_seller_list,seller_list,repairer_list'},
-          onSuccess: function(response) {
-              var blocks = response.responseText.evalJSON();
-              for (var name in blocks)
-              {
-                  $$('div[id=amfpc-'+name+']').each(function(element){
-                      element.replace(blocks[name]);
-                  });
-              }
-      
-              var event = new CustomEvent("amfpc-ajax-loaded", { detail: {blocks: Object.keys(blocks)} });
-              document.dispatchEvent(event);
-          }
-      });
+      var jQuery_1_12_4 = $.noConflict();
+ 
+      jQuery_1_12_4( function( $ ) {
+        var availableTags = [
+        ];
+
+        availableTags = JSON.parse($('#json_autofind_words').val());
+
+        $( "#q" ).autocomplete({
+          source: availableTags
+        });
+      } );
+
