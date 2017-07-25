@@ -1,6 +1,7 @@
 - frontpage_fragment_cache("grid_item", listing) do
   - with_first_listing_image(listing) do |first_image_url|
     .product.col-md-4.col-sm-4.col-xs-12.grid-item
+      - first_image_url = ListingImage.where("listing_id = '#{listing.id}'").first.image.url(:medium)
       - name = PersonViewUtils.person_entity_display_name(listing.author, @current_community.name_display_type)
       .image.wow.fadeInUp{"data-wow-duration" => "500ms", :role => "button"}
         %a{:href => listing_path(listing.url)}
