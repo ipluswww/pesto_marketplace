@@ -93,6 +93,8 @@
       - if is_default_page
         = javascript_include_tag 'theme.js'
       = yield :page_second_script
+      :javascript
+        var $Original = jQuery.noConflict(true);
       
       %link{:href => "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css", :rel => "stylesheet"}
       
@@ -102,7 +104,10 @@
       %script{:src => "//code.jquery.com/ui/1.12.1/jquery-ui.js", :type => "text/javascript"}
 
       :javascript
-        var jQuery_1_12_4 = $.noConflict();
+        var jQuery_1_12_4 = jQuery.noConflict(true);
+
+        $ = $Original;
+        jQuery = $Original;
 
         jQuery_1_12_4( function( $ ) {
           var availableTags = [
