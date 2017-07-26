@@ -103,6 +103,16 @@ class ApplicationController < ActionController::Base
   end
 
   def set_homepage_path
+    # autofind_words
+
+    @autofind_words = []
+
+    all_products = Listing.select('uuid, title').order(:title).to_a
+
+    all_products.each do |product| 
+      @autofind_words += [product.title]
+    end
+
     present = ->(x) { x.present? }
 
     @homepage_path =

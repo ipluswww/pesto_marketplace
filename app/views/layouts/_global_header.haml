@@ -33,7 +33,7 @@
                   Search
                 %ul.dropdown-menu
                   %li
-                    %form.search-form
+                    %form.search-form{:action => '/'}
                       = text_field_tag "q", params[:q], :class => "form-control", :placeholder => (@community_customization && @community_customization.search_placeholder) || t("homepage.index.what_do_you_need")
                       %a.demo-icon.pesto-icon-cross-mark.menu-close{:href => "#"}
               %li
