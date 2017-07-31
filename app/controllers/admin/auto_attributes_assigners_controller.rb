@@ -1,4 +1,12 @@
-class Admin::AutoAttributesAssignerController < Admin::AdminBaseController
+class Admin::AutoAttributesAssignersController < Admin::AdminBaseController
+
+  def create
+  
+  end
+
+  def update
+
+  end
 
   def index
     @body_class_name         = "admin auto_attributes_assigner"
@@ -14,6 +22,12 @@ class Admin::AutoAttributesAssignerController < Admin::AdminBaseController
 
   def edit
     @body_class_name         = "admin auto_attributes_assigner_edit"
+    @selected_left_navi_link = "listing auto_attributes_assigner"
+  
+  end
+
+  def show
+    @body_class_name         = "admin auto_attributes_assigner_show"
     @selected_left_navi_link = "listing auto_attributes_assigner"
   
   end

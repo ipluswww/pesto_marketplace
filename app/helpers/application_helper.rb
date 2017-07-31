@@ -430,7 +430,7 @@ module ApplicationHelper
         :topic => :configure,
         :text => 'Auto Attributes Assigner',
         :icon_class => icon_class("form"),
-        :path => admin_auto_attributes_assigner_path,
+        :path => admin_auto_attributes_assigners_path,
         :name => "auto_attributes_assigner"
       }
     ]
