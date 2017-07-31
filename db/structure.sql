@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.16, for osx10.11 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.18, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: sharetribe_development
+-- Host: localhost    Database: sharetribe_development
 -- ------------------------------------------------------
--- Server version	5.7.15-log
+-- Server version	5.7.18
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,6 +35,41 @@ CREATE TABLE `auth_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_auth_tokens_on_token` (`token`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `auto_attributes_assigners`
+--
+
+DROP TABLE IF EXISTS `auto_attributes_assigners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auto_attributes_assigners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(255) DEFAULT NULL,
+  `performed` varchar(255) DEFAULT NULL,
+  `priority` int(11) DEFAULT NULL,
+  `filtered_product_ids` text,
+  `title_contains` varchar(255) DEFAULT NULL,
+  `title_doesnot_contains` varchar(255) DEFAULT NULL,
+  `description_contains` varchar(255) DEFAULT NULL,
+  `description_doesnot_contains` varchar(255) DEFAULT NULL,
+  `filter_category` text,
+  `supplier_attributes_contains` varchar(255) DEFAULT NULL,
+  `supplier_attributes_doesnot_contains` varchar(255) DEFAULT NULL,
+  `supplier_category_contains` varchar(255) DEFAULT NULL,
+  `supplier_category_doesnot_contains` varchar(255) DEFAULT NULL,
+  `filter_by_price_from` varchar(255) DEFAULT NULL,
+  `filter_by_price_to` varchar(255) DEFAULT NULL,
+  `filter_by_cost_price_from` varchar(255) DEFAULT NULL,
+  `filter_by_cost_price_to` varchar(255) DEFAULT NULL,
+  `filter_by_seller` text,
+  `assign_attribute_options` text,
+  `assign_attribute_category` text,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1362,6 +1397,9 @@ CREATE TABLE `people` (
   `min_days_between_community_updates` int(11) DEFAULT '1',
   `deleted` tinyint(1) DEFAULT '0',
   `cloned_from` varchar(22) DEFAULT NULL,
+  `app_etsy_shop_name` varchar(255) DEFAULT NULL,
+  `app_etsy_api_key` varchar(255) DEFAULT NULL,
+  `app_etsy_api_secret` varchar(255) DEFAULT NULL,
   UNIQUE KEY `index_people_on_username_and_community_id` (`username`,`community_id`) USING BTREE,
   UNIQUE KEY `index_people_on_uuid` (`uuid`),
   UNIQUE KEY `index_people_on_email` (`email`) USING BTREE,
@@ -1601,7 +1639,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-14 13:56:18
+-- Dump completed on 2017-07-31 16:04:46
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -3231,4 +3269,8 @@ INSERT INTO schema_migrations (version) VALUES ('20170309104456');
 INSERT INTO schema_migrations (version) VALUES ('20170313201104');
 
 INSERT INTO schema_migrations (version) VALUES ('20170314075755');
+
+INSERT INTO schema_migrations (version) VALUES ('20170605033213');
+
+INSERT INTO schema_migrations (version) VALUES ('20170731140246');
 
