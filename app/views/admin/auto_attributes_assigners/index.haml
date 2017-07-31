@@ -1,0 +1,64 @@
+/ Start Content
+%section.content
+  / Start Content-Header
+  .content-header.breadcrumb-header
+    .wrapper
+      .row
+        .col-md-12
+          .pull-left
+            %h2 Auto Attribute Assigner
+          %ul.breadcrumb.pull-right
+            %li
+              %a{:href => "/"} Home 
+            %li Admin Panel
+  / End .content-header
+  / Start Content-Main
+  .content-main
+    .wrapper
+      .pt-one-41
+        = render :partial => "admin/left_hand_navigation", :locals => { :links => admin_links_for(@current_community) }
+
+        .left-navi-section
+
+          .row
+            .col-12
+              %h3 Manage Filters
+
+              = render :partial => "layouts/info_text", :locals => { :text => 'Filters stand for attribute assign'}
+
+            - #
+
+          #custom-fields-list
+            .row.visible-tablet
+              .col-1.custom-fields-list-title
+                = 'ID'
+              .col-2.custom-fields-list-title
+                = 'Title Contains'
+              .col-2.custom-fields-list-title
+                = 'Title doesn\'t Contains'
+              .col-2.custom-fields-list-title
+                = 'Description Contains'
+              .col-2.custom-fields-list-title
+                = 'Description doesn\'t Contains'
+              .col-1.custom-fields-list-title
+                = 'Status'
+            @auto_attritues_assigners.each do |filter|
+            .row.custom-field-price-row
+              .col-1
+                = 'ID'
+              .col-2
+                = 'title'
+              .col-2
+                = 'not in title'
+              .col-2
+                = 'Description'
+              .col-2
+                = 'not in description'
+              .col-1
+                = 'status'
+                %div.custom-fields-details
+              .col-2
+                = link_to edit_admin_auto_attributes_assigners_path(filter), :class => "custom-fields-action-edit", :id => "edit_custom_field_#{custom_field.id}" do
+                  = icon_tag("edit", ["icon-fix"])
+                = link_to admin_auto_attributes_assigners_path(filter), :method => :delete, :class => "custom-fields-action-remove", data: { :confirm => t("admin.custom_fields.index.remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) } do
+                  = icon_tag("cross", ["icon-fix"])

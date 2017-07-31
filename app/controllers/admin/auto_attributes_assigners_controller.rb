@@ -11,7 +11,10 @@ class Admin::AutoAttributesAssignersController < Admin::AdminBaseController
   def index
     @body_class_name         = "admin auto_attributes_assigner"
     @selected_left_navi_link = "listing auto_attributes_assigner"
-  
+    
+    @auto_attritues_assigners = []
+
+    @auto_attritues_assigners = AutoAttributesAssigner.all
   end
 
   def new
