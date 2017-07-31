@@ -296,6 +296,11 @@ Kassi::Application.routes.draw do
           put :update_expiration
         end
       end
+      resources :auto_attributes_assigner do
+        collection do
+          get :view_queued_products
+        end
+      end
       resources :categories do
         member do
           get :remove
