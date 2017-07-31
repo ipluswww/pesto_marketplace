@@ -214,6 +214,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def landing_page
+    @body_class_name         = "admin landing_page"
     @selected_left_navi_link = "landing_page"
 
     render :landing_page, locals: { community: @current_community }
@@ -226,6 +227,7 @@ class Admin::CommunitiesController < Admin::AdminBaseController
   end
 
   def settings
+    @body_class_name         = "admin admin_settings"
     @selected_left_navi_link = "admin_settings"
 
     # When feature flag is removed, make this pretty

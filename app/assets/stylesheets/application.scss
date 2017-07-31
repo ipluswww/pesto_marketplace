@@ -398,6 +398,70 @@ body.admin.custom-fields-edit {
     }
 }
 
+
+body.admin.communities-edit-welcome-email {
+	label {
+		display: block;
+
+		&.custom-field-category-checkbox-label {
+			display: inline;
+		}
+	}
+
+	.row {
+		margin-bottom: 13px;
+	}
+
+	form .checkbox-container input[type=checkbox] {
+        top: 0;
+	}
+
+	.custom-field-categories-checkbox-container, .category-listing-shapes-checkbox-container {
+    	min-width: 290px;
+    	margin-left: 10px;
+    }
+
+    .add-custom-field-buttons {
+    	margin-top: 40px;
+    }
+
+    .left-navi-section form {
+        padding-top: 0;
+    }
+
+}
+
+body.admin.admin_settings {
+	label {
+		display: block;
+
+		&.custom-field-category-checkbox-label {
+			display: inline;
+		}
+	}
+
+	.row {
+		margin-bottom: 13px;
+	}
+
+	form .checkbox-container input[type=checkbox] {
+        top: 0;
+	}
+
+	.custom-field-categories-checkbox-container, .category-listing-shapes-checkbox-container {
+    	min-width: 290px;
+    	margin-left: 10px;
+    }
+
+    .add-custom-field-buttons {
+    	margin-top: 40px;
+    }
+
+    .settings-checkbox-label.label {
+    	color: #333;
+    }
+}
+
 body.category_page {
 	.wrapper-fulid {
 	

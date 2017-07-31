@@ -137,6 +137,7 @@
 
             - disabled_attr = can_set_sender_address ? nil : :disabled
             - disabled_class = can_set_sender_address ? "" : "sender-address-disabled"
+            - disabled_button_class = can_set_sender_address ? "btn btn-default" : "sender-address-disabled"
 
             = form_tag(post_sender_address_url, method: :post, class: "js-sender-email-form") do
               .row
@@ -161,8 +162,8 @@
                           = icon_tag("alert", ["icon-fix"])
                         %span
                           = t("admin.communities.outgoing_email.amazon_ses_notification", email_sender: "Amazon Web Services", email_subject: "Amazon SES Address Verification Request")
-              .row
-                %button{disabled: disabled_attr, class: disabled_class}= t("admin.communities.outgoing_email.send_verification_button")
+              .mb-one-17
+                %button{disabled: disabled_attr, class: disabled_button_class}= t("admin.communities.outgoing_email.send_verification_button")
 
           %h2= t(".welcome_email_content", :community_name => @community.name(I18n.locale))
           %p= t(".welcome_email_content_description", :send_test_message_link => t(".send_test_message"))
