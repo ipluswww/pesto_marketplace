@@ -296,7 +296,7 @@ Kassi::Application.routes.draw do
           put :update_expiration
         end
       end
-      resources :auto_attributes_assigner do
+      resources :auto_attributes_assigners do
         collection do
           get :view_queued_products
         end
