@@ -9,7 +9,7 @@ class Admin::AutoAttributesAssignersController < Admin::AdminBaseController
   end
 
   def index
-    @body_class_name         = "admin auto_attributes_assigner"
+    @body_class_name         = "admin auto_attributes_assigners"
     @selected_left_navi_link = "listing auto_attributes_assigner"
     
     @auto_attritues_assigners = []
@@ -18,25 +18,25 @@ class Admin::AutoAttributesAssignersController < Admin::AdminBaseController
   end
 
   def new
-    @body_class_name         = "admin auto_attributes_assigner_new"
+    @body_class_name         = "admin auto_attributes_assigners_new"
     @selected_left_navi_link = "listing auto_attributes_assigner"
   
   end
 
   def edit
-    @body_class_name         = "admin auto_attributes_assigner_edit"
+    @body_class_name         = "admin auto_attributes_assigners_edit"
     @selected_left_navi_link = "listing auto_attributes_assigner"
   
   end
 
   def show
-    @body_class_name         = "admin auto_attributes_assigner_show"
+    @body_class_name         = "admin auto_attributes_assigners_show"
     @selected_left_navi_link = "listing auto_attributes_assigner"
   
   end
 
   def view_queued_products
-    @body_class_name         = "admin auto_attributes_assigner_view_queued_products"
+    @body_class_name         = "admin auto_attributes_assigners_view_queued_products"
     @selected_left_navi_link = "listing auto_attributes_assigner"
   
   end
