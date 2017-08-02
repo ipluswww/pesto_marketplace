@@ -28,6 +28,29 @@
 #
 
 class AutoAttributesAssigner < ActiveRecord::Base
+  def is_in_category(search_category_id)
+    categories = filter_category.split(',')
+    search_category = Category.find_by_id(search_category_id)
+
+    categories.each do |category_id|
+      if search_category.own_and_subcategory_ids.include? category_id
+        return true
+      end
+    end
+
+    return false
+  end
+
+  def is_in_category_array(search_category_array)
+    search_category_array.each do |search_category_id|
+    
+      if is_in_category(search_category_id)
+        return true
+      end
+    end
+
+    return false
+  end
 
   def get_queued_products
   	queued_products = []
@@ -57,7 +80,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       titles = title_contains.split(',')
 
       titles.each do |search_word|
-        queued_products = Listing.where("title LIKE ?", "%#{search_word}%")
+        queued_products = queued_products.where("title LIKE ?", "%#{search_word}%")
       end
     end
 
@@ -65,7 +88,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       titles = title_doesnot_contains.split(',')
 
       titles.each do |search_word|
-        queued_products = Listing.where.not("title LIKE ?", "%#{search_word}%")
+        queued_products = queued_products.where.not("title LIKE ?", "%#{search_word}%")
       end
     end
 
@@ -74,7 +97,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       descriptions = description_contains.split(',')
 
       descriptions.each do |search_word|
-        queued_products = Listing.where("description LIKE ?", "%#{search_word}%")
+        queued_products = queued_products.where("description LIKE ?", "%#{search_word}%")
       end
     end
 
@@ -83,15 +106,16 @@ class AutoAttributesAssigner < ActiveRecord::Base
       descriptions = description_doesnot_contains.split(',')
 
       descriptions.each do |search_word|
-        queued_products = Listing.where.not("description LIKE ?", "%#{search_word}%")
+        queued_products = queued_products.where.not("description LIKE ?", "%#{search_word}%")
       end
     end
 
     if (!filter_by_price_from.nil?) && (!filter_by_price_to.nil?)
-      queued_products = Listing.where('price_cents >= ? AND price_cents <= ?', filter_by_price_from, filter_by_price_to)
+      queued_products = queued_products.where('price_cents >= ? AND price_cents <= ?', filter_by_price_from, filter_by_price_to)
     end
 
     queued_products
 
   end
+
 end

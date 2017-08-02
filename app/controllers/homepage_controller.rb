@@ -1,4 +1,6 @@
 # encoding: utf-8
+ListingIndexResult = ListingIndexService::DataTypes::ListingIndexResult
+
 class HomepageController < ApplicationController
 
   before_filter :save_current_path, :except => :sign_in
@@ -135,6 +137,16 @@ class HomepageController < ApplicationController
       }
     end
   end
+
+  def process_results(results, engine)
+    ListingIndexResult.call(
+      count: results[:count],
+      listings: results[:listings].map { |search_res|
+        search_res.merge(url: "#{search_res[:id]}-#{search_res[:title].to_url}")
+      }
+    )
+  end
+
   # rubocop:enable AbcSize
   # rubocop:enable MethodLength
 
@@ -148,6 +160,50 @@ class HomepageController < ApplicationController
     search_fields = checkboxes.concat(dropdowns).concat(numbers)
 
     SearchPageHelper.remove_irrelevant_search_fields(search_fields, relevant_filters)
+  end
+
+  def search_listings(search)
+    queued_products = Listing
+    categories = search[:categories].to_a
+
+    query_where = []
+
+    categories.each do |category_id|
+      category = Category.find_by_id(category_id)
+      query_where += category.own_and_subcategory_ids
+    end
+
+    if (!query_where.empty?)
+      queued_products = Listing.where(:category_id => query_where)
+    end
+
+    if (!search[:keywords].nil?)
+      titles = search[:keywords].split(',')
+
+      titles.each do |search_word|
+        queued_products = queued_products.where("title LIKE ? OR description LIKE ?", "%#{search_word}%", "%#{search_word}%")
+      end
+    end
+
+
+    if !search[:fields].nil? && !search[:fields].empty?
+      query_where = []
+      
+      queued_products = queued_products.joins("LEFT JOIN custom_field_option_selections ON listings.id = custom_field_option_selections.listing_id")
+      
+      search[:fields].each do |field|
+        query_where += field[:value]
+      end
+
+      queued_products = queued_products.where('custom_field_option_selections.custom_field_value_id' => query_where)
+    end
+
+    if !search[:price_min].nil? && !search[:price_max].nil?
+      queued_products = queued_products.where('price_cents > ? AND price_cents < ?', search[:price_min].to_i*100, search[:price_max].to_i*100)
+    
+    end
+
+    queued_products.paginate(:page => search[:page], :per_page => search[:per_page])
   end
 
   def find_listings(params:, current_page:, listings_per_page:, filter_params:, includes:, location_search_in_use:, keyword_search_in_use:, relevant_search_fields:)
@@ -184,22 +240,37 @@ class HomepageController < ApplicationController
         Result::Success.new(res[:body])
       }
     else
-      ListingIndexService::API::Api.listings.search(
-        community_id: @current_community.id,
-        search: search,
-        includes: includes,
-        engine: FeatureFlagHelper.search_engine,
-        raise_errors: raise_errors
-        ).and_then { |res|
+      # {:count=>0, :listings=>[]}
+
+      result = search_listings(search)
+
+      ob_res = ListingIndexService::Search::DatabaseSearchHelper.success_result(result.count, result.to_a, includes)
+
+      ob_res = ob_res.maybe().map { |res|
         Result::Success.new(
-          ListingIndexViewUtils.to_struct(
-            result: res,
-            includes: includes,
-            page: search[:page],
-            per_page: search[:per_page]
-          )
+          process_results(res, '')
         )
+      }.or_else {
+        raise ob_res.data if raise_errors
+        log_error(ob_res, community_id)
+        ob_res
       }
+
+      @auto_attritues_assigners = AutoAttributesAssigner.all
+
+      @auto_attritues_assigners.each do |filter|
+        if filter.is_in_category_array(search[:categories])
+        end
+      end
+
+      Result::Success.new(
+        ListingIndexViewUtils.to_struct(
+          result: ob_res.data,
+          includes: includes,
+          page: search[:page],
+          per_page: search[:per_page]
+        )
+      )
     end
   end
 
