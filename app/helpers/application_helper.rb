@@ -331,14 +331,6 @@ module ApplicationHelper
       }
     end
 
-    links << {
-      :topic => :general,
-      :text => t("admin.left_hand_navigation.preview"),
-      :icon_class => icon_class("eye"),
-      :path => homepage_without_locale_path(big_cover_photo: true, locale: nil),
-      :name => "preview",
-    }
-
     links += [
       {
         :topic => :manage,
@@ -367,37 +359,6 @@ module ApplicationHelper
         :icon_class => icon_class("coins"),
         :path => admin_community_transactions_path(@current_community, sort: "last_activity", direction: "desc"),
         :name => "transactions"
-      },
-      {
-        :topic => :configure,
-        :text => t("admin.communities.edit_details.community_details"),
-        :icon_class => "ss-page",
-        :path => admin_details_edit_path,
-        :name => "tribe_details"
-      },
-      {
-        :topic => :configure,
-        :text => t("admin.communities.edit_details.community_look_and_feel"),
-        :icon_class => "ss-paintroller",
-        :path => admin_look_and_feel_edit_path,
-        :name => "tribe_look_and_feel"
-      },
-      {
-        :topic => :configure,
-        :text => t("admin.communities.new_layout.new_layout"),
-        :icon_class => icon_class("layout"),
-        :path => admin_new_layout_path,
-        :name => "new_layout"
-      }
-    ]
-
-    links += [
-      {
-        :topic => :configure,
-        :text => t("admin.communities.topbar.topbar"),
-        :icon_class => icon_class("topbar_menu"),
-        :path => admin_topbar_edit_path,
-        :name => "topbar"
       }
     ]
 
@@ -428,7 +389,7 @@ module ApplicationHelper
       },
       {
         :topic => :configure,
-        :text => 'Auto Attributes Assigner',
+        :text => 'Auto Attributes',
         :icon_class => icon_class("form"),
         :path => admin_auto_attributes_assigners_path,
         :name => "auto_attributes_assigner"

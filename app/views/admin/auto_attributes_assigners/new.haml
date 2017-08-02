@@ -21,3 +21,27 @@
 
         .left-navi-section
           #new-field-form.new-field-form
+            .tabs.tabs-default.tabs-Horizontal.tabs-top
+              %ul.nav.nav-tabs
+                %li.active
+                  %a{"data-toggle" => "tab", :href => "#target_description1"} DESCRIPTION
+                %li
+                  %a{"data-toggle" => "tab", :href => "#target_details1"} DETAILS
+                %li
+                  %a{"data-toggle" => "tab", :href => "#target_comments1"} COMMENTS
+                %li
+                  %a{"data-toggle" => "tab", :href => "#target_tags1"} TAGS
+              .tab-content
+                #target_description1.tab-pane.active
+                  %h4 DESCRIPTION
+                  %p Pellentesque mollis risus orci, non sodales diam rhoncus vehicula. Donec vel fringilla nibh. Duis mattis, est a suscipit porta, nibh sem venenatis justo, et congue orci lorem in tellus. Curabitur lacinia cursus erat, id mattis ante. Interdum et malesuada fames ac ante.
+                  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dignissimos nostrum debitis optio molestiae in quam dicta labore obcaecati ullam necessitatibus animi deleniti minima dolor suscipit nobis est excepturi inventore.
+                #target_details1.tab-pane
+                  %h4 DETAILS
+                  %p Suspendisse hendrerit dui id laoreet semper. Mauris mollis aliquet imperdiet. Sed dui ligula, placerat sit amet justo vel, adipiscing molestie odio. Proin ultricies erat nec est molestie, et posuere dui elementum. Ut molestie a mauris sit amet congue. Phasellus eu eros sit amet mi sodales suscipit ac eget nulla. Quisque elementum malesuada purus, vel ultrices quam vulputate in.
+                #target_comments1.tab-pane
+                  %h4 COMMENTS
+                  %p Ut blandit massa quam, non faucibus eros eleifend egestas. Aliquam elementum enim condimentum, pulvinar mauris in, tristique nisi.
+                #target_tags1.tab-pane
+                  %h4 TAGS
+                  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi dignissimos nostrum debitis optio molestiae in quam dicta labore obcaecati ullam necessitatibus animi deleniti minima dolor suscipit nobis est excepturi inventore.
