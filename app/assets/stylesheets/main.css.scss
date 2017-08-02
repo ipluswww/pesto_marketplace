@@ -62,6 +62,13 @@ a, input, button {
 
 }
 
+.ui-menu.ui-widget-content li div.ui-menu-item-wrapper.ui-state-active {
+  border: 1px solid #003eff;
+  background-color: #007fff !important;
+  background: #007fff;
+  color: #fff;
+}
+
 .flash-notifications {
   display: none;
 }
