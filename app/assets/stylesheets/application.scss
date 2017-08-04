@@ -435,7 +435,53 @@ body.auto_attributes_assigners {
 	.btn-default {
 	    padding: 5.5px 19px;
 	}
+
+	table {
+		th:first-child {
+			width: 60px
+		}
+
+		th,
+		td {
+			text-align: center;
+		}
+	}
 }
+
+body.auto_attributes_assigners_new,
+body.auto_attributes_assigners_edit {
+	h4 {
+	    font-size: 26px;
+	    margin-bottom: 15px;
+	    margin-top: 30px;
+	    color: #888;
+	}
+
+	.new_listing_form_field_container .field-container {
+	    margin: 0 15px 30px;
+
+	    & > label {
+	    	width: 45%;
+
+	    }
+
+	    & > select {
+	     	width: 45%;
+	    }
+	}
+
+	form .field-container .checkbox-container input[type=checkbox] {
+	    position: absolute;
+	    top: 0.9375em;
+	    margin-top: 0;
+	    vertical-align: middle;
+	    position: static;
+	    font-size: 24px;
+	    width: 16px;
+	    height: 16px;
+	}
+}
+
 
 body.admin.admin_settings {
 	label {

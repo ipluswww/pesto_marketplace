@@ -1,0 +1,12 @@
+- if custom_fields && custom_fields.count > 0
+  .new_listing_form_field_container
+    - custom_fields.each do |custom_field|
+      - custom_field.with_type do |field_type|
+        - if field_type == :dropdown
+          .field-container
+            = label "custom_fields", "#{custom_field.id}".to_sym, "#{custom_field.name(I18n.locale)}#{custom_field.required ? '*' : ''}"
+            = render :partial => "admin/auto_attributes_assigners/custom_fields_dropdown", :locals => { :custom_field => custom_field, :custom_field_value => listing.answer_for(custom_field) }
+
+            .checkbox-container
+              = check_box_tag "overwrite_property[#{custom_field.id}]", 'yes', listing.overwrite_answer_for(custom_field)
+              = label 'overwrite_property', "#{custom_field.id}".to_sym, "Do NOT override existing and future filters for matching items.", :class => "settings-checkbox-label"

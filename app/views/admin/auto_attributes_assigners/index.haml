@@ -30,36 +30,40 @@
             .row.mt-one-7.mb-one-5.mr-none.ml-none
               %a.btn.btn-default{ :href => view_queued_products_admin_auto_attributes_assigners_path} View Queued Products
               %a.btn.btn-default.pull-right{ :href => new_admin_auto_attributes_assigner_path} New Filter
-            .row.visible-tablet
-              .col-1.custom-fields-list-title
-                = 'ID'
-              .col-2.custom-fields-list-title
-                = 'Title Contains'
-              .col-2.custom-fields-list-title
-                = 'Title doesn\'t Contains'
-              .col-2.custom-fields-list-title
-                = 'Description Contains'
-              .col-2.custom-fields-list-title
-                = 'Description doesn\'t Contains'
-              .col-1.custom-fields-list-title
-                = 'Status'
-            - @auto_attritues_assigners.each do |filter|
-              .row.auto_attributes_assigner-row
-                .col-1
-                  = 'ID'
-                .col-2
-                  = 'title'
-                .col-2
-                  = 'not in title'
-                .col-2
-                  = 'Description'
-                .col-2
-                  = 'not in description'
-                .col-1
-                  = 'status'
-                  %div.custom-fields-details
-                .col-2
-                  = link_to edit_admin_auto_attributes_assigners_path(filter), :class => "custom-fields-action-edit", :id => "edit_custom_field_#{custom_field.id}" do
-                    = icon_tag("edit", ["icon-fix"])
-                  = link_to admin_auto_attributes_assigners_path(filter), :method => :delete, :class => "custom-fields-action-remove", data: { :confirm => t("admin.custom_fields.index.remove_field_confirmation", :field_name => custom_field.name(I18n.locale)) } do
-                    = icon_tag("cross", ["icon-fix"])
+            
+            .table-responsive
+              %table.table.table-bordered
+                %tr
+                  %th
+                    = 'ID'
+                  %th
+                    = 'Title Contains'
+                  %th
+                    = 'Title doesn\'t Contains'
+                  %th
+                    = 'Description Contains'
+                  %th
+                    = 'Description doesn\'t Contains'
+                  %th
+                    = 'Status'
+                  %th
+                - @auto_attritues_assigners.each do |filter|
+                  %tr
+                    %td
+                      = filter.id
+                    %td
+                      = filter.title_contains
+                    %td
+                      = filter.title_doesnot_contains
+                    %td
+                      = filter.description_contains
+                    %td
+                      = filter.description_doesnot_contains
+                    %td
+                      = filter.status
+                      %div.custom-fields-details
+                    %td
+                      = link_to edit_admin_auto_attributes_assigner_path(filter), :class => "custom-fields-action-edit", :id => "edit_custom_field_#{filter.id}" do
+                        = icon_tag("edit", ["icon-fix"])
+                      = link_to admin_auto_attributes_assigners_path(filter), :method => :delete, :class => "custom-fields-action-remove", data: { :confirm => t("admin.custom_fields.index.remove_field_confirmation", :field_name => filter.id) } do
+                        = icon_tag("cross", ["icon-fix"])

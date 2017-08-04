@@ -21,7 +21,7 @@
 
         .left-navi-section
           #new-field-form.new-field-form
-            = form_for @auto_attributes_assigner, :url => admin_auto_attributes_assigners_path, :html => { :id => "new_admin_auto_attributes_assigner" } do |form|
+            = form_for @auto_attributes_assigner, :url => admin_auto_attributes_assigner_path(@auto_attributes_assigner), :method => :put, :html => { :id => "new_admin_auto_attributes_assigner" } do |form|
               .tabs.tabs-default.tabs-Horizontal.tabs-top
                 %ul.nav.nav-tabs
                   %li.active
