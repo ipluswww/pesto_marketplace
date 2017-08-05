@@ -1,3 +1,59 @@
+- content_for :page_script do
+  -# Initialize global I18n variable and load translations there
+  :javascript
+    window.I18n = {};
+
+  = javascript_include_tag "i18n/#{I18n.locale}"
+
+  = javascript_include_tag 'application'
+
+  :javascript
+    window.ST.jsonTranslations = #{JSONTranslations.get(I18n.locale)}
+
+  - if @analytics_event
+    :javascript
+      report_analytics_event.apply(null, #{@analytics_event});
+  - if @gtm_datalayer
+    :javascript
+      if(window.ST != null && typeof window.ST.gtmPush === 'function') {
+        window.ST.gtmPush(#{@gtm_datalayer.to_json});
+      }
+
+  :javascript
+    $(function() {
+      if ('touchAction' in document.body.style) {
+        document.body.style.touchAction = 'manipulation';
+      } else {
+        window.FastClick.attach(document.body, { excludeNode: '^pac-'} );
+      }
+    });
+
+  :javascript
+    $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
+
+  :javascript
+    $('.select-all').on('click', function(event) {
+      event.preventDefault();
+
+      $('input[type="checkbox"]', $(this).parent().parent().parent().parent()).each(function() {
+        if (!$(this).is(':checked'))
+        {
+          $(this).click();
+        }
+      });
+    });
+
+    $('.deselect-all').on('click', function(event) {
+      event.preventDefault();
+
+      $('input[type="checkbox"]', $(this).parent().parent().parent().parent()).each(function() {
+        if ($(this).is(':checked'))
+        {
+          $(this).click();
+        }
+      });
+    });    
+
 / Start Content
 %section.content
   / Start Content-Header
