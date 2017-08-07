@@ -67,11 +67,16 @@
 
   :javascript
     function initialize_product_page() {
-      $('.fancybox-item.fancybox-close').click();
+      if ($('.fancybox-item.fancybox-close').length > 0) {
+        $('.fancybox-item.fancybox-close').click();
 
-      setTimeout(function() {
-        $('body').addClass('opacity-allow');
-      }, 1000);
+        setTimeout(function() {
+          $('body').addClass('opacity-allow');
+        }, 1000);      
+      }
+      else {
+        setTimeout(initialize_product_page, 300);
+      }
     }
 
     $(document).ready(function() {
