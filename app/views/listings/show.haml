@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_listing_view('#{I18n.locale}');
 - content_for :page_css do
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox-buttons.css"
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox-thumbs.css"
+  = stylesheet_link_tag "vendor/fancybox/css/jquery.fancybox.css"
   = stylesheet_link_tag "vendor/easy-responsive-tabs/css/easy-responsive-tabs.css"
   = stylesheet_link_tag "vendor/owlcarousel/owl.carousel.css"
   = stylesheet_link_tag "vendor/owlcarousel/css/animate.css"
@@ -22,7 +25,9 @@
 - content_for :meta_image_height, dimensions[:height].to_s if !@listing.listing_images.empty?
 - content_for :keywords, StringUtils.keywords(@listing.title)
 - content_for :page_script do
-
+  = javascript_include_tag 'vendor/fancybox/js/jquery.fancybox'
+  = javascript_include_tag 'vendor/fancybox/js/jquery.fancybox-buttons'
+  = javascript_include_tag 'vendor/fancybox/js/jquery.fancybox-thumbs'
   = javascript_include_tag 'vendor/easy-responsive-tabs/js/easyResponsiveTabs'
 
 - content_for :page_second_script do
@@ -59,6 +64,26 @@
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
   = yield :extra_javascript;
+
+  :javascript
+    function initialize_product_page() {
+      $('.fancybox-item.fancybox-close').click();
+
+      setTimeout(function() {
+        $('body').addClass('opacity-allow');
+      }, 1000);
+    }
+
+    $(document).ready(function() {
+      $('a.fancybox').click();
+
+      $('a.fancybox').on('click', function() {
+        $( window ).resize();
+      });
+
+      setTimeout(initialize_product_page, 300);
+
+    });
 
 - content_for :title_header do
   .browse-view-search-form
@@ -103,33 +128,80 @@
         .product.clearfix
           / Start product-carousel
           .product-carousel
-            - with_image_frame(@listing) do |reason, listing_images|
-              - if reason == :images_ok
-                .theme-ow-carousel-wrapper.advertising
-                  .theme-owl-carousel.owl-carousel.owl-theme
-                    .item
-                      %img{:alt => "", :src => listing_images.first.image.url(:big)}/
-                      .image-over-comment
-                        %div
-                          
-                    / End .item
-                    .item
-                      - if listing_images.second
-                        %img{:alt => "", :src => listing_images.second.image.url(:big)}/
+            .product-image
+              .zoom.text-center{:role => "button"}
+                %a.fancybox{:href => "#product_image_big"}
+                  %span.pesto-icon-bottomright.icon-button.smaller
+              - with_image_frame(@listing) do |reason, listing_images|
+                - if reason == :images_ok
+                  - if listing_images.second
+                    .theme-ow-carousel-wrapper.advertising
+                      .theme-owl-carousel.owl-carousel.owl-theme
+                        .item
+                          %img{:alt => "", :src => listing_images.first.image.url(:big)}/
+                          .image-over-comment
+                            %div
+                              
+                        / End .item
+                        .item
+                          - if listing_images.second
+                            %img{:alt => "", :src => listing_images.second.image.url(:big)}/
+                            .image-over-comment
+                              %div
+                  - else
+                    .picture-container
+                      .item
+                        %img{:alt => "", :src => listing_images.first.image.url(:big), :style => "width: 100%;"}/
                         .image-over-comment
                           %div
-                          
-            
-              - else
-                .listing-image-text-container
-                  .listing-image-frame
-                    .listing-image-frame-content
-                      .listing-image-vertical-centering
-                        .listing-no-image
-                          - if reason == :images_processing
-                            = t("listings.show.processing_uploaded_image")
-                          - else
-                            = t(".no_description")
+
+                - else
+                  .listing-image-text-container
+                    .listing-image-frame
+                      .listing-image-frame-content
+                        .listing-image-vertical-centering
+                          .listing-no-image
+                            - if reason == :images_processing
+                              = t("listings.show.processing_uploaded_image")
+                            - else
+                              = t(".no_description")
+
+          .fancybox-content-container
+            #product_image_big.product-carousel
+              .product-image
+                - with_image_frame(@listing) do |reason, listing_images|
+                  - if reason == :images_ok
+                    - if listing_images.second
+                      .theme-ow-carousel-wrapper.advertising
+                        .theme-owl-carousel.owl-carousel.owl-theme
+                          .item
+                            %img{:alt => "", :src => listing_images.first.image.url(:big)}/
+                            .image-over-comment
+                              %div
+                                
+                          / End .item
+                          .item
+                            - if listing_images.second
+                              %img{:alt => "", :src => listing_images.second.image.url(:big)}/
+                              .image-over-comment
+                                %div
+                    - else
+                      .picture-container
+                        .item
+                          %img{:alt => "", :src => listing_images.first.image.url(:big), :style => "width: 100%;"}/
+                          .image-over-comment
+                            %div
+
+                  - else
+                    .listing-image-text-container
+                      .listing-image-frame
+                        .listing-image-frame-content
+                          .listing-image-vertical-centering
+                            .listing-no-image
+                              - if reason == :images_processing
+                                = t("listings.show.processing_uploaded_image")
+                              - else
+                                = t(".no_description")
 
           .product-summary
             .clearfix

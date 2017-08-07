@@ -289,6 +289,16 @@ body.copyright {
 	}
 }
 
+body.product.opacity-allow {
+	#fancybox-overlay {
+		opacity: 1 !important;
+	}
+
+	.fancybox-wrap {
+		opacity: 1 !important;
+	}
+}
+
 body.product {
 	#listing-contact {
 		position: absolute;
@@ -303,6 +313,34 @@ body.product {
 		&:hover {
 			color: #08c;
 			text-decoration: none;
+		}
+	}
+
+	#fancybox-overlay {
+		z-index: 2000;
+		opacity: 0 !important;
+	}
+
+	.fancybox-wrap {
+		opacity: 0 !important;
+	}
+
+	.fancybox-wrap.fancybox-opened {
+		z-index: 2010;
+	}
+
+	#product_image_big.product-carousel {
+		max-width: 900px;
+		max-height: 600px;
+		width: 840px;
+		height: 600px;
+
+		.theme-owl-carousel.owl-carousel.owl-theme {
+			.item {
+				img {
+
+				}
+			}
 		}
 	}
 }
