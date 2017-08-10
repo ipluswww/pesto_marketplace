@@ -286,6 +286,15 @@
                   %table.table.table-striped.detail-table
                     - @listing.custom_field_values.each do |custom_field_value|
                       - custom_field_value.with_type do |question_type|
-                        = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
-                            
-  
+                        - if question_type != :dropdown
+                          = render :partial => "listings/custom_field_partials/#{question_type}", :locals => { :custom_field_value => custom_field_value }
+                    - @listing_custom_fields.each do |question_id, answer_id|
+                      - if CustomField.find_by_id(question_id).nil? || CustomFieldOption.find_by_id(answer_id).nil?
+                        - next
+                      - question_name = CustomField.find_by_id(question_id).name(I18n.locale)
+                      - answer_title  = CustomFieldOption.find_by_id(answer_id).title(I18n.locale)
+                      %tr
+                        %td 
+                          = "#{question_name}"
+                        %td 
+                          = answer_title

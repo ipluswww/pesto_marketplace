@@ -5,14 +5,4 @@
   %td 
     = "#{question_name}"
   %td 
-    .row
-      - ArrayUtils.each_slice_columns(question.options.sort, 3) do |column|
-        .col-4
-          - column.each do |option|
-            - selected = custom_field_value.selected_options.include?(option)
-            .checkbox-option{class: selected ? 'selected' : 'not-selected'}
-              %span.checkbox-option-checkmark
-                - if selected
-                  = icon_tag("check", ["icon-fix"])
-              %span
-                = option.title(I18n.locale)
+    = answer_title

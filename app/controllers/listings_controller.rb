@@ -241,6 +241,24 @@ class ListingsController < ApplicationController
         listing_uuid: @listing.uuid_object.to_s,
         payment_process: process })
 
+    @listing_custom_fields = []
+
+    @listing.custom_field_values.each do |custom_field_value|
+      custom_field_value.with_type do |question_type|
+        if question_type == :dropdown
+          @listing_custom_fields += [[custom_field_value.question.id, custom_field_value.selected_options.first.id]]
+        end
+      end
+    end
+
+    @auto_attritues_assigners = AutoAttributesAssigner.all
+
+    @auto_attritues_assigners.each do |filter|
+      if filter.check_product_id_is_in_filter(@listing.id)
+        @listing_custom_fields = filter.get_updated_attribute_options(@listing_custom_fields)
+      end
+    end
+
     render(locals: onboarding_popup_locals.merge(view_locals))
   end
 

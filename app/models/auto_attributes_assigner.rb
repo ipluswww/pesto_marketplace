@@ -29,7 +29,7 @@
 
 class AutoAttributesAssigner < ActiveRecord::Base
   def is_in_category(search_category_id)
-    if assign_attribute_category.nil?
+    if assign_attribute_category.blank?
       return false
     end
 
@@ -46,7 +46,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
   end
 
   def is_in_category_array(search_category_array)
-    if search_category_array.nil?
+    if search_category_array.blank?
       return false;
     end
 
@@ -60,8 +60,30 @@ class AutoAttributesAssigner < ActiveRecord::Base
     return false
   end
 
+  def check_product_is_in_filter(product) 
+    products = get_queued_products
+
+    if (products.include? product)
+      return true
+    end
+
+    return false
+  end
+
+  def check_product_id_is_in_filter(product_id) 
+    products = get_queued_products
+
+    products.each do |product|
+      if (product_id == product[:id])
+        return true
+      end
+    end
+
+    return false
+  end
+
   def get_filter_categories
-    if filter_category.nil?
+    if filter_category.blank?
       return []
     end
 
@@ -69,11 +91,62 @@ class AutoAttributesAssigner < ActiveRecord::Base
   end
 
   def get_assign_attribute_categories
-    if assign_attribute_category.nil?
+    if assign_attribute_category.blank?
       return []
     end
 
     assign_attribute_category.split(',')
+  end
+
+  def get_updated_attribute_options(listing_custom_fields)
+    if status == 'disabled'
+      return listing_custom_fields
+    end
+    
+    if performed == 'no'
+      return listing_custom_fields
+    end
+
+    if assign_attribute_options.blank?
+      return listing_custom_fields
+    end
+
+    # id, value, flag for overwrite,
+    options_array = assign_attribute_options.split(',')
+
+    if options_array.length%3 != 0
+      return listing_custom_fields
+    end
+
+    option_index = 0
+
+    while option_index < options_array.length do
+
+      flag = false
+
+      listing_custom_fields = listing_custom_fields.map do |field|
+        if field[0].to_s == options_array[option_index]
+          if options_array[option_index + 2] != 'yes'
+            field[1] = options_array[option_index + 1].to_i
+          end
+
+          flag = true
+        end
+
+        field
+      end
+
+      if flag == true
+        option_index += 3
+        next
+      end
+
+      listing_custom_fields = listing_custom_fields + [[options_array[option_index].to_i, options_array[option_index + 1].to_i]]
+
+      option_index += 3
+    end
+
+    listing_custom_fields
   end
 
   def answer_for(custom_field)
@@ -105,14 +178,14 @@ class AutoAttributesAssigner < ActiveRecord::Base
 
   def overwrite_answer_for(custom_field)
     if custom_field.nil? || custom_field.id.nil? || assign_attribute_options.nil?
-      return ''
+      return false
     end
 
     # id, value, flag for overwrite,
     options_array = assign_attribute_options.split(',')
 
     if options_array.length%3 != 0
-      return ''
+      return false
     end
 
     option_index = 0
@@ -126,7 +199,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       option_index += 3
     end
 
-    return ''
+    return false
 
   end
 
@@ -135,27 +208,27 @@ class AutoAttributesAssigner < ActiveRecord::Base
 
     product_ids = []
     products.each do |product|
-      product_ids += products[:id]
+      product_ids += [product[:id]]
     end
 
     product_ids = product_ids.join(',')
   end
 
   def get_queued_products
-  	queued_products = []
+    queued_products = []
 
-  	if status == 'disabled'
-  	  return queued_products
-  	end
-  	
-  	if performed == 'no'
-  	  return queued_products
-  	end
+    if status == 'disabled'
+      return queued_products
+    end
+    
+    if performed == 'no'
+      return queued_products
+    end
 
     categories = []
     queued_products = Listing
 
-    if !filter_category.nil?
+    if !filter_category.blank?
       categories = filter_category.split(',')
     end
 
@@ -170,7 +243,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       queued_products = Listing.where(:category_id => query_where)
     end
 
-    if !title_contains.nil?
+    if !title_contains.blank?
       titles = title_contains.split(',')
 
       titles.each do |search_word|
@@ -178,7 +251,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       end
     end
 
-    if !title_doesnot_contains.nil?
+    if !title_doesnot_contains.blank?
       titles = title_doesnot_contains.split(',')
 
       titles.each do |search_word|
@@ -187,7 +260,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
     end
 
 
-    if !description_contains.nil?
+    if !description_contains.blank?
       descriptions = description_contains.split(',')
 
       descriptions.each do |search_word|
@@ -196,7 +269,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
     end
 
 
-    if !description_doesnot_contains.nil?
+    if !description_doesnot_contains.blank?
       descriptions = description_doesnot_contains.split(',')
 
       descriptions.each do |search_word|
@@ -204,7 +277,7 @@ class AutoAttributesAssigner < ActiveRecord::Base
       end
     end
 
-    if (!filter_by_price_from.nil?) && (!filter_by_price_to.nil?)
+    if (!filter_by_price_from.blank?) && (!filter_by_price_to.blank?)
       queued_products = queued_products.where('price_cents >= ? AND price_cents <= ?', filter_by_price_from, filter_by_price_to)
     end
 

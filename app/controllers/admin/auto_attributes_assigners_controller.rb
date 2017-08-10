@@ -37,7 +37,7 @@ class Admin::AutoAttributesAssignersController < Admin::AdminBaseController
     @new_assigner.save
 
     flash[:notice] = 'Successfully Created!'
-    redirect_to :action => :new
+    redirect_to :action => :index
   end
 
   def update
