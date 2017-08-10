@@ -121,6 +121,10 @@ class AutoAttributesAssigner < ActiveRecord::Base
     option_index = 0
 
     while option_index < options_array.length do
+      if options_array[option_index + 1].blank?
+        option_index += 3
+        next
+      end
 
       flag = false
 
