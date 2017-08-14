@@ -7,7 +7,7 @@ gem 'rails', '4.2.7.1'
 gem 'coffee-rails', "~> 4.0.1"
 gem 'uglifier', "~> 2.7.2"
 
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.0'
 gem 'compass-rails', '~> 2.0'
 
 # Requiring 'compass' gem directly is not normally needed,
@@ -116,6 +116,9 @@ gem "react_on_rails", "~> 6.1.1"
 gem "css_parser", "~> 1.4.5"
 gem 'sitemap_generator', "~> 5.1.0"
 
+gem "camaleon_cms",  '>= 2.4.3.10' # Stable versions 2.4.3.6, 2.4.3.5, 2.4.3.2, 2.3.6, 2.2.1, 2.1.1, 2.1.0
+# gem "camaleon_cms", github: 'owen2345/camaleon-cms' # current development version
+
 # Use latest from master
 #
 # The latest master is needed because it contains the I18n.extend configuration
@@ -202,3 +205,8 @@ gem 'etsy'
 gem 'json'
 # gem "rack-ssl", :require => "rack/ssl"
 # gem "thin"
+
+
+#################### Camaleon CMS include all gems for plugins and themes #################### 
+require './lib/plugin_routes' 
+instance_eval(PluginRoutes.draw_gems)

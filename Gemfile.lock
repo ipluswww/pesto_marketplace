@@ -109,9 +109,32 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     byebug (9.0.6)
     callsite (0.0.11)
+    cama_contact_form (0.0.24)
+      rails
+    cama_meta_tag (1.4)
+      rails (>= 4.1.0)
+    camaleon_cms (2.4.3.11)
+      aws-sdk (~> 2)
+      bcrypt
+      breadcrumbs_on_rails
+      cama_contact_form (~> 0.0.16)
+      cama_meta_tag
+      cancancan (~> 1.10)
+      coffee-rails
+      draper (>= 1.3)
+      font-awesome-rails
+      jquery-rails
+      meta-tags (~> 2.0)
+      mini_magick
+      sass-rails (<= 5.0.6)
+      tinymce-rails (~> 4.3)
+      will_paginate
+      will_paginate-bootstrap
+    cancancan (1.17.0)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -189,6 +212,11 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    draper (2.1.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     dynamic_form (1.1.4)
     email_spec (1.6.0)
       launchy (~> 2.1)
@@ -216,6 +244,8 @@ GEM
       pusher-client (~> 0.3)
       riddle (>= 1.5.6)
       thinking-sphinx
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     foreman (0.84.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
@@ -282,6 +312,8 @@ GEM
     mail_view (1.0.3)
       tilt
     memcachier (0.0.2)
+    meta-tags (2.4.1)
+      actionpack (>= 3.2.0, < 5.2)
     meta_request (0.4.3)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (>= 1.1, < 3)
@@ -290,6 +322,7 @@ GEM
     middleware (0.1.0)
     mime-types (2.99.3)
     mimemagic (0.3.2)
+    mini_magick (4.8.0)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     monetize (1.1.0)
@@ -466,11 +499,12 @@ GEM
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.2.19)
-    sass-rails (4.0.5)
-      railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.2)
-      sprockets (~> 2.8, < 3.0)
-      sprockets-rails (~> 2.0)
+    sass-rails (5.0.6)
+      railties (>= 4.0.0, < 6)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -504,6 +538,8 @@ GEM
     thread_safe (0.3.6)
     tilt (1.4.1)
     timecop (0.6.3)
+    tinymce-rails (4.6.5)
+      railties (>= 3.1.1)
     transit-ruby (0.8.599)
       addressable (~> 2.3.6)
       msgpack (~> 1.1.0)
@@ -533,6 +569,8 @@ GEM
       trollop (~> 2.0)
     websocket (1.2.4)
     will_paginate (3.0.12)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
     xml-simple (1.1.5)
     xpath (2.1.0)
       nokogiri (~> 1.3)
@@ -549,6 +587,7 @@ DEPENDENCIES
   awesome_print (~> 1.6.1)
   aws-sdk (~> 2)
   better_errors (~> 2.1.1)
+  camaleon_cms (>= 2.4.3.10)
   capybara (~> 2.6.2)
   coffee-rails (~> 4.0.1)
   color (~> 1.8)
@@ -622,7 +661,7 @@ DEPENDENCIES
   rspec_junit_formatter
   rubocop (~> 0.37.2)
   sass (~> 3.2.9)
-  sass-rails (~> 4.0.0)
+  sass-rails (~> 5.0.0)
   selenium-webdriver (~> 2.45)
   sitemap_generator (~> 5.1.0)
   statesman (~> 1.3.1)
@@ -644,4 +683,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.18, for Linux (x86_64)
 --
--- Host: localhost    Database: sharetribe_development
+-- Host: localhost    Database: sharetribe_production
 -- ------------------------------------------------------
 -- Server version	5.7.18
 
@@ -46,30 +46,30 @@ DROP TABLE IF EXISTS `auto_attributes_assigners`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auto_attributes_assigners` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `status` varchar(255) DEFAULT NULL,
-  `performed` varchar(255) DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `performed` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `priority` int(11) DEFAULT NULL,
-  `filtered_product_ids` text,
-  `title_contains` varchar(255) DEFAULT NULL,
-  `title_doesnot_contains` varchar(255) DEFAULT NULL,
-  `description_contains` varchar(255) DEFAULT NULL,
-  `description_doesnot_contains` varchar(255) DEFAULT NULL,
-  `filter_category` text,
-  `supplier_attributes_contains` varchar(255) DEFAULT NULL,
-  `supplier_attributes_doesnot_contains` varchar(255) DEFAULT NULL,
-  `supplier_category_contains` varchar(255) DEFAULT NULL,
-  `supplier_category_doesnot_contains` varchar(255) DEFAULT NULL,
-  `filter_by_price_from` varchar(255) DEFAULT NULL,
-  `filter_by_price_to` varchar(255) DEFAULT NULL,
-  `filter_by_cost_price_from` varchar(255) DEFAULT NULL,
-  `filter_by_cost_price_to` varchar(255) DEFAULT NULL,
-  `filter_by_seller` text,
-  `assign_attribute_options` text,
-  `assign_attribute_category` text,
+  `filtered_product_ids` text COLLATE utf8_unicode_ci,
+  `title_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_doesnot_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description_doesnot_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_category` text COLLATE utf8_unicode_ci,
+  `supplier_attributes_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `supplier_attributes_doesnot_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `supplier_category_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `supplier_category_doesnot_contains` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_by_price_from` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_by_price_to` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_by_cost_price_from` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_by_cost_price_to` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filter_by_seller` text COLLATE utf8_unicode_ci,
+  `assign_attribute_options` text COLLATE utf8_unicode_ci,
+  `assign_attribute_category` text COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,6 +109,225 @@ CREATE TABLE `bookings` (
   PRIMARY KEY (`id`),
   KEY `index_bookings_on_transaction_id` (`transaction_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_comments`
+--
+
+DROP TABLE IF EXISTS `cama_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author` varchar(255) DEFAULT NULL,
+  `author_email` varchar(255) DEFAULT NULL,
+  `author_url` varchar(255) DEFAULT NULL,
+  `author_IP` varchar(255) DEFAULT NULL,
+  `content` text,
+  `approved` varchar(255) DEFAULT 'pending',
+  `agent` varchar(255) DEFAULT NULL,
+  `typee` varchar(255) DEFAULT NULL,
+  `comment_parent` int(11) DEFAULT NULL,
+  `post_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_comments_on_approved` (`approved`),
+  KEY `index_cama_comments_on_comment_parent` (`comment_parent`),
+  KEY `index_cama_comments_on_post_id` (`post_id`),
+  KEY `index_cama_comments_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_custom_fields`
+--
+
+DROP TABLE IF EXISTS `cama_custom_fields`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_custom_fields` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_class` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `objectid` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `field_order` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT '0',
+  `is_repeat` tinyint(1) DEFAULT '0',
+  `description` text,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_custom_fields_on_object_class` (`object_class`),
+  KEY `index_cama_custom_fields_on_slug` (`slug`),
+  KEY `index_cama_custom_fields_on_objectid` (`objectid`),
+  KEY `index_cama_custom_fields_on_parent_id` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_custom_fields_relationships`
+--
+
+DROP TABLE IF EXISTS `cama_custom_fields_relationships`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_custom_fields_relationships` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `objectid` int(11) DEFAULT NULL,
+  `custom_field_id` int(11) DEFAULT NULL,
+  `term_order` int(11) DEFAULT NULL,
+  `object_class` varchar(255) DEFAULT NULL,
+  `value` longtext,
+  `custom_field_slug` varchar(255) DEFAULT NULL,
+  `group_number` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `index_cama_custom_fields_relationships_on_objectid` (`objectid`),
+  KEY `index_cama_custom_fields_relationships_on_custom_field_id` (`custom_field_id`),
+  KEY `index_cama_custom_fields_relationships_on_object_class` (`object_class`),
+  KEY `index_cama_custom_fields_relationships_on_custom_field_slug` (`custom_field_slug`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_metas`
+--
+
+DROP TABLE IF EXISTS `cama_metas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_metas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) DEFAULT NULL,
+  `value` longtext,
+  `objectid` int(11) DEFAULT NULL,
+  `object_class` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_metas_on_key` (`key`),
+  KEY `index_cama_metas_on_objectid` (`objectid`),
+  KEY `index_cama_metas_on_object_class` (`object_class`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_posts`
+--
+
+DROP TABLE IF EXISTS `cama_posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `content` longtext,
+  `content_filtered` longtext,
+  `status` varchar(255) DEFAULT 'published',
+  `published_at` datetime DEFAULT NULL,
+  `post_parent` int(11) DEFAULT NULL,
+  `visibility` varchar(255) DEFAULT 'public',
+  `visibility_value` mediumtext,
+  `post_class` varchar(255) DEFAULT 'Post',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `post_order` int(11) DEFAULT '0',
+  `taxonomy_id` int(11) DEFAULT NULL,
+  `is_feature` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `index_cama_posts_on_slug` (`slug`),
+  KEY `index_cama_posts_on_status` (`status`),
+  KEY `index_cama_posts_on_post_parent` (`post_parent`),
+  KEY `index_cama_posts_on_post_class` (`post_class`),
+  KEY `index_cama_posts_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_term_relationships`
+--
+
+DROP TABLE IF EXISTS `cama_term_relationships`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_term_relationships` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `objectid` int(11) DEFAULT NULL,
+  `term_order` int(11) DEFAULT NULL,
+  `term_taxonomy_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_term_relationships_on_objectid` (`objectid`),
+  KEY `index_cama_term_relationships_on_term_order` (`term_order`),
+  KEY `index_cama_term_relationships_on_term_taxonomy_id` (`term_taxonomy_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_term_taxonomy`
+--
+
+DROP TABLE IF EXISTS `cama_term_taxonomy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_term_taxonomy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `taxonomy` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  `parent_id` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `term_group` int(11) DEFAULT NULL,
+  `term_order` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_term_taxonomy_on_taxonomy` (`taxonomy`),
+  KEY `index_cama_term_taxonomy_on_parent_id` (`parent_id`),
+  KEY `index_cama_term_taxonomy_on_slug` (`slug`),
+  KEY `index_cama_term_taxonomy_on_term_order` (`term_order`),
+  KEY `index_cama_term_taxonomy_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `cama_users`
+--
+
+DROP TABLE IF EXISTS `cama_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cama_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT 'client',
+  `email` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `password_digest` varchar(255) DEFAULT NULL,
+  `auth_token` varchar(255) DEFAULT NULL,
+  `password_reset_token` varchar(255) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `password_reset_sent_at` datetime DEFAULT NULL,
+  `last_login_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `site_id` int(11) DEFAULT '-1',
+  `confirm_email_token` varchar(255) DEFAULT NULL,
+  `confirm_email_sent_at` datetime DEFAULT NULL,
+  `is_valid_email` tinyint(1) DEFAULT '1',
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_cama_users_on_username` (`username`),
+  KEY `index_cama_users_on_role` (`role`),
+  KEY `index_cama_users_on_email` (`email`),
+  KEY `index_cama_users_on_site_id` (`site_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1414,6 +1633,29 @@ CREATE TABLE `people` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `plugins_contact_forms`
+--
+
+DROP TABLE IF EXISTS `plugins_contact_forms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `plugins_contact_forms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `description` text,
+  `value` text,
+  `settings` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `prospect_emails`
 --
 
@@ -1639,7 +1881,7 @@ CREATE TABLE `transactions` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-31 16:04:46
+-- Dump completed on 2017-08-14 22:07:45
 INSERT INTO schema_migrations (version) VALUES ('20080806070738');
 
 INSERT INTO schema_migrations (version) VALUES ('20080807071903');
@@ -2942,6 +3184,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150608144130');
 
 INSERT INTO schema_migrations (version) VALUES ('20150609084012');
 
+INSERT INTO schema_migrations (version) VALUES ('20150611161134');
+
 INSERT INTO schema_migrations (version) VALUES ('20150612104320');
 
 INSERT INTO schema_migrations (version) VALUES ('20150622080657');
@@ -2988,6 +3232,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150902090425');
 
 INSERT INTO schema_migrations (version) VALUES ('20150902103231');
 
+INSERT INTO schema_migrations (version) VALUES ('20150926095310');
+
 INSERT INTO schema_migrations (version) VALUES ('20151008090106');
 
 INSERT INTO schema_migrations (version) VALUES ('20151008130725');
@@ -3005,6 +3251,8 @@ INSERT INTO schema_migrations (version) VALUES ('20151202062609');
 INSERT INTO schema_migrations (version) VALUES ('20151204083028');
 
 INSERT INTO schema_migrations (version) VALUES ('20151209102951');
+
+INSERT INTO schema_migrations (version) VALUES ('20151212095328');
 
 INSERT INTO schema_migrations (version) VALUES ('20151215071150');
 
@@ -3100,11 +3348,19 @@ INSERT INTO schema_migrations (version) VALUES ('20160425144703');
 
 INSERT INTO schema_migrations (version) VALUES ('20160427113446');
 
+INSERT INTO schema_migrations (version) VALUES ('20160504155652');
+
+INSERT INTO schema_migrations (version) VALUES ('20160504155653');
+
 INSERT INTO schema_migrations (version) VALUES ('20160509111922');
 
 INSERT INTO schema_migrations (version) VALUES ('20160511130006');
 
+INSERT INTO schema_migrations (version) VALUES ('20160517143441');
+
 INSERT INTO schema_migrations (version) VALUES ('20160518060235');
+
+INSERT INTO schema_migrations (version) VALUES ('20160606135421');
 
 INSERT INTO schema_migrations (version) VALUES ('20160608130531');
 
@@ -3113,6 +3369,8 @@ INSERT INTO schema_migrations (version) VALUES ('20160609070256');
 INSERT INTO schema_migrations (version) VALUES ('20160609080700');
 
 INSERT INTO schema_migrations (version) VALUES ('20160609081158');
+
+INSERT INTO schema_migrations (version) VALUES ('20160609121449');
 
 INSERT INTO schema_migrations (version) VALUES ('20160614071055');
 
@@ -3259,6 +3517,10 @@ INSERT INTO schema_migrations (version) VALUES ('20161107132513');
 INSERT INTO schema_migrations (version) VALUES ('20161107141257');
 
 INSERT INTO schema_migrations (version) VALUES ('20161109094513');
+
+INSERT INTO schema_migrations (version) VALUES ('20161206211917');
+
+INSERT INTO schema_migrations (version) VALUES ('20161215202255');
 
 INSERT INTO schema_migrations (version) VALUES ('20170216134444');
 
