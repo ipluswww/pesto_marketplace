@@ -60,3 +60,5 @@ Rails.application.config.assets.precompile += ["main.js",
     "vendor/jquery.gmap/jquery.gmap.min.js",
     "origin_responsive.css",
 	"application.js", "application_reactpage.js", "application.css", "react_page/styles.css"]
+
+PluginRoutes.system_info["relative_url_root"] = 'blog'
