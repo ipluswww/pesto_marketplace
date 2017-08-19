@@ -209,7 +209,7 @@
                     .col-md-7
                       .seller_info
                         .thumb
-                          %a{:href => "#"}
+                          %a{:href => "/#{@best_seller[:seller].username}"}
                             - if !@best_seller.blank? && !@best_seller[:seller].blank?
                               %img{:alt => "#{@best_seller[:seller].display_name}", :height => "80", :src => "#{url_huge_avatar_thumb(@best_seller[:seller])}", :width => "80"}/
                         .info
@@ -249,7 +249,6 @@
                           %li
                             .item
                               .large
-                                - debugger
                                 - first_image_url = ListingImage.where("listing_id = '#{homepage_seller[:listings][0].id}'").first.image.url(:big)
                                 %a{:href => "#{listing_path(homepage_seller[:listings][0])}"}
                                   %img{:alt => "#{homepage_seller[:listings][0].title}", :height => "238", :src => "#{first_image_url}", :width => "311"}/
@@ -269,7 +268,7 @@
                                       %img{:alt => "#{homepage_seller[:listings][2].title}", :height => "92", :src => "#{first_image_url}", :width => "92"}/
                                   
                                   %li.thumb.count
-                                    %a{:href => "/", :style => "text-decoration:none"}
+                                    %a{:href => "/#{homepage_seller[:seller].username}", :style => "text-decoration:none"}
                                       %span.count= homepage_seller[:count]
                                       %span items
                                 .clear
@@ -280,7 +279,7 @@
                                 .info
                                   %p.name= homepage_seller[:seller].display_name
                                   %p.shop_title
-                                    %a{:href => "https://www.hazrati.com/david-s-jewelry/"}>
+                                    %a{:href => "/#{homepage_seller[:seller].username}"}>
                                       %strong= homepage_seller[:seller].username
                                   %p.contact= "From TX, United States"
                                 .clear
