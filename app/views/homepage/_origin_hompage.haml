@@ -285,9 +285,10 @@
                                 .clear
                           
                       .clear
-                      .more_marketplaces
-                        %center
-                          %a.btn.btn-primary{:href => "/"} See more shops
+                      - if @top_sellers.length > 7
+                        .more_marketplaces
+                          %center
+                            %a.btn.btn-primary{:href => "/"} See more shops
 
         .footer-content
           .footer-new-store-container
