@@ -275,7 +275,7 @@
                               .seller_info
                                 .thumb
                                   %a{:href => "/#{homepage_seller[:seller].username}"}
-                                    %img{:alt => "#{homepage_seller[:seller].display_name}", :height => "54", :src => "url_huge_avatar_thumb(homepage_seller[:seller])", :width => "54"}/
+                                    %img{:alt => "#{homepage_seller[:seller].display_name}", :height => "54", :src => "#{url_huge_avatar_thumb(homepage_seller[:seller])}", :width => "54"}/
                                 .info
                                   %p.name= homepage_seller[:seller].display_name
                                   %p.shop_title
