@@ -82,6 +82,39 @@ class HomepageController < ApplicationController
                                   keyword_search_in_use: keyword_in_use,
                                   relevant_search_fields: relevant_search_fields)
 
+    # Get top 7 sellers
+    @top_sellers = Person.joins(:listings).where('listings.author_id = people.id AND people.deleted = false').order('COUNT(listings.id) DESC').group('people.id')
+    
+    @best_seller = Hash.new
+    @homepage_sellers = []
+
+    if @top_sellers.length > 1
+      @best_seller[:seller]   = @top_sellers[0]
+      @best_seller[:count]    = Listing.where('listings.author_id = ?', @best_seller[:seller].id).count
+      @best_seller[:listings] = Listing.where('listings.author_id = ?', @best_seller[:seller].id).limit(4)
+      
+      for i in 1..(@top_sellers.length-1) do
+        temp_seller = Hash.new
+        temp_seller[:seller]   = @top_sellers[i]
+        temp_seller[:count]    = Listing.where('listings.author_id = ?', temp_seller[:seller].id).count
+        temp_seller[:listings] = Listing.where('listings.author_id = ?', temp_seller[:seller].id).limit(3)
+        
+        if temp_seller[:count] < 3
+          next
+        end
+
+        @homepage_sellers += [temp_seller]
+      end
+
+
+      # Get top 4 products of best seller
+
+      # Get top 3 products fo other 6 sellers
+
+      # @best_seller[:seller][:image], @best_seller[:products][0] 
+      # @homepage_sellers[][:seller][:image], @homepage_sellers[][:products][0] 
+    end
+
     if @view_type == 'map'
       viewport = viewport_geometry(params[:boundingbox], params[:lc], @current_community.location)
     end
@@ -416,6 +449,7 @@ class HomepageController < ApplicationController
   # If `category_ids` is present, returns only filter that belong to
   # one of the given categories. Otherwise returns all filters.
   #
+
   def select_relevant_filters(category_ids)
     relevant_filters =
       if category_ids.present?

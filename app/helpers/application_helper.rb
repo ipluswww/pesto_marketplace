@@ -92,6 +92,10 @@ module ApplicationHelper
     image_tag image_url, { :alt => PersonViewUtils.person_display_name(person, @current_community) }.merge(options)
   end
 
+  def url_huge_avatar_thumb(person)
+    image_url = person.image.present? ? person.image.url(:medium) : missing_avatar(:medium)
+  end  
+  
   def missing_avatar(size = :medium)
     case size.to_sym
     when :small

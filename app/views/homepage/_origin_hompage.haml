@@ -210,29 +210,27 @@
                       .seller_info
                         .thumb
                           %a{:href => "#"}
-                            %img{:alt => "the47thdiamond", :height => "80", :src => "https://www.hazrati.com/media/sellbuy/resized/sample-site-logo_1.jpg", :width => "80"}/
+                            - if !@best_seller.blank? && !@best_seller[:seller].blank?
+                              %img{:alt => "#{@best_seller[:seller].display_name}", :height => "80", :src => "#{url_huge_avatar_thumb(@best_seller[:seller])}", :width => "80"}/
                         .info
                           %h4.title
-                            %strong Anna Jones
+                            %strong= @best_seller[:seller].display_name
                             from
-                            %strong the47thdiamond
+                            %strong= @best_seller[:seller].username
                           %p.contact New York, United States
                         .clear
                     .col-md-6
                       .seller_prod
                         .thumb.count
-                          %a{:href => "/", :style => "text-decoration:none"}
-                            %span.count 8764
+                          %a{:href => "/#{@best_seller[:seller].username}", :style => "text-decoration:none"}
+                            %span.count= @best_seller[:count]
                             %span items
-                        .thumb
-                          %a{:href => "/"}
-                            %img{:alt => "PLATINUM DIAMOND anniversary 3 ct.wedding ring new", :height => "80", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/image/80x80/17f82f742ffe127f42dca9de82fb58b1/1/0/10059.jpg", :width => "80"}/
-                        .thumb
-                          %a{:href => "/"}
-                            %img{:alt => "10 Carats round diamond tennis bracelet solid white gold PRONG SET ", :height => "80", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/image/80x80/17f82f742ffe127f42dca9de82fb58b1/w/g/wg5275.jpg", :width => "80"}/
-                        .thumb
-                          %a{:href => "/"}
-                            %img{:alt => "Certified yellow diamonds 11 ct. jacket earrings studs", :height => "80", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/image/80x80/17f82f742ffe127f42dca9de82fb58b1/6/2/62547yc.jpg", :width => "80"}/
+                        - for i in 1..3 do
+                          .thumb
+                            - if !@best_seller[:listings].blank? && !@best_seller[:listings][i].blank?
+                              - first_image_url = ListingImage.where("listing_id = '#{@best_seller[:listings][i].id}'").first.image.url(:medium)
+                              %a{:href => "#{listing_path(@best_seller[:listings][i])}"}
+                                %img{:alt => "#{@best_seller[:listings][i].title}", :height => "80", :src => "#{first_image_url}", :width => "80"}/
                         .clear
 
             :javascript
@@ -247,210 +245,46 @@
                   .col-md-13
                     .trending_box.trending_marketplaces
                       %ul
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "Size 6 Diamond anniversary Ring 14k White Gold ", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/3/5/351426.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 Size 6 Diamond anniversary Ring 14k White Gold
-                                .price $6,290.00
+                        - @homepage_sellers.each do |homepage_seller|
+                          %li
+                            .item
+                              .large
+                                - debugger
+                                - first_image_url = ListingImage.where("listing_id = '#{homepage_seller[:listings][0].id}'").first.image.url(:big)
+                                %a{:href => "#{listing_path(homepage_seller[:listings][0])}"}
+                                  %img{:alt => "#{homepage_seller[:listings][0].title}", :height => "238", :src => "#{first_image_url}", :width => "311"}/
+                                .prod_info
+                                  %h4= homepage_seller[:listings][0].title
+                                  .price= '$' + homepage_seller[:listings][0].to_s
+                                  .clear
+                              .prod_thumbs
+                                %ul
+                                  %li.thumb
+                                    - first_image_url = ListingImage.where("listing_id = '#{homepage_seller[:listings][1].id}'").first.image.url(:small)
+                                    %a{:href => "#{listing_path(homepage_seller[:listings][1])}"}
+                                      %img{:alt => "#{homepage_seller[:listings][1].title}", :height => "92", :src => "#{first_image_url}", :width => "92"}/
+                                  %li.thumb
+                                    - first_image_url = ListingImage.where("listing_id = '#{homepage_seller[:listings][2].id}'").first.image.url(:small)
+                                    %a{:href => "#{listing_path(homepage_seller[:listings][2])}"}
+                                      %img{:alt => "#{homepage_seller[:listings][2].title}", :height => "92", :src => "#{first_image_url}", :width => "92"}/
+                                  
+                                  %li.thumb.count
+                                    %a{:href => "/", :style => "text-decoration:none"}
+                                      %span.count= homepage_seller[:count]
+                                      %span items
                                 .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Size 7 Prong Set Diamond Engagement Ring White Gold 14k ", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/3/5/351430.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "White Gold 14k Diamond Engagement Ring Sizeable  ", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/3/5/351428.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 1529
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "David's Jewelry", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/blue_diamond_and_pink_cushion_5_White_Metal.jpg", :width => "54"}/
-                              .info
-                                %p.name Warner David
-                                %p.shop_title
-                                  %a{:href => "https://www.hazrati.com/david-s-jewelry/"}>
-                                    %strong David's Jewelry
-                                   shop
-                                %p.contact From TX, United States
-                              .clear
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "0.51 Carat, Loose diamond Natural Fancy Deep Brownish Orangy, Round Shape, SI1 Clarity, GIA", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/e/e/ee152b1ea18b0cf00a35048a4eb8192b__51-carat-natural-fancy-deep-brownish-orangy-round-shape-si1-clarity-gia.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 0.51 Carat, Loose diamond Natural Fancy Deep Brownish Ora...
-                                .price $2,842.92
+                              .seller_info
+                                .thumb
+                                  %a{:href => "/#{homepage_seller[:seller].username}"}
+                                    %img{:alt => "#{homepage_seller[:seller].display_name}", :height => "54", :src => "url_huge_avatar_thumb(homepage_seller[:seller])", :width => "54"}/
+                                .info
+                                  %p.name= homepage_seller[:seller].display_name
+                                  %p.shop_title
+                                    %a{:href => "https://www.hazrati.com/david-s-jewelry/"}>
+                                      %strong= homepage_seller[:seller].username
+                                  %p.contact= "From TX, United States"
                                 .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "1.94 Carat, Loose diamond Natural Fancy Deep Brownish Orangy Yellow, Radiant Shape, VVS2 Clarity, GIA", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/4/e/4e0861edf05d6f427d21e27536303473__94-carat-natural-fancy-deep-brownish-orangy-yellow-radiant-shape-vvs2-clarity-gia.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "4.02 Carat Exquisite Flower Ring with Marquise Diamonds, SI2 Clarity, 7.70gr.", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/2/9/2985adaa1b4621d7d0089d05cc7de581__02-carat-exquisite-flower-ring-with-marquise-diamonds-si2-clarity-770gr.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 401
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "WS_vault", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/images.jpg", :width => "54"}/
-                              .info
-                                %p.name Shane Watson
-                                %p.shop_title
-                                  %a{:href => "/"}>
-                                    %strong WS_vault
-                                   shop
-                                %p.contact From TX, United States
-                              .clear
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "Stainless Steel Etched Roman Numeral Women Ring", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/3/6/36d5ee8df336c6799d1aacaad851918d__SS5003x01-600x600.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 Stainless Steel Etched Roman Numeral Women Ring
-                                .price $55.92
-                                .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Stainless Steel Polished Turquoise Fleur De Lis Men Ring", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/d/6/d648c66c9aa5de941b8a14062da4f856__SS879x01-600x600.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Women's Stainless Steel Intertwined Triple wrap Band Ring", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/c/b/cb1c5f183ae6853fbc4c86e0f0019ee6__SS5320x01-600x600.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 451
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "Wendy_diamonds", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/121.jpg", :width => "54"}/
-                              .info
-                                %p.name Mellisa Wendy
-                                %p.shop_title
-                                  %a{:href => "/"}>
-                                    %strong Wendy_diamonds
-                                   shop
-                                %p.contact From California, United States
-                              .clear
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "Engraved Wedding 3mm Comfort-Fit Band White Gold 14k Size 7", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/D/2/D25752.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 Engraved Wedding 3mm Comfort-Fit Band White Gold 14k Size 7
-                                .price $710.00
-                                .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "7.5mm White Gold 14K Hand-Engraved Wedding Band Size 11", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/D/2/D25763.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Hand engraved platinum love wedding band size 7mm", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/D/2/D25750.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 14
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "DianaGold", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/128.jpg", :width => "54"}/
-                              .info
-                                %p.name Diana Kery
-                                %p.shop_title
-                                  %a{:href => "/"}>
-                                    %strong DianaGold
-                                   shop
-                                %p.contact From New York, United States
-                              .clear
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "Wedding Band Size 8 Yellow & White Gold 14k 6mm ", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/2/8/28523.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 Wedding Band Size 8 Yellow &amp; White Gold 14k 6mm
-                                .price $710.00
-                                .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "5mm Heavy Comfort Fit Wedding Band White Gold 14k", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/2/8/28511.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "White Gold 14k 5mm Comfort Fit Flat Wedding Band ", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/2/8/28513.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 13
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "james_Gem&Jewelry", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/131.jpg", :width => "54"}/
-                              .info
-                                %p.name James Anderson
-                                %p.shop_title
-                                  %a{:href => "/"}>
-                                    %strong james_Gem&amp;Jewelry
-                                   shop
-                                %p.contact From Kansas, United States
-                              .clear
-                        %li
-                          .item
-                            .large
-                              %a{:href => "/"}
-                                %img{:alt => "Designer diamond Bangle 0.5 carats 14K Pink", :height => "238", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/311x238/17f82f742ffe127f42dca9de82fb58b1/i/m/image_6513.jpg", :width => "311"}/
-                              .prod_info
-                                %h4 Designer diamond Bangle 0.5 carats 14K Pink
-                                .price $1,653.00
-                                .clear
-                            .prod_thumbs
-                              %ul
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Black diamond Bangle 2.57 carats 14K White", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/i/m/image_6508.jpg", :width => "92"}/
-                                %li.thumb
-                                  %a{:href => "/"}
-                                    %img{:alt => "Ruby & diamond necklace 0.76 carats 14K White", :height => "92", :src => "https://d3c5gpp280u0ho.cloudfront.net/catalog/product/cache/7/thumbnail/92x92/17f82f742ffe127f42dca9de82fb58b1/i/m/image_6758.jpg", :width => "92"}/
-                                %li.thumb.count
-                                  %a{:href => "/", :style => "text-decoration:none"}
-                                    %span.count 1845
-                                    %span items
-                              .clear
-                            .seller_info
-                              .thumb
-                                %a{:href => "/"}
-                                  %img{:alt => "David's_vault", :height => "54", :src => "https://www.hazrati.com/media/sellbuy/resized/132.jpg", :width => "54"}/
-                              .info
-                                %p.name David Miller
-                                %p.shop_title
-                                  %a{:href => "/"}>
-                                    %strong David's_vault
-                                   shop
-                                %p.contact From Maine, United States
-                              .clear
+                          
                       .clear
                       .more_marketplaces
                         %center
