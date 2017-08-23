@@ -285,7 +285,7 @@
                                 .clear
                           
                       .clear
-                      - if @top_sellers.length > 7
+                      - if @top_sellers.length >= 7
                         .more_marketplaces
                           %center
                             %a.btn.btn-primary{:href => "/"} See more shops
