@@ -51846,6 +51846,9 @@
 	// account_person_settings => (/:locale)/:person_id/settings/account(.:format)
 	  // function(person_id, options)
 	  account_person_settings_path: Utils.route(["person_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"account",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// actions_cama_admin_media => /blog/admin/media/actions(.:format)
+	  // function(options)
+	  actions_cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[2,[7,"/",false],[2,[6,"actions",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// add_from_file_listing_images => (/:locale)/listing_images/add_from_file(.:format)
 	  // function(options)
 	  add_from_file_listing_images_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listing_images",false],[2,[7,"/",false],[2,[6,"add_from_file",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -51861,6 +51864,12 @@
 	// admin => /admin(.:format)
 	  // function(options)
 	  admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]], {}),
+	// admin_auto_attributes_assigner => (/:locale)/admin/auto_attributes_assigners/:id(.:format)
+	  // function(id, options)
+	  admin_auto_attributes_assigner_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"auto_attributes_assigners",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// admin_auto_attributes_assigners => (/:locale)/admin/auto_attributes_assigners(.:format)
+	  // function(options)
+	  admin_auto_attributes_assigners_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"auto_attributes_assigners",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
 	// admin_categories => (/:locale)/admin/categories(.:format)
 	  // function(options)
 	  admin_categories_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"categories",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -51957,6 +51966,24 @@
 	// admin_plan => (/:locale)/admin/plan(.:format)
 	  // function(options)
 	  admin_plan_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plan",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// admin_plugins_cama_contact_form_admin_form => /blog/admin/plugins/cama_contact_form/admin_forms/:id(.:format)
+	  // function(id, options)
+	  admin_plugins_cama_contact_form_admin_form_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// admin_plugins_cama_contact_form_admin_form_del_response => /blog/admin/plugins/cama_contact_form/admin_forms/:admin_form_id/del_response(.:format)
+	  // function(admin_form_id, options)
+	  admin_plugins_cama_contact_form_admin_form_del_response_path: Utils.route(["admin_form_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[3,"admin_form_id",false],[2,[7,"/",false],[2,[6,"del_response",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// admin_plugins_cama_contact_form_admin_form_responses => /blog/admin/plugins/cama_contact_form/admin_forms/:admin_form_id/responses(.:format)
+	  // function(admin_form_id, options)
+	  admin_plugins_cama_contact_form_admin_form_responses_path: Utils.route(["admin_form_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[3,"admin_form_id",false],[2,[7,"/",false],[2,[6,"responses",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// admin_plugins_cama_contact_form_admin_forms => /blog/admin/plugins/cama_contact_form/admin_forms(.:format)
+	  // function(options)
+	  admin_plugins_cama_contact_form_admin_forms_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// admin_plugins_cama_meta_tag_save_settings => /blog/admin/plugins/cama_meta_tag/save_settings(.:format)
+	  // function(options)
+	  admin_plugins_cama_meta_tag_save_settings_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_meta_tag",false],[2,[7,"/",false],[2,[6,"save_settings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// admin_plugins_cama_meta_tag_settings => /blog/admin/plugins/cama_meta_tag/settings(.:format)
+	  // function(options)
+	  admin_plugins_cama_meta_tag_settings_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_meta_tag",false],[2,[7,"/",false],[2,[6,"settings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// admin_settings => (/:locale)/admin/settings(.:format)
 	  // function(options)
 	  admin_settings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -51975,6 +52002,12 @@
 	// affiliates => (/:locale)/affiliates(.:format)
 	  // function(options)
 	  affiliates_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"affiliates",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// ajax_cama_admin_media => /blog/admin/media/ajax(.:format)
+	  // function(options)
+	  ajax_cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[2,[7,"/",false],[2,[6,"ajax",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// ajax_cama_admin_post_type_posts => /blog/admin/post_type/:post_type_id/posts/ajax(.:format)
+	  // function(post_type_id, options)
+	  ajax_cama_admin_post_type_posts_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[6,"ajax",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
 	// analytics_admin_community => (/:locale)/admin/communities/:id/analytics(.:format)
 	  // function(id, options)
 	  analytics_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"analytics",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -52005,6 +52038,300 @@
 	// browse_listings => (/:locale)/listings/browse(.:format)
 	  // function(options)
 	  browse_listings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[6,"browse",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_admin => /blog/admin(.:format)
+	  // function(options)
+	  cama_admin_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
+	// cama_admin_ajax => /blog/admin/ajax(.:format)
+	  // function(options)
+	  cama_admin_ajax_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"ajax",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_api => /blog/admin/api/:method(.:format)
+	  // function(method, options)
+	  cama_admin_api_path: Utils.route(["method"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"api",false],[2,[7,"/",false],[2,[3,"method",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu => /blog/admin/appearances/nav_menus/:id(.:format)
+	  // function(id, options)
+	  cama_admin_appearances_nav_menu_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_add_items => /blog/admin/appearances/nav_menus/:nav_menu_id/add_items(.:format)
+	  // function(nav_menu_id, options)
+	  cama_admin_appearances_nav_menu_add_items_path: Utils.route(["nav_menu_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"add_items",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_custom_settings => /blog/admin/appearances/nav_menus/:nav_menu_id/custom_settings/:id(.:format)
+	  // function(nav_menu_id, id, options)
+	  cama_admin_appearances_nav_menu_custom_settings_path: Utils.route(["nav_menu_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"custom_settings",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_delete_menu_item => /blog/admin/appearances/nav_menus/:nav_menu_id/item_delete/:id(.:format)
+	  // function(nav_menu_id, id, options)
+	  cama_admin_appearances_nav_menu_delete_menu_item_path: Utils.route(["nav_menu_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"item_delete",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_edit_menu_item => /blog/admin/appearances/nav_menus/:nav_menu_id/edit_menu_item/:id(.:format)
+	  // function(nav_menu_id, id, options)
+	  cama_admin_appearances_nav_menu_edit_menu_item_path: Utils.route(["nav_menu_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"edit_menu_item",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_reorder_items => /blog/admin/appearances/nav_menus/:nav_menu_id/reorder_items(.:format)
+	  // function(nav_menu_id, options)
+	  cama_admin_appearances_nav_menu_reorder_items_path: Utils.route(["nav_menu_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"reorder_items",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_save_custom_settings => /blog/admin/appearances/nav_menus/:nav_menu_id/save_custom_settings/:id(.:format)
+	  // function(nav_menu_id, id, options)
+	  cama_admin_appearances_nav_menu_save_custom_settings_path: Utils.route(["nav_menu_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"save_custom_settings",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menu_update_menu_item => /blog/admin/appearances/nav_menus/:nav_menu_id/update_menu_item/:id(.:format)
+	  // function(nav_menu_id, id, options)
+	  cama_admin_appearances_nav_menu_update_menu_item_path: Utils.route(["nav_menu_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"nav_menu_id",false],[2,[7,"/",false],[2,[6,"update_menu_item",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menus => /blog/admin/appearances/nav_menus(.:format)
+	  // function(options)
+	  cama_admin_appearances_nav_menus_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_nav_menus_menu => /blog/admin/appearances/nav_menus/menu(.:format)
+	  // function(options)
+	  cama_admin_appearances_nav_menus_menu_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[6,"menu",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_appearances_render_form => /blog/admin/appearances/render_form(.:format)
+	  // function(options)
+	  cama_admin_appearances_render_form_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"render_form",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_themes => /blog/admin/appearances/themes(.:format)
+	  // function(options)
+	  cama_admin_appearances_themes_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"themes",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_widget_delete => /blog/admin/appearances/widget_delete(.:format)
+	  // function(options)
+	  cama_admin_appearances_widget_delete_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widget_delete",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_widgets => /blog/admin/appearances/widgets(.:format)
+	  // function(options)
+	  cama_admin_appearances_widgets_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_main => /blog/admin/appearances/widgets/main/:id(.:format)
+	  // function(id, options)
+	  cama_admin_appearances_widgets_main_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"main",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_main_index => /blog/admin/appearances/widgets/main(.:format)
+	  // function(options)
+	  cama_admin_appearances_widgets_main_index_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"main",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_save => /blog/admin/appearances/widgets_save(.:format)
+	  // function(options)
+	  cama_admin_appearances_widgets_save_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets_save",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_sidebar => /blog/admin/appearances/widgets/sidebar/:id(.:format)
+	  // function(id, options)
+	  cama_admin_appearances_widgets_sidebar_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_sidebar_assign => /blog/admin/appearances/widgets/sidebar/:sidebar_id/assign/:id(.:format)
+	  // function(sidebar_id, id, options)
+	  cama_admin_appearances_widgets_sidebar_assign_path: Utils.route(["sidebar_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"sidebar_id",false],[2,[7,"/",false],[2,[6,"assign",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_sidebar_assign_index => /blog/admin/appearances/widgets/sidebar/:sidebar_id/assign(.:format)
+	  // function(sidebar_id, options)
+	  cama_admin_appearances_widgets_sidebar_assign_index_path: Utils.route(["sidebar_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"sidebar_id",false],[2,[7,"/",false],[2,[6,"assign",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_sidebar_index => /blog/admin/appearances/widgets/sidebar(.:format)
+	  // function(options)
+	  cama_admin_appearances_widgets_sidebar_index_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_appearances_widgets_sidebar_reorder => /blog/admin/appearances/widgets/sidebar/:sidebar_id/reorder(.:format)
+	  // function(sidebar_id, options)
+	  cama_admin_appearances_widgets_sidebar_reorder_path: Utils.route(["sidebar_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"sidebar_id",false],[2,[7,"/",false],[2,[6,"reorder",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_comments => /blog/admin/comments(.:format)
+	  // function(options)
+	  cama_admin_comments_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"comments",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_confirm_email => /blog/admin/confirm_email(.:format)
+	  // function(options)
+	  cama_admin_confirm_email_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"confirm_email",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_dashboard => /blog/admin/dashboard(.:format)
+	  // function(options)
+	  cama_admin_dashboard_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"dashboard",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_forgot => /blog/admin/forgot(.:format)
+	  // function(options)
+	  cama_admin_forgot_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"forgot",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_installers => /blog/admin/installers(.:format)
+	  // function(options)
+	  cama_admin_installers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"installers",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_login => /blog/admin/login(.:format)
+	  // function(options)
+	  cama_admin_login_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"login",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_logout => /blog/admin/logout(.:format)
+	  // function(options)
+	  cama_admin_logout_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"logout",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_media => /blog/admin/media(.:format)
+	  // function(options)
+	  cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_plugin => /blog/admin/plugins/:id(.:format)
+	  // function(id, options)
+	  cama_admin_plugin_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_plugin_upgrade => /blog/admin/plugins/:plugin_id/upgrade(.:format)
+	  // function(plugin_id, options)
+	  cama_admin_plugin_upgrade_path: Utils.route(["plugin_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[3,"plugin_id",false],[2,[7,"/",false],[2,[6,"upgrade",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_plugins => /blog/admin/plugins(.:format)
+	  // function(options)
+	  cama_admin_plugins_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_post_comment => /blog/admin/posts/:post_id/comments/:id(.:format)
+	  // function(post_id, id, options)
+	  cama_admin_post_comment_path: Utils.route(["post_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_post_comment_answer => /blog/admin/posts/:post_id/comments/:comment_id/answer(.:format)
+	  // function(post_id, comment_id, options)
+	  cama_admin_post_comment_answer_path: Utils.route(["post_id","comment_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[3,"comment_id",false],[2,[7,"/",false],[2,[6,"answer",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_post_comment_save_answer => /blog/admin/posts/:post_id/comments/:comment_id/save_answer(.:format)
+	  // function(post_id, comment_id, options)
+	  cama_admin_post_comment_save_answer_path: Utils.route(["post_id","comment_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[3,"comment_id",false],[2,[7,"/",false],[2,[6,"save_answer",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_post_comment_toggle_status => /blog/admin/posts/:post_id/comments/:comment_id/toggle_status(.:format)
+	  // function(post_id, comment_id, options)
+	  cama_admin_post_comment_toggle_status_path: Utils.route(["post_id","comment_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[3,"comment_id",false],[2,[7,"/",false],[2,[6,"toggle_status",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_post_comments => /blog/admin/posts/:post_id/comments(.:format)
+	  // function(post_id, options)
+	  cama_admin_post_comments_path: Utils.route(["post_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_post_type => /blog/admin/post_type/:id(.:format)
+	  // function(id, options)
+	  cama_admin_post_type_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_post_type_categories => /blog/admin/post_type/:post_type_id/categories(.:format)
+	  // function(post_type_id, options)
+	  cama_admin_post_type_categories_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"categories",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_post_type_category => /blog/admin/post_type/:post_type_id/categories/:id(.:format)
+	  // function(post_type_id, id, options)
+	  cama_admin_post_type_category_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_draft => /blog/admin/post_type/:post_type_id/drafts/:id(.:format)
+	  // function(post_type_id, id, options)
+	  cama_admin_post_type_draft_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"drafts",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_drafts => /blog/admin/post_type/:post_type_id/drafts(.:format)
+	  // function(post_type_id, options)
+	  cama_admin_post_type_drafts_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"drafts",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_post_type_index => /blog/admin/post_type(.:format)
+	  // function(options)
+	  cama_admin_post_type_index_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_post_type_post => /blog/admin/post_type/:post_type_id/posts/:id(.:format)
+	  // function(post_type_id, id, options)
+	  cama_admin_post_type_post_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_post_restore => /blog/admin/post_type/:post_type_id/posts/:post_id/restore(.:format)
+	  // function(post_type_id, post_id, options)
+	  cama_admin_post_type_post_restore_path: Utils.route(["post_type_id","post_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"restore",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_post_tag => /blog/admin/post_type/:post_type_id/post_tags/:id(.:format)
+	  // function(post_type_id, id, options)
+	  cama_admin_post_type_post_tag_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"post_tags",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_post_tags => /blog/admin/post_type/:post_type_id/post_tags(.:format)
+	  // function(post_type_id, options)
+	  cama_admin_post_type_post_tags_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"post_tags",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_post_type_post_trash => /blog/admin/post_type/:post_type_id/posts/:post_id/trash(.:format)
+	  // function(post_type_id, post_id, options)
+	  cama_admin_post_type_post_trash_path: Utils.route(["post_type_id","post_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"trash",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_post_type_posts => /blog/admin/post_type/:post_type_id/posts(.:format)
+	  // function(post_type_id, options)
+	  cama_admin_post_type_posts_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_post_type_taxonomy_posts => /blog/admin/post_type/:post_type_id/:taxonomy/:taxonomy_id/posts(.:format)
+	  // function(post_type_id, taxonomy, taxonomy_id, options)
+	  cama_admin_post_type_taxonomy_posts_path: Utils.route(["post_type_id","taxonomy","taxonomy_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[3,"taxonomy",false],[2,[7,"/",false],[2,[3,"taxonomy_id",false],[2,[7,"/",false],[2,[6,"posts",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// cama_admin_profile => /blog/admin/profile(.:format)
+	  // function(options)
+	  cama_admin_profile_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"profile",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_profile_edit => /blog/admin/profile/edit(.:format)
+	  // function(options)
+	  cama_admin_profile_edit_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"profile",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_register => /blog/admin/register(.:format)
+	  // function(options)
+	  cama_admin_register_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"register",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_search => /blog/admin/search(.:format)
+	  // function(options)
+	  cama_admin_search_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"search",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_settings_custom_field => /blog/admin/settings/custom_fields/:id(.:format)
+	  // function(id, options)
+	  cama_admin_settings_custom_field_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_settings_custom_fields => /blog/admin/settings/custom_fields(.:format)
+	  // function(options)
+	  cama_admin_settings_custom_fields_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_languages => /blog/admin/settings/languages(.:format)
+	  // function(options)
+	  cama_admin_settings_languages_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"languages",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_post_type => /blog/admin/settings/post_types/:id(.:format)
+	  // function(id, options)
+	  cama_admin_settings_post_type_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"post_types",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_settings_post_types => /blog/admin/settings/post_types(.:format)
+	  // function(options)
+	  cama_admin_settings_post_types_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"post_types",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_save_theme => /blog/admin/settings/save_theme(.:format)
+	  // function(options)
+	  cama_admin_settings_save_theme_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"save_theme",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_shortcodes => /blog/admin/settings/shortcodes(.:format)
+	  // function(options)
+	  cama_admin_settings_shortcodes_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"shortcodes",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_site => /blog/admin/settings/site(.:format)
+	  // function(options)
+	  cama_admin_settings_site_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"site",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_site_saved => /blog/admin/settings/site_saved(.:format)
+	  // function(options)
+	  cama_admin_settings_site_saved_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"site_saved",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_sites => /blog/admin/settings/sites(.:format)
+	  // function(options)
+	  cama_admin_settings_sites_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"sites",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_test_email => /blog/admin/settings/test_email(.:format)
+	  // function(options)
+	  cama_admin_settings_test_email_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"test_email",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_settings_theme => /blog/admin/settings/theme(.:format)
+	  // function(options)
+	  cama_admin_settings_theme_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"theme",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_user => /blog/admin/users/:id(.:format)
+	  // function(id, options)
+	  cama_admin_user_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_user_role => /blog/admin/user_roles/:id(.:format)
+	  // function(id, options)
+	  cama_admin_user_role_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"user_roles",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// cama_admin_user_roles => /blog/admin/user_roles(.:format)
+	  // function(options)
+	  cama_admin_user_roles_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"user_roles",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_admin_user_updated_ajax => /blog/admin/users/:user_id/updated_ajax(.:format)
+	  // function(user_id, options)
+	  cama_admin_user_updated_ajax_path: Utils.route(["user_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"user_id",false],[2,[7,"/",false],[2,[6,"updated_ajax",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// cama_admin_users => /blog/admin/users(.:format)
+	  // function(options)
+	  cama_admin_users_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]], {}),
+	// cama_ajax => /blog(/:locale)/ajax(.:format)
+	  // function(options)
+	  cama_ajax_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"ajax",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_captcha => /blog/captcha(.:format)
+	  // function(options)
+	  cama_captcha_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"captcha",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
+	// cama_category => /blog(/:locale)/:label/:category_id-:title(.:format)
+	  // function(label, category_id, title, options)
+	  cama_category_path: Utils.route(["label","category_id","title"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"category_id",false],[2,[6,"-",false],[2,[3,"title",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// cama_error => /blog/error(.:format)
+	  // function(options)
+	  cama_error_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"error",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
+	// cama_hierarchy_post => /blog(/:locale)/:parent_title/*slug(.:format)
+	  // function(parent_title, slug, options)
+	  cama_hierarchy_post_path: Utils.route(["parent_title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"parent_title",false],[2,[7,"/",false],[2,[5,[3,"*slug",false],false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// cama_index => /blog(/:locale)/index(.:format)
+	  // function(options)
+	  cama_index_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"index",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_post => /blog(/:locale)/:slug(.:format)
+	  // function(slug, options)
+	  cama_post_path: Utils.route(["slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_post_of_category => /blog(/:locale)/:label_cat/:category_id-:title/:slug(.:format)
+	  // function(label_cat, category_id, title, slug, options)
+	  cama_post_of_category_path: Utils.route(["label_cat","category_id","title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label_cat",false],[2,[7,"/",false],[2,[3,"category_id",false],[2,[6,"-",false],[2,[3,"title",false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
+	// cama_post_of_category_post_type => /blog(/:locale)/:post_type_title/:label_cat/:category_id-:title/:slug(.:format)
+	  // function(post_type_title, label_cat, category_id, title, slug, options)
+	  cama_post_of_category_post_type_path: Utils.route(["post_type_title","label_cat","category_id","title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"post_type_title",false],[2,[7,"/",false],[2,[3,"label_cat",false],[2,[7,"/",false],[2,[3,"category_id",false],[2,[6,"-",false],[2,[3,"title",false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]], {}),
+	// cama_post_of_post_type => /blog(/:locale)/:label/:post_type_id-:title/:slug(.:format)
+	  // function(label, post_type_id, title, slug, options)
+	  cama_post_of_post_type_path: Utils.route(["label","post_type_id","title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[6,"-",false],[2,[3,"title",false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
+	// cama_post_of_posttype => /blog(/:locale)/:post_type_title/:slug(.:format)
+	  // function(post_type_title, slug, options)
+	  cama_post_of_posttype_path: Utils.route(["post_type_title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"post_type_title",false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// cama_post_of_tag => /blog(/:locale)/:label/:post_tag_id-:title/:slug(.:format)
+	  // function(label, post_tag_id, title, slug, options)
+	  cama_post_of_tag_path: Utils.route(["label","post_tag_id","title","slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"post_tag_id",false],[2,[6,"-",false],[2,[3,"title",false],[2,[7,"/",false],[2,[3,"slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
+	// cama_post_tag => /blog(/:locale)/:label/:post_tag_id-:title(.:format)
+	  // function(label, post_tag_id, title, options)
+	  cama_post_tag_path: Utils.route(["label","post_tag_id","title"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"post_tag_id",false],[2,[6,"-",false],[2,[3,"title",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// cama_post_tag_simple => /blog(/:locale)/:label/:post_tag_slug(.:format)
+	  // function(label, post_tag_slug, options)
+	  cama_post_tag_simple_path: Utils.route(["label","post_tag_slug"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"post_tag_slug",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// cama_post_type => /blog(/:locale)/:label/:post_type_id-:title(.:format)
+	  // function(label, post_type_id, title, options)
+	  cama_post_type_path: Utils.route(["label","post_type_id","title"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[6,"-",false],[2,[3,"title",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// cama_profile => /blog(/:locale)/:label/:user_id-:user_name(.:format)
+	  // function(label, user_id, user_name, options)
+	  cama_profile_path: Utils.route(["label","user_id","user_name"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[2,[7,"/",false],[2,[3,"user_id",false],[2,[6,"-",false],[2,[3,"user_name",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {"label":"profile"}),
+	// cama_robots => /blog(/:locale)/robots(.:format)
+	  // function(options)
+	  cama_robots_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"robots",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_root => /blog(/:locale)(.:format)
+	  // function(options)
+	  cama_root_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// cama_rss => /blog(/:locale)/rss(.:format)
+	  // function(options)
+	  cama_rss_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"rss",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_save_comment => /blog(/:locale)/save_comment/:post_id(.:format)
+	  // function(post_id, options)
+	  cama_save_comment_path: Utils.route(["post_id"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"save_comment",false],[2,[7,"/",false],[2,[3,"post_id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// cama_save_form => /blog(/:locale)/save_form(.:format)
+	  // function(options)
+	  cama_save_form_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"save_form",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// cama_search => /blog(/:locale)/:label(.:format)
+	  // function(label, options)
+	  cama_search_path: Utils.route(["label"], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"label",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {"label":"search"}),
+	// cama_sitemap => /blog(/:locale)/sitemap(.:format)
+	  // function(options)
+	  cama_sitemap_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"sitemap",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
 	// cancel_paypal_service_checkout_orders => (/:locale)/paypal_service/checkout_orders/cancel(.:format)
 	  // function(options)
 	  cancel_paypal_service_checkout_orders_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"paypal_service",false],[2,[7,"/",false],[2,[6,"checkout_orders",false],[2,[7,"/",false],[2,[6,"cancel",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
@@ -52092,6 +52419,9 @@
 	// create_sender_address_admin_community => (/:locale)/admin/communities/:id/create_sender_address(.:format)
 	  // function(id, options)
 	  create_sender_address_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"create_sender_address",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// crop_cama_admin_media => /blog/admin/media/crop(.:format)
+	  // function(options)
+	  crop_cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[2,[7,"/",false],[2,[6,"crop",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// delete_marketplace_admin_community => (/:locale)/admin/communities/:id/delete_marketplace(.:format)
 	  // function(id, options)
 	  delete_marketplace_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"delete_marketplace",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -52107,6 +52437,12 @@
 	// do_etsy_authorization_person_settings => (/:locale)/:person_id/settings/do_etsy_authorization(.:format)
 	  // function(person_id, options)
 	  do_etsy_authorization_person_settings_path: Utils.route(["person_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"do_etsy_authorization",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// download_private_file_cama_admin_media => /blog/admin/media/download_private_file(.:format)
+	  // function(options)
+	  download_private_file_cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[2,[7,"/",false],[2,[6,"download_private_file",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// edit_admin_auto_attributes_assigner => (/:locale)/admin/auto_attributes_assigners/:id/edit(.:format)
+	  // function(id, options)
+	  edit_admin_auto_attributes_assigner_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"auto_attributes_assigners",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
 	// edit_admin_category => (/:locale)/admin/categories/:id/edit(.:format)
 	  // function(id, options)
 	  edit_admin_category_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -52125,6 +52461,54 @@
 	// edit_admin_listing_shape => (/:locale)/admin/listing_shapes/:id/edit(.:format)
 	  // function(id, options)
 	  edit_admin_listing_shape_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"listing_shapes",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// edit_admin_plugins_cama_contact_form_admin_form => /blog/admin/plugins/cama_contact_form/admin_forms/:id/edit(.:format)
+	  // function(id, options)
+	  edit_admin_plugins_cama_contact_form_admin_form_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_appearances_nav_menu => /blog/admin/appearances/nav_menus/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_appearances_nav_menu_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// edit_cama_admin_appearances_widgets_main => /blog/admin/appearances/widgets/main/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_appearances_widgets_main_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"main",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_appearances_widgets_sidebar => /blog/admin/appearances/widgets/sidebar/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_appearances_widgets_sidebar_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_appearances_widgets_sidebar_assign => /blog/admin/appearances/widgets/sidebar/:sidebar_id/assign/:id/edit(.:format)
+	  // function(sidebar_id, id, options)
+	  edit_cama_admin_appearances_widgets_sidebar_assign_path: Utils.route(["sidebar_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"sidebar_id",false],[2,[7,"/",false],[2,[6,"assign",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_post_comment => /blog/admin/posts/:post_id/comments/:id/edit(.:format)
+	  // function(post_id, id, options)
+	  edit_cama_admin_post_comment_path: Utils.route(["post_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_post_type => /blog/admin/post_type/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_post_type_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// edit_cama_admin_post_type_category => /blog/admin/post_type/:post_type_id/categories/:id/edit(.:format)
+	  // function(post_type_id, id, options)
+	  edit_cama_admin_post_type_category_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_post_type_draft => /blog/admin/post_type/:post_type_id/drafts/:id/edit(.:format)
+	  // function(post_type_id, id, options)
+	  edit_cama_admin_post_type_draft_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"drafts",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_post_type_post => /blog/admin/post_type/:post_type_id/posts/:id/edit(.:format)
+	  // function(post_type_id, id, options)
+	  edit_cama_admin_post_type_post_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_post_type_post_tag => /blog/admin/post_type/:post_type_id/post_tags/:id/edit(.:format)
+	  // function(post_type_id, id, options)
+	  edit_cama_admin_post_type_post_tag_path: Utils.route(["post_type_id","id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"post_tags",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]], {}),
+	// edit_cama_admin_settings_custom_field => /blog/admin/settings/custom_fields/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_settings_custom_field_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// edit_cama_admin_settings_post_type => /blog/admin/settings/post_types/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_settings_post_type_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"post_types",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// edit_cama_admin_settings_site => /blog/admin/settings/sites/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_settings_site_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"sites",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// edit_cama_admin_user => /blog/admin/users/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_user_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// edit_cama_admin_user_role => /blog/admin/user_roles/:id/edit(.:format)
+	  // function(id, options)
+	  edit_cama_admin_user_role_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"user_roles",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// edit_consent => (/:locale)/consent/:id/edit(.:format)
 	  // function(id, options)
 	  edit_consent_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"consent",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"edit",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
@@ -52239,6 +52623,9 @@
 	// follow_listing => (/:locale)/listings/:id/follow(.:format)
 	  // function(id, options)
 	  follow_listing_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"follow",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// get_items_cama_admin_settings_custom_fields => /blog/admin/settings/custom_fields/get_items/:key(.:format)
+	  // function(key, options)
+	  get_items_cama_admin_settings_custom_fields_path: Utils.route(["key"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[2,[7,"/",false],[2,[6,"get_items",false],[2,[7,"/",false],[2,[3,"key",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
 	// getting_started_admin_community => (/:locale)/admin/communities/:id/getting_started(.:format)
 	  // function(id, options)
 	  getting_started_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"getting_started",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -52284,6 +52671,9 @@
 	// image_status_listing_image => (/:locale)/listing_images/:id/image_status(.:format)
 	  // function(id, options)
 	  image_status_listing_image_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listing_images",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"image_status",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// impersonate_cama_admin_user => /blog/admin/users/:id/impersonate(.:format)
+	  // function(id, options)
+	  impersonate_cama_admin_user_path: Utils.route(["id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"impersonate",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// info => (/:locale)/infos/:id(.:format)
 	  // function(id, options)
 	  info_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"infos",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52314,6 +52704,9 @@
 	// invitations => (/:locale)/invitations(.:format)
 	  // function(options)
 	  invitations_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"invitations",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// item_field_admin_plugins_cama_contact_form_admin_forms => /blog/admin/plugins/cama_contact_form/admin_forms/item_field(.:format)
+	  // function(options)
+	  item_field_admin_plugins_cama_contact_form_admin_forms_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[6,"item_field",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
 	// join_homepage_index => (/:locale)/homepage/join(.:format)
 	  // function(options)
 	  join_homepage_index_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"homepage",false],[2,[7,"/",false],[2,[6,"join",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52323,6 +52716,12 @@
 	// landing_page_without_locale => /
 	  // function(options)
 	  landing_page_without_locale_path: Utils.route([], [], [7,"/",false], {}),
+	// list_cama_admin_post_type_categories => /blog/admin/post_type/:post_type_id/categories/list(.:format)
+	  // function(post_type_id, options)
+	  list_cama_admin_post_type_categories_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[6,"list",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// list_cama_admin_post_type_post_tags => /blog/admin/post_type/:post_type_id/post_tags/list(.:format)
+	  // function(post_type_id, options)
+	  list_cama_admin_post_type_post_tags_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"post_tags",false],[2,[7,"/",false],[2,[6,"list",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
 	// listing => (/:locale)/listings/:id(.:format)
 	  // function(id, options)
 	  listing_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52353,6 +52752,9 @@
 	// listings => (/:locale)/listings(.:format)
 	  // function(options)
 	  listings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
+	// load_data_cama_admin_appearances_themes => /blog/admin/appearances/themes/load_data(.:format)
+	  // function(options)
+	  load_data_cama_admin_appearances_themes_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"themes",false],[2,[7,"/",false],[2,[6,"load_data",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// locations_json_listings => (/:locale)/listings/locations_json(.:format)
 	  // function(options)
 	  locations_json_listings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[6,"locations_json",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52389,6 +52791,9 @@
 	// move_to_top_person_listing => (/:locale)/:person_id/listings/:id/move_to_top(.:format)
 	  // function(person_id, id, options)
 	  move_to_top_person_listing_path: Utils.route(["person_id","id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"move_to_top",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// new_admin_auto_attributes_assigner => (/:locale)/admin/auto_attributes_assigners/new(.:format)
+	  // function(options)
+	  new_admin_auto_attributes_assigner_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"auto_attributes_assigners",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
 	// new_admin_category => (/:locale)/admin/categories/new(.:format)
 	  // function(options)
 	  new_admin_category_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
@@ -52407,6 +52812,54 @@
 	// new_admin_listing_shape => (/:locale)/admin/listing_shapes/new(.:format)
 	  // function(options)
 	  new_admin_listing_shape_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"listing_shapes",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
+	// new_admin_plugins_cama_contact_form_admin_form => /blog/admin/plugins/cama_contact_form/admin_forms/new(.:format)
+	  // function(options)
+	  new_admin_plugins_cama_contact_form_admin_form_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"admin_forms",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_appearances_nav_menu => /blog/admin/appearances/nav_menus/new(.:format)
+	  // function(options)
+	  new_cama_admin_appearances_nav_menu_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"nav_menus",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// new_cama_admin_appearances_widgets_main => /blog/admin/appearances/widgets/main/new(.:format)
+	  // function(options)
+	  new_cama_admin_appearances_widgets_main_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"main",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_appearances_widgets_sidebar => /blog/admin/appearances/widgets/sidebar/new(.:format)
+	  // function(options)
+	  new_cama_admin_appearances_widgets_sidebar_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_appearances_widgets_sidebar_assign => /blog/admin/appearances/widgets/sidebar/:sidebar_id/assign/new(.:format)
+	  // function(sidebar_id, options)
+	  new_cama_admin_appearances_widgets_sidebar_assign_path: Utils.route(["sidebar_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"widgets",false],[2,[7,"/",false],[2,[6,"sidebar",false],[2,[7,"/",false],[2,[3,"sidebar_id",false],[2,[7,"/",false],[2,[6,"assign",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]]]]]], {}),
+	// new_cama_admin_post_comment => /blog/admin/posts/:post_id/comments/new(.:format)
+	  // function(post_id, options)
+	  new_cama_admin_post_comment_path: Utils.route(["post_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[3,"post_id",false],[2,[7,"/",false],[2,[6,"comments",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_post_type => /blog/admin/post_type/new(.:format)
+	  // function(options)
+	  new_cama_admin_post_type_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// new_cama_admin_post_type_category => /blog/admin/post_type/:post_type_id/categories/new(.:format)
+	  // function(post_type_id, options)
+	  new_cama_admin_post_type_category_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_post_type_draft => /blog/admin/post_type/:post_type_id/drafts/new(.:format)
+	  // function(post_type_id, options)
+	  new_cama_admin_post_type_draft_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"drafts",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_post_type_post => /blog/admin/post_type/:post_type_id/posts/new(.:format)
+	  // function(post_type_id, options)
+	  new_cama_admin_post_type_post_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"posts",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_post_type_post_tag => /blog/admin/post_type/:post_type_id/post_tags/new(.:format)
+	  // function(post_type_id, options)
+	  new_cama_admin_post_type_post_tag_path: Utils.route(["post_type_id"], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"post_type",false],[2,[7,"/",false],[2,[3,"post_type_id",false],[2,[7,"/",false],[2,[6,"post_tags",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]]], {}),
+	// new_cama_admin_settings_custom_field => /blog/admin/settings/custom_fields/new(.:format)
+	  // function(options)
+	  new_cama_admin_settings_custom_field_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// new_cama_admin_settings_post_type => /blog/admin/settings/post_types/new(.:format)
+	  // function(options)
+	  new_cama_admin_settings_post_type_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"post_types",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// new_cama_admin_settings_site => /blog/admin/settings/sites/new(.:format)
+	  // function(options)
+	  new_cama_admin_settings_site_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"sites",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
+	// new_cama_admin_user => /blog/admin/users/new(.:format)
+	  // function(options)
+	  new_cama_admin_user_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"users",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// new_cama_admin_user_role => /blog/admin/user_roles/new(.:format)
+	  // function(options)
+	  new_cama_admin_user_role_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"user_roles",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// new_community => /communities/new(.:format)
 	  // function(options)
 	  new_community_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[6,"new",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
@@ -52635,12 +53088,18 @@
 	// person_transactions => (/:locale)/:person_id/transactions(.:format)
 	  // function(person_id, options)
 	  person_transactions_path: Utils.route(["person_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[3,"person_id",false],[2,[7,"/",false],[2,[6,"transactions",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// plugins_cama_contact_form_save_form => /blog(/:locale)/plugins/cama_contact_form/save_form(.:format)
+	  // function(options)
+	  plugins_cama_contact_form_save_form_path: Utils.route([], ["locale","format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"cama_contact_form",false],[2,[7,"/",false],[2,[6,"save_form",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
 	// posting_allowed_admin_community_community_memberships => (/:locale)/admin/communities/:community_id/community_memberships/posting_allowed(.:format)
 	  // function(community_id, options)
 	  posting_allowed_admin_community_community_memberships_path: Utils.route(["community_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"community_id",false],[2,[7,"/",false],[2,[6,"community_memberships",false],[2,[7,"/",false],[2,[6,"posting_allowed",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
 	// preferences_update_admin_community_paypal_preferences => (/:locale)/admin/communities/:community_id/paypal_preferences/preferences_update(.:format)
 	  // function(community_id, options)
 	  preferences_update_admin_community_paypal_preferences_path: Utils.route(["community_id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"community_id",false],[2,[7,"/",false],[2,[6,"paypal_preferences",false],[2,[7,"/",false],[2,[6,"preferences_update",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]]], {}),
+	// preview_cama_admin_appearances_themes => /blog/admin/appearances/themes/preview(.:format)
+	  // function(options)
+	  preview_cama_admin_appearances_themes_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"appearances",false],[2,[7,"/",false],[2,[6,"themes",false],[2,[7,"/",false],[2,[6,"preview",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// privacy => (/:locale)/privacy(.:format)
 	  // function(options)
 	  privacy_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"privacy",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {}),
@@ -52659,6 +53118,9 @@
 	// remove_admin_category => (/:locale)/admin/categories/:id/remove(.:format)
 	  // function(id, options)
 	  remove_admin_category_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"categories",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"remove",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// reorder_cama_admin_settings_custom_fields => /blog/admin/settings/custom_fields/reorder(.:format)
+	  // function(options)
+	  reorder_cama_admin_settings_custom_fields_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"settings",false],[2,[7,"/",false],[2,[6,"custom_fields",false],[2,[7,"/",false],[2,[6,"reorder",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]]], {}),
 	// request_new_password_sessions => (/:locale)/sessions/request_new_password(.:format)
 	  // function(options)
 	  request_new_password_sessions_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"sessions",false],[2,[7,"/",false],[2,[6,"request_new_password",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52674,6 +53136,9 @@
 	// s => /s(.:format)
 	  // function(options)
 	  s_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"s",false],[1,[2,[8,".",false],[3,"format",false]],false]]], {}),
+	// save_cama_admin_installers => /blog/admin/installers/save(.:format)
+	  // function(options)
+	  save_cama_admin_installers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"installers",false],[2,[7,"/",false],[2,[6,"save",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// search_with_locale => /:locale/s(.:format)
 	  // function(locale, options)
 	  search_with_locale_path: Utils.route(["locale"], ["format"], [2,[7,"/",false],[2,[3,"locale",false],[2,[7,"/",false],[2,[6,"s",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
@@ -52737,6 +53202,9 @@
 	// test_welcome_email_admin_community => (/:locale)/admin/communities/:id/test_welcome_email(.:format)
 	  // function(id, options)
 	  test_welcome_email_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"test_welcome_email",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// toggle_cama_admin_plugins => /blog/admin/plugins/toggle(.:format)
+	  // function(options)
+	  toggle_cama_admin_plugins_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"plugins",false],[2,[7,"/",false],[2,[6,"toggle",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// topbar_admin_community => (/:locale)/admin/communities/:id/topbar(.:format)
 	  // function(id, options)
 	  topbar_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"topbar",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
@@ -52773,6 +53241,9 @@
 	// update_settings_admin_community => (/:locale)/admin/communities/:id/update_settings(.:format)
 	  // function(id, options)
 	  update_settings_admin_community_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"communities",false],[2,[7,"/",false],[2,[3,"id",false],[2,[7,"/",false],[2,[6,"update_settings",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]]], {}),
+	// upload_cama_admin_media => /blog/admin/media/upload(.:format)
+	  // function(options)
+	  upload_cama_admin_media_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"media",false],[2,[7,"/",false],[2,[6,"upload",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
 	// user_feedback => (/:locale)/user_feedbacks/:id(.:format)
 	  // function(id, options)
 	  user_feedback_path: Utils.route(["id"], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"user_feedbacks",false],[2,[7,"/",false],[2,[3,"id",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
@@ -52782,12 +53253,21 @@
 	// verification_required_listings => (/:locale)/listings/verification_required(.:format)
 	  // function(options)
 	  verification_required_listings_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"listings",false],[2,[7,"/",false],[2,[6,"verification_required",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]], {}),
+	// view_queued_products_admin_auto_attributes_assigners => (/:locale)/admin/auto_attributes_assigners/view_queued_products(.:format)
+	  // function(options)
+	  view_queued_products_admin_auto_attributes_assigners_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"auto_attributes_assigners",false],[2,[7,"/",false],[2,[6,"view_queued_products",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]], {}),
 	// webhooks_plans => /webhooks/plans(.:format)
 	  // function(options)
 	  webhooks_plans_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"webhooks",false],[2,[7,"/",false],[2,[6,"plans",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
 	// webhooks_trials => /webhooks/trials(.:format)
 	  // function(options)
-	  webhooks_trials_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"webhooks",false],[2,[7,"/",false],[2,[6,"trials",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {})}
+	  webhooks_trials_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"webhooks",false],[2,[7,"/",false],[2,[6,"trials",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]], {}),
+	// welcome_cama_admin_installers => /blog/admin/installers/welcome(.:format)
+	  // function(options)
+	  welcome_cama_admin_installers_path: Utils.route([], ["format"], [2,[7,"/",false],[2,[6,"blog",false],[2,[7,"/",false],[2,[6,"admin",false],[2,[7,"/",false],[2,[6,"installers",false],[2,[7,"/",false],[2,[6,"welcome",false],[1,[2,[8,".",false],[3,"format",false]],false]]]]]]]]], {}),
+	// welcome_confirmation => (/:locale)/welcome_confirmation(.:format)
+	  // function(options)
+	  welcome_confirmation_path: Utils.route([], ["locale","format"], [2,[1,[2,[7,"/",false],[3,"locale",false]],false],[2,[7,"/",false],[2,[6,"welcome_confirmation",false],[1,[2,[8,".",false],[3,"format",false]],false]]]], {})}
 	;
 	    root.Routes.options = defaults;
 	    root.Routes.default_serializer = function(object, prefix) {
